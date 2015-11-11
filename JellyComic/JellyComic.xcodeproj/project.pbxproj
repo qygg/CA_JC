@@ -46,6 +46,16 @@
 		29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB01BF23EFD003EFA93 /* Main.storyboard */; };
 		29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */; };
 		29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB51BF23EFD003EFA93 /* LaunchScreen.storyboard */; };
+		C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C27043531BF3816B001F7CC1 /* image_1.jpg */; };
+		C27043561BF3816E001F7CC1 /* arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = C27043551BF3816E001F7CC1 /* arrow1.png */; };
+		C27043581BF38174001F7CC1 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C27043571BF38174001F7CC1 /* arrow.png */; };
+		C270435B1BF381A2001F7CC1 /* SSChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C270435A1BF381A2001F7CC1 /* SSChapterViewController.m */; };
+		C270435E1BF381AC001F7CC1 /* SSDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C270435D1BF381AC001F7CC1 /* SSDetailTableViewController.m */; };
+		C27043601BF381B6001F7CC1 /* SSDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C270435F1BF381B6001F7CC1 /* SSDetail.storyboard */; };
+		C27043631BF381CE001F7CC1 /* SSChapterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C27043621BF381CE001F7CC1 /* SSChapterTableViewCell.m */; };
+		C27043651BF381D5001F7CC1 /* SSChapterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27043641BF381D5001F7CC1 /* SSChapterTableViewCell.xib */; };
+		C27043681BF381ED001F7CC1 /* SSDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C27043671BF381ED001F7CC1 /* SSDetailTableViewCell.m */; };
+		C270436A1BF381F2001F7CC1 /* SSDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27043691BF381F2001F7CC1 /* SSDetailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +123,20 @@
 		29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CD4DB61BF23EFD003EFA93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CD4DB81BF23EFD003EFA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C27043531BF3816B001F7CC1 /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
+		C27043551BF3816E001F7CC1 /* arrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow1.png; sourceTree = "<group>"; };
+		C27043571BF38174001F7CC1 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		C27043591BF38197001F7CC1 /* SSChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSChapterViewController.h; sourceTree = "<group>"; };
+		C270435A1BF381A2001F7CC1 /* SSChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSChapterViewController.m; sourceTree = "<group>"; };
+		C270435C1BF381A8001F7CC1 /* SSDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDetailTableViewController.h; sourceTree = "<group>"; };
+		C270435D1BF381AC001F7CC1 /* SSDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDetailTableViewController.m; sourceTree = "<group>"; };
+		C270435F1BF381B6001F7CC1 /* SSDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SSDetail.storyboard; sourceTree = "<group>"; };
+		C27043611BF381C9001F7CC1 /* SSChapterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSChapterTableViewCell.h; sourceTree = "<group>"; };
+		C27043621BF381CE001F7CC1 /* SSChapterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSChapterTableViewCell.m; sourceTree = "<group>"; };
+		C27043641BF381D5001F7CC1 /* SSChapterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSChapterTableViewCell.xib; sourceTree = "<group>"; };
+		C27043661BF381E4001F7CC1 /* SSDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDetailTableViewCell.h; sourceTree = "<group>"; };
+		C27043671BF381ED001F7CC1 /* SSDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDetailTableViewCell.m; sourceTree = "<group>"; };
+		C27043691BF381F2001F7CC1 /* SSDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSDetailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +203,12 @@
 		299F6FE21BF2CF82009F228C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C27043611BF381C9001F7CC1 /* SSChapterTableViewCell.h */,
+				C27043621BF381CE001F7CC1 /* SSChapterTableViewCell.m */,
+				C27043641BF381D5001F7CC1 /* SSChapterTableViewCell.xib */,
+				C27043661BF381E4001F7CC1 /* SSDetailTableViewCell.h */,
+				C27043671BF381ED001F7CC1 /* SSDetailTableViewCell.m */,
+				C27043691BF381F2001F7CC1 /* SSDetailTableViewCell.xib */,
 				299F6FE31BF2CF82009F228C /* Sign */,
 			);
 			path = Views;
@@ -228,6 +258,9 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C27043571BF38174001F7CC1 /* arrow.png */,
+				C27043551BF3816E001F7CC1 /* arrow1.png */,
+				C27043531BF3816B001F7CC1 /* image_1.jpg */,
 				299F6FEB1BF2CF83009F228C /* Sign */,
 			);
 			path = Resources;
@@ -256,6 +289,11 @@
 				299F6FF01BF2CF83009F228C /* Sign */,
 				299F703D1BF3345D009F228C /* RootViewController.h */,
 				299F703E1BF3345D009F228C /* RootViewController.m */,
+				C27043591BF38197001F7CC1 /* SSChapterViewController.h */,
+				C270435A1BF381A2001F7CC1 /* SSChapterViewController.m */,
+				C270435C1BF381A8001F7CC1 /* SSDetailTableViewController.h */,
+				C270435D1BF381AC001F7CC1 /* SSDetailTableViewController.m */,
+				C270435F1BF381B6001F7CC1 /* SSDetail.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -400,20 +438,26 @@
 				299F6FF51BF2CF83009F228C /* Sign in Resources */,
 				299F6FFC1BF2CF83009F228C /* Sign in Resources */,
 				299F6FF91BF2CF83009F228C /* Sign in Resources */,
+				C27043581BF38174001F7CC1 /* arrow.png in Resources */,
+				C27043601BF381B6001F7CC1 /* SSDetail.storyboard in Resources */,
 				299F70461BF33587009F228C /* T2Storyboard.storyboard in Resources */,
+				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
 				299F6FF61BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */,
 				299F6FFB1BF2CF83009F228C /* Sign in Resources */,
 				299F6FF41BF2CF83009F228C /* Sign in Resources */,
 				299F6FFA1BF2CF83009F228C /* Sign in Resources */,
+				C270436A1BF381F2001F7CC1 /* SSDetailTableViewCell.xib in Resources */,
 				299F704A1BF33595009F228C /* T4Storyboard.storyboard in Resources */,
 				299F6FFD1BF2CF83009F228C /* Sign in Resources */,
+				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				299F6FF81BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */,
 				299F70441BF3357C009F228C /* T1Storyboard.storyboard in Resources */,
 				299F70481BF3358E009F228C /* T3Storyboard.storyboard in Resources */,
 				299F6FF71BF2CF83009F228C /* Sign in Resources */,
+				C27043651BF381D5001F7CC1 /* SSChapterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,11 +484,15 @@
 				299F70151BF321B5009F228C /* Categories.m in Sources */,
 				299F70351BF32E32009F228C /* MJProperty.m in Sources */,
 				299F70031BF2E982009F228C /* ScrollingImage.m in Sources */,
+				C270435E1BF381AC001F7CC1 /* SSDetailTableViewController.m in Sources */,
 				299F70391BF32E32009F228C /* NSObject+MJCoding.m in Sources */,
+				C270435B1BF381A2001F7CC1 /* SSChapterViewController.m in Sources */,
 				299F703C1BF32E32009F228C /* NSString+MJExtension.m in Sources */,
 				299F703F1BF3345D009F228C /* RootViewController.m in Sources */,
 				299F700C1BF31BB0009F228C /* Chapter.m in Sources */,
 				299F70061BF2EBDA009F228C /* Comic.m in Sources */,
+				C27043631BF381CE001F7CC1 /* SSChapterTableViewCell.m in Sources */,
+				C27043681BF381ED001F7CC1 /* SSDetailTableViewCell.m in Sources */,
 				299F700F1BF31F98009F228C /* Content.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
