@@ -10,6 +10,9 @@
 
 @interface ZCCategoryViewController ()
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+
 @end
 
 @implementation ZCCategoryViewController

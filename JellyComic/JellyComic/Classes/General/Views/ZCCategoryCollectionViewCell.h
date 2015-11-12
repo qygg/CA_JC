@@ -10,4 +10,8 @@
 
 @interface ZCCategoryCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end

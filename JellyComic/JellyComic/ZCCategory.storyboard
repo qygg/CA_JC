@@ -48,6 +48,9 @@
                             <constraint firstItem="uLR-pD-CGJ" firstAttribute="top" secondItem="29H-Qk-CcF" secondAttribute="bottom" id="xCc-dZ-tP4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="uLR-pD-CGJ" id="2WN-P4-E7E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQt-DN-0WJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
