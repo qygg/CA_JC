@@ -56,12 +56,13 @@
 		299F703F1BF3345D009F228C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F703E1BF3345D009F228C /* RootViewController.m */; };
 		299F70441BF3357C009F228C /* T1Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70431BF3357C009F228C /* T1Storyboard.storyboard */; };
 		299F70461BF33587009F228C /* T2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70451BF33587009F228C /* T2Storyboard.storyboard */; };
-		299F70481BF3358E009F228C /* T3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70471BF3358E009F228C /* T3Storyboard.storyboard */; };
 		299F704A1BF33595009F228C /* T4Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70491BF33595009F228C /* T4Storyboard.storyboard */; };
 		29CD4DA91BF23EFD003EFA93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD4DA81BF23EFD003EFA93 /* main.m */; };
 		29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB01BF23EFD003EFA93 /* Main.storyboard */; };
 		29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */; };
 		29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB51BF23EFD003EFA93 /* LaunchScreen.storyboard */; };
+		29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B251BF4B06C006F201B /* ZCCategory.storyboard */; };
+		29E98B2C1BF4B13F006F201B /* ZCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */; };
 		C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C27043531BF3816B001F7CC1 /* image_1.jpg */; };
 		C27043561BF3816E001F7CC1 /* arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = C27043551BF3816E001F7CC1 /* arrow1.png */; };
 		C27043581BF38174001F7CC1 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C27043571BF38174001F7CC1 /* arrow.png */; };
@@ -164,7 +165,6 @@
 		299F703E1BF3345D009F228C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		299F70431BF3357C009F228C /* T1Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T1Storyboard.storyboard; sourceTree = "<group>"; };
 		299F70451BF33587009F228C /* T2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T2Storyboard.storyboard; sourceTree = "<group>"; };
-		299F70471BF3358E009F228C /* T3Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T3Storyboard.storyboard; sourceTree = "<group>"; };
 		299F70491BF33595009F228C /* T4Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T4Storyboard.storyboard; sourceTree = "<group>"; };
 		29CD4DA41BF23EFD003EFA93 /* JellyComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JellyComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CD4DA81BF23EFD003EFA93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,6 +172,9 @@
 		29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CD4DB61BF23EFD003EFA93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CD4DB81BF23EFD003EFA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29E98B251BF4B06C006F201B /* ZCCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCCategory.storyboard; sourceTree = "<group>"; };
+		29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCategoryViewController.h; sourceTree = "<group>"; };
+		29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCategoryViewController.m; sourceTree = "<group>"; };
 		C27043531BF3816B001F7CC1 /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
 		C27043551BF3816E001F7CC1 /* arrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow1.png; sourceTree = "<group>"; };
 		C27043571BF38174001F7CC1 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				C270435C1BF381A8001F7CC1 /* SSDetailTableViewController.h */,
 				C270435D1BF381AC001F7CC1 /* SSDetailTableViewController.m */,
 				C270435F1BF381B6001F7CC1 /* SSDetail.storyboard */,
+				29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */,
+				29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -450,7 +455,7 @@
 				29CD4DB01BF23EFD003EFA93 /* Main.storyboard */,
 				299F70431BF3357C009F228C /* T1Storyboard.storyboard */,
 				299F70451BF33587009F228C /* T2Storyboard.storyboard */,
-				299F70471BF3358E009F228C /* T3Storyboard.storyboard */,
+				29E98B251BF4B06C006F201B /* ZCCategory.storyboard */,
 				299F70491BF33595009F228C /* T4Storyboard.storyboard */,
 				29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */,
 				29CD4DB51BF23EFD003EFA93 /* LaunchScreen.storyboard */,
@@ -540,12 +545,12 @@
 				C270436A1BF381F2001F7CC1 /* SSDetailTableViewCell.xib in Resources */,
 				299F704A1BF33595009F228C /* T4Storyboard.storyboard in Resources */,
 				299F6FFD1BF2CF83009F228C /* Sign in Resources */,
+				29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */,
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				299F6FF81BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */,
 				299F70441BF3357C009F228C /* T1Storyboard.storyboard in Resources */,
-				299F70481BF3358E009F228C /* T3Storyboard.storyboard in Resources */,
 				299F6FF71BF2CF83009F228C /* Sign in Resources */,
 				C27043651BF381D5001F7CC1 /* SSChapterTableViewCell.xib in Resources */,
 			);
@@ -558,6 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29E98B2C1BF4B13F006F201B /* ZCCategoryViewController.m in Sources */,
 				292BD3521BF46CD20013559E /* SDWebImageDownloaderOperation.m in Sources */,
 				292BD3581BF46CD20013559E /* UIImage+WebP.m in Sources */,
 				292BD3541BF46CD20013559E /* SDWebImagePrefetcher.m in Sources */,

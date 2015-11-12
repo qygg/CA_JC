@@ -1,29 +1,22 @@
 //
-//  RootViewController.m
+//  ZCCategoryViewController.m
 //  JellyComic
 //
-//  Created by 胡智超 on 15/11/11.
+//  Created by 胡智超 on 15/11/12.
 //  Copyright © 2015年 胡智超. All rights reserved.
 //
 
-#import "RootViewController.h"
-#import "DataManager.h"
-#import "ScrollingImage.h"
+#import "ZCCategoryViewController.h"
 
-@interface RootViewController ()
+@interface ZCCategoryViewController ()
 
 @end
 
-@implementation RootViewController
+@implementation ZCCategoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [[DataManager sharedDataManager] loadScrollingImageWithCompletion:^{
-//        ScrollingImage *sImage = [[DataManager sharedDataManager] scrollingImage][0];
-//        NSLog(@"%@", sImage.title);
-//    }];
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
