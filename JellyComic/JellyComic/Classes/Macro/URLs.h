@@ -19,6 +19,18 @@
 
 #define kRecentUpdate_URL @"http://csapi.dm300.com:21889/android/search/recentupdate?pagesize=30"
 
+#define kDetail_URL @"http://csapi.dm300.com:21889/android/comic/info?comicsrcid=0"
 
+#define kChapter_URL @"http://csapi.dm300.com:21889/android/comic/charpterlist"
+
+#define kContent_URL @"http://csapi.dm300.com:21889/android/comic/charpterinfo"
+
+#define kAuthorlist_URL @"http://csapi.dm300.com:21889/android/search/authorlist?pagesize=30"
+
+#define kCategory_URL @"http://csapi.dm300.com:21889/android/search/category"
+
+#define kCategoryDetail_URL @"http://csapi.dm300.com:21889/android/search/categorylist?pagesize=30"
+
+#define kSearch_URL @"http://csapi.dm300.com:21889/android/search/query?pagesize=30"
 
 #endif /* URLs_h */

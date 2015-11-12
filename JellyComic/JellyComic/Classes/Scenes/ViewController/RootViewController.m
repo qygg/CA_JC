@@ -18,10 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[DataManager sharedDataManager] loadHotlistWithPage:1 completion:^{
-        
-    }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

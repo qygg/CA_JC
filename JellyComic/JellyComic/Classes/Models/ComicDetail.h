@@ -26,7 +26,7 @@
 // 更新时间
 @property (nonatomic, copy) NSString *updateTime;
 // 漫画来源
-@property (nonatomic, strong) ComicSource *comicSrc;
+@property (nonatomic, strong) NSArray<ComicSource *> *comicSrc;
 // 评论数
 @property (nonatomic, copy) NSString *tucaos;
 // 简介
