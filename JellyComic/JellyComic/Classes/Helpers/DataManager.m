@@ -18,16 +18,16 @@
 
 @interface DataManager ()
 
-@property (nonatomic, strong) NSMutableArray *hotListArray;
-@property (nonatomic, strong) NSMutableArray *editorListArray;
-@property (nonatomic, strong) NSMutableArray *hotHkListArray;
-@property (nonatomic, strong) NSMutableArray *recentUpdateArray;
-@property (nonatomic, strong) NSMutableArray *scrollingImageArray;
-@property (nonatomic, strong) NSMutableArray *chapterArray;
-@property (nonatomic, strong) NSMutableArray *authorListArray;
-@property (nonatomic, strong) NSMutableArray *categoryArray;
-@property (nonatomic, strong) NSMutableArray *categoryDetailArray;
-@property (nonatomic, strong) NSMutableArray *searchResultArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *hotListArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *editorListArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *hotHkListArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *recentUpdateArray;
+@property (nonatomic, strong) NSMutableArray<ScrollingImage *> *scrollingImageArray;
+@property (nonatomic, strong) NSMutableArray<Chapter *> *chapterArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *authorListArray;
+@property (nonatomic, strong) NSMutableArray<Categories *> *categoryArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *categoryDetailArray;
+@property (nonatomic, strong) NSMutableArray<Comic *> *searchResultArray;
 
 @end
 
@@ -351,43 +351,43 @@
     return _searchResultArray;
 }
 
-- (NSArray *)hotList {
+- (NSArray<Comic *> *)hotList {
     return [self.hotListArray copy];
 }
 
-- (NSArray *)editorList {
+- (NSArray<Comic *> *)editorList {
     return [self.editorListArray copy];
 }
 
-- (NSArray *)hotHkList {
+- (NSArray<Comic *> *)hotHkList {
     return [self.hotHkListArray copy];
 }
 
-- (NSArray *)recentUpdate {
+- (NSArray<Comic *> *)recentUpdate {
     return [self.recentUpdateArray copy];
 }
 
-- (NSArray *)scrollingImage {
+- (NSArray<ScrollingImage *> *)scrollingImage {
     return [self.scrollingImageArray copy];
 }
 
-- (NSArray *)chapter {
+- (NSArray<Chapter *> *)chapter {
     return [self.chapterArray copy];
 }
 
-- (NSArray *)authorList {
+- (NSArray<Comic *> *)authorList {
     return [self.authorListArray copy];
 }
 
-- (NSArray *)category {
+- (NSArray<Categories *> *)category {
     return [self.categoryArray copy];
 }
 
-- (NSArray *)categoryDetail {
+- (NSArray<Comic *> *)categoryDetail {
     return [self.categoryDetailArray copy];
 }
 
-- (NSArray *)searchResult {
+- (NSArray<Comic *> *)searchResult {
     return [self.searchResultArray copy];
 }
 

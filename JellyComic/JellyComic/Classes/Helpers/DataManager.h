@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ComicDetail, Content;
+@class ComicDetail, Content, Comic, Chapter, Categories, ScrollingImage;
 
 typedef void (^Callback)();
 // 分类类型
@@ -47,29 +47,29 @@ typedef enum : NSUInteger {
 
 
 // 获取轮播图
-- (NSArray *)scrollingImage;
+- (NSArray<ScrollingImage *> *)scrollingImage;
 // 获取热门连载
-- (NSArray *)hotList;
+- (NSArray<Comic *> *)hotList;
 // 获取小编推荐
-- (NSArray *)editorList;
+- (NSArray<Comic *> *)editorList;
 // 获取精彩港漫
-- (NSArray *)hotHkList;
+- (NSArray<Comic *> *)hotHkList;
 // 获取最近更新
-- (NSArray *)recentUpdate;
+- (NSArray<Comic *> *)recentUpdate;
 // 获取漫画详情
 @property (nonatomic, strong) ComicDetail *comicDetail;
 // 获取章节列表
-- (NSArray *)chapter;
+- (NSArray<Chapter *> *)chapter;
 // 获取章节内容
 @property (nonatomic, strong) Content *content;
 // 获取作者作品
-- (NSArray *)authorList;
+- (NSArray<Comic *> *)authorList;
 // 获取分类
-- (NSArray *)category;
+- (NSArray<Categories *> *)category;
 // 获取分类详情
-- (NSArray *)categoryDetail;
+- (NSArray<Comic *> *)categoryDetail;
 // 获取搜索结果
-- (NSArray *)searchResult;
+- (NSArray<Comic *> *)searchResult;
 
 @end
 
