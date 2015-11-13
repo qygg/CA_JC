@@ -52,7 +52,9 @@
             ScrollingImage *sImage = [ScrollingImage mj_objectWithKeyValues:dic];
             [self.scrollingImageArray addObject:sImage];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -75,7 +77,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.hotListArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -98,7 +102,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.editorListArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -121,7 +127,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.hotHkListArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -144,7 +152,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.recentUpdateArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -160,7 +170,9 @@
                      };
         }];
         self.comicDetail = [ComicDetail mj_objectWithKeyValues:dict[@"data"]];
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -175,7 +187,9 @@
             Chapter *chapter = [Chapter mj_objectWithKeyValues:dic];
             [self.chapterArray addObject:chapter];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -186,7 +200,9 @@
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         self.content = [Content mj_objectWithKeyValues:dict];
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -203,7 +219,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.authorListArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -218,7 +236,9 @@
             Categories *category = [Categories mj_objectWithKeyValues:dic];
             [self.categoryArray addObject:category];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -253,7 +273,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.categoryDetailArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }
@@ -276,7 +298,9 @@
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
             [self.categoryDetailArray addObject:comic];
         }
-        completion();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
     }];
     [dataTask resume];
 }

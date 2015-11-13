@@ -7,11 +7,14 @@
 //
 
 #import "ZCCategoryCollectionViewCell.h"
+#import "Categories.h"
+#import "UIImageView+WebCache.h"
 
 @implementation ZCCategoryCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setCategory:(Categories *)category {
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:category.thumb]];
+    self.titleLabel.text = category.title;
 }
 
 @end

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Categories;
 
 @interface ZCCategoryCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (nonatomic, strong) Categories *category;
 
 @end

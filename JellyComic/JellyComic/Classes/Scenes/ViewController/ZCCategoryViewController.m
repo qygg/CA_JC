@@ -7,34 +7,74 @@
 //
 
 #import "ZCCategoryViewController.h"
+#import "ZCCategoryCollectionViewCell.h"
+#import "DataManager.h"
 
-@interface ZCCategoryViewController ()
+@interface ZCCategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 
 @end
 
 @implementation ZCCategoryViewController
 
+static NSString * const reuseID = @"category";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
+    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width / 3-7, 200);
+    NSLog(@"%lf,%lf", self.flowLayout.minimumLineSpacing, self.flowLayout.minimumInteritemSpacing);
+//    self.flowLayout.minimumInteritemSpacing = 0;
+//    self.flowLayout.minimumLineSpacing = 0;
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ZCCategoryCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseID];
+    
+    [[DataManager sharedDataManager] loadCategoryWithCompletion:^{
+        [self.collectionView reloadData];
+    }];
+//    UICollectionViewFlowLayout
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UICollectionViewDelegate & DataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [DataManager sharedDataManager].category.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ZCCategoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
+    cell.category = [DataManager sharedDataManager].category[indexPath.item];
+    return cell;
 }
-*/
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
