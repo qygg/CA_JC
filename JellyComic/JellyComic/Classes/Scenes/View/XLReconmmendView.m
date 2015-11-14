@@ -108,7 +108,7 @@
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             return;
         }
-        NSLog(@"1 %d",page);
+//        NSLog(@"1 %d",page);
         _hotArray = nil;
         _hotArray = [[DataManager sharedDataManager] hotList];
         [_collectionView reloadData];
@@ -125,7 +125,7 @@
 
             return;
         }
-        NSLog(@"2 %d",page1);
+//        NSLog(@"2 %d",page1);
         _editorArray = nil;
         _editorArray = [[DataManager sharedDataManager] editorList];
         [_collectionView reloadData];
@@ -141,7 +141,7 @@
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             return;
         }
-        NSLog(@"3 %d",page2);
+//        NSLog(@"3 %d",page2);
         _hotHKArray = nil;
         _hotHKArray = [[DataManager sharedDataManager] hotHkList];
         [_collectionView reloadData];
@@ -156,7 +156,7 @@
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             return;
         }
-        NSLog(@"4 %d",page3);
+//        NSLog(@"4 %d",page3);
         _recentUpdateArray = nil;
         _recentUpdateArray = [[DataManager sharedDataManager] recentUpdate];
         [_collectionView reloadData];

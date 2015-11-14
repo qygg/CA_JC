@@ -19,10 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[DataManager sharedDataManager] loadScrollingImageWithCompletion:^{
-//        ScrollingImage *sImage = [[DataManager sharedDataManager] scrollingImage][0];
-//        NSLog(@"%@", sImage.title);
-//    }];
+    
     
 }
 

@@ -9,11 +9,13 @@
 #import "ZCCategoryViewController.h"
 #import "ZCCategoryCollectionViewCell.h"
 #import "DataManager.h"
+#import "Categories.h"
 
 @interface ZCCategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @end
@@ -25,20 +27,21 @@ static NSString * const reuseID = @"category";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.searchBar.backgroundColor = [UIColor clearColor];
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width / 3-7, 200);
-    NSLog(@"%lf,%lf", self.flowLayout.minimumLineSpacing, self.flowLayout.minimumInteritemSpacing);
-//    self.flowLayout.minimumInteritemSpacing = 0;
-//    self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width / 3 - 10, self.view.bounds.size.width / 3);
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"ZCCategoryCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseID];
     
     [[DataManager sharedDataManager] loadCategoryWithCompletion:^{
         [self.collectionView reloadData];
     }];
-//    UICollectionViewFlowLayout
+
+    
     
 }
 
@@ -49,10 +52,17 @@ static NSString * const reuseID = @"category";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZCCategoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
+    [cell layoutIfNeeded];
+    cell.imgView.layer.cornerRadius = cell.imgView.bounds.size.width / 2;
+    cell.imgView.layer.masksToBounds = YES;
     cell.category = [DataManager sharedDataManager].category[indexPath.item];
     return cell;
 }
 
+#pragma mark - item点击方法
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld:%@", indexPath.item, [DataManager sharedDataManager].category[indexPath.item].cateId);
+}
 
 @end
 

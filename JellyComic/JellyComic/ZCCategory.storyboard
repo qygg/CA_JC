@@ -22,12 +22,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="43c-JN-A3c"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.6830755585039231" green="0.88683946476613051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uLR-pD-CGJ">
                                 <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.89894860278334232" green="0.94496164896752821" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rQY-ep-xY2">
                                     <size key="itemSize" width="190" height="179"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -52,6 +53,7 @@
                     <connections>
                         <outlet property="collectionView" destination="uLR-pD-CGJ" id="2WN-P4-E7E"/>
                         <outlet property="flowLayout" destination="rQY-ep-xY2" id="MK5-WS-k9H"/>
+                        <outlet property="searchBar" destination="29H-Qk-CcF" id="k6N-9o-fac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQt-DN-0WJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
