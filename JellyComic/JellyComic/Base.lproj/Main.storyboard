@@ -14,10 +14,10 @@
             </objects>
             <point key="canvasLocation" x="531.5" y="157"/>
         </scene>
-        <!--T2Storyboard-->
+        <!--ZCBookshelfStoryboard-->
         <scene sceneID="w1p-95-hy5">
             <objects>
-                <viewControllerPlaceholder storyboardName="T2Storyboard" id="urR-Mc-LF1" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ZCBookshelfStoryboard" id="urR-Mc-LF1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="vz0-SC-lfp"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9O-8E-QB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,7 +28,7 @@
         <scene sceneID="tbr-so-tdf">
             <objects>
                 <tabBarController id="sRw-FS-4Z0" customClass="RootViewController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="ajv-g9-sff">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ajv-g9-sff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
