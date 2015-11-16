@@ -10,4 +10,8 @@
 
 @interface SSChapterViewController : UIViewController
 
+
+@property (nonatomic, strong) NSString *comicSoureID;
+@property (nonatomic, strong) NSString *comicID;
+
 @end

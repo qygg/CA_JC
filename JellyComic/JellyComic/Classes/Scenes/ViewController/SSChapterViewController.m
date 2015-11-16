@@ -8,6 +8,8 @@
 
 #import "SSChapterViewController.h"
 #import "SSChapterTableViewCell.h"
+#import "DataManager.h"
+#import "Chapter.h"
 
 @interface SSChapterViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -23,6 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *chapterArray;
 
 @property (assign, nonatomic) BOOL isSorting;
+
+@property (nonatomic, strong) Chapter *chapter;
 
 @end
 
@@ -40,12 +44,21 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
     
-    for (int i = 0; i < 10; i++) {
-        NSString *string = [NSString stringWithFormat:@"第%d章",i];
-        [self.chapterArray addObject:string];
-    }
+//    for (int i = 0; i < 10; i++) {
+//        NSString *string = [NSString stringWithFormat:@"第%d章",i];
+//        [self.chapterArray addObject:string];
+//    }
     
     _isSorting = NO;
+}
+
+- (void)requestChapterData
+{
+    [[DataManager sharedDataManager] loadChapterWithComicsrcid:self.comicSoureID comicid:self.comicID completion:^{
+        NSLog(@"[DataManager sharedDataManager].chapter = %ld",[DataManager sharedDataManager].chapter.count);
+        [self.chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
+    
+    }];
 }
 
 
@@ -81,7 +94,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _chapterArray.count;
+    NSLog(@"self.chapterArray.count == %ld",self.chapterArray.count);
+    return self.chapterArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

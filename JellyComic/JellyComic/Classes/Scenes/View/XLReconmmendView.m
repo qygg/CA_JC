@@ -373,8 +373,11 @@
 
     ScrollingImage *scrllingImage = [[DataManager sharedDataManager] scrollingImage][index];
     
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+    SSDetailTVC.comicId = scrllingImage.recom_return;
     
-    [self.xlReconmmendViewController showDetailViewController:[[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssdetail"] sender:nil];
+    UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+    [self.xlReconmmendViewController showViewController:SSDeatilNC sender:nil];
     
 }
 - (void)updateTableWithPageNumber:(NSUInteger)pageNumber
@@ -513,13 +516,39 @@
 #pragma mark - cell点击方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        if (_currentPage == 0) {
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+    
+    switch (_currentPage) {
+        case 0:
+        {
             Comic *comic = _hotArray[indexPath.row];
-            SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
             SSDetailTVC.comicId = comic.comicId;
-            NSLog(@"SSDetailTVC.comicId ====== %@",SSDetailTVC.comicId);
-            [self.xlReconmmendViewController showViewController:SSDetailTVC sender:nil];
         }
+            break;
+        case 1:
+        {
+            Comic *comic = _editorArray[indexPath.row];
+            SSDetailTVC.comicId = comic.comicId;
+        }
+            break;
+        case 2:
+        {
+            Comic *comic = _hotHKArray[indexPath.row];
+            SSDetailTVC.comicId = comic.comicId;
+        }
+            break;
+        case 3:
+        {
+            Comic *comic = _recentUpdateArray[indexPath.row];
+            SSDetailTVC.comicId = comic.comicId;
+        }
+            break;
+        default:
+            break;
+    }
+
+    UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+    [self.xlReconmmendViewController showViewController:SSDeatilNC sender:nil];
 }
 
 
