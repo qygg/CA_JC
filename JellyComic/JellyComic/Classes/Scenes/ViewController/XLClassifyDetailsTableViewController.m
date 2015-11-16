@@ -86,7 +86,7 @@
     self.bgWindow.hidden = YES;
     self.menuView.hidden = YES;
     if (i == 1) {
-        [self initDataTableTopHot];
+        [self initDataTableTopHot1];
         [self initDataSourceTopHot];
     }else if (i == 2) {
         [self initDataTableTime];
@@ -97,7 +97,13 @@
     }
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeAction)];
     [self.bgView addGestureRecognizer:tap];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStyleDone target:self action:@selector(returnAction:)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor orangeColor];
     
+}
+- (void)returnAction:(UIBarButtonItem *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)removeAction
 {
@@ -121,7 +127,7 @@
 
 - (void)initDataSourceTopHot
 {
-    [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeTophot cateId:@"15" page:page completion:^{
+    [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeTophot cateId:self.categories.cateId page:page completion:^{
         if (_topHotArray.count == [[DataManager sharedDataManager] categoryDetail].count) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
@@ -134,7 +140,7 @@
 
 - (void)initDataSourceTime
 {
-    [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeTime cateId:@"15" page:page1 completion:^{
+    [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeTime cateId:self.categories.cateId page:page1 completion:^{
         if (_timeArray.count == [[DataManager sharedDataManager] categoryDetail].count) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
@@ -147,7 +153,7 @@
 
 - (void)initDataSourceFinish
 {
-    [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeFinished cateId:@"15" page:page2 completion:^{
+    [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeFinished cateId:self.categories.cateId page:page2 completion:^{
         if (_finishArray.count == [[DataManager sharedDataManager] categoryDetail].count) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
@@ -155,6 +161,17 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+    }];
+}
+- (void)initDataTableTopHot1
+{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        page = 1;
+        [self initDataSourceTopHot];
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [self initDataSourceTopHot];
     }];
 }
 

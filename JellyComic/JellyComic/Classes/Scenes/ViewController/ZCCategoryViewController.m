@@ -11,7 +11,8 @@
 #import "DataManager.h"
 #import "Categories.h"
 #import "Comic.h"
-
+#import "XLClassifyDetailsTableViewController.h"
+#import "XLSearchDetailTableViewController.h"
 @interface ZCCategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -87,7 +88,13 @@ static NSString * const tableViewReuseID = @"sysdef";
 #pragma mark - cell点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.searchBar resignFirstResponder];
-    NSLog(@"%@", [DataManager sharedDataManager].searchResult[indexPath.row].title);
+    NSLog(@"%ld", indexPath.row);
+    NSLog(@"--%@", [DataManager sharedDataManager].searchResult[indexPath.row].title);
+    XLSearchDetailTableViewController *xlsearch = [[UIStoryboard storyboardWithName:@"XLSearchDetailTableViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"xlSearch"];
+    xlsearch.key = [DataManager sharedDataManager].searchResult[indexPath.row].title;
+    UINavigationController *xlsearchNC = [[UINavigationController alloc] initWithRootViewController:xlsearch];
+    [self showViewController:xlsearchNC sender:nil];
+    
 }
 
 #pragma mark - UICollectionViewDelegate & DataSource
@@ -107,11 +114,19 @@ static NSString * const tableViewReuseID = @"sysdef";
 #pragma mark - item点击方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%ld:%@", indexPath.item, [DataManager sharedDataManager].category[indexPath.item].cateId);
+    
+    XLClassifyDetailsTableViewController *xlClassifyDetail = [[UIStoryboard storyboardWithName:@"XLClassifyDetailsTableViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"XLClassifyDetial"];
+    Categories *categories = [DataManager sharedDataManager].category[indexPath.item];
+    xlClassifyDetail.categories = categories;
+    UINavigationController *XLClassDetial = [[UINavigationController alloc] initWithRootViewController:xlClassifyDetail];
+    [self showViewController:XLClassDetial sender:nil];
+    
 }
 
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
     self.visualEffectView.hidden = NO;
     self.searchBar.showsCancelButton = YES;
 
@@ -136,6 +151,11 @@ static NSString * const tableViewReuseID = @"sysdef";
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
     NSLog(@"%@", searchBar.text);
+    XLSearchDetailTableViewController *xlsearch = [[UIStoryboard storyboardWithName:@"XLSearchDetailTableViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"xlSearch"];
+    xlsearch.key = searchBar.text;
+    UINavigationController *xlsearchNC = [[UINavigationController alloc] initWithRootViewController:xlsearch];
+    [self showViewController:xlsearchNC sender:nil];
+
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -158,6 +178,8 @@ static NSString * const tableViewReuseID = @"sysdef";
     }
     return _visualEffectView;
 }
+
+
 
 @end
 

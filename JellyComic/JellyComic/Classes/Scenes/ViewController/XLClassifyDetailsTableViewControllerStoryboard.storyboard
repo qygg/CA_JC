@@ -7,7 +7,7 @@
         <!--Classify Details Table View Controller-->
         <scene sceneID="p7O-Dr-ccb">
             <objects>
-                <tableViewController id="pQT-eZ-5ej" customClass="XLClassifyDetailsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="XLClassifyDetial" id="pQT-eZ-5ej" customClass="XLClassifyDetailsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lfy-bg-sIy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBc-kN-qju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275" y="552"/>
+            <point key="canvasLocation" x="107" y="548"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NEQ-lU-XpU">
@@ -53,7 +53,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRh-o3-RSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602" y="560"/>
+            <point key="canvasLocation" x="-825" y="559"/>
         </scene>
     </scenes>
 </document>
