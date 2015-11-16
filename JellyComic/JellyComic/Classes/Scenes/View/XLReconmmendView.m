@@ -373,6 +373,7 @@
 
     ScrollingImage *scrllingImage = [[DataManager sharedDataManager] scrollingImage][index];
     
+    
     [self.xlReconmmendViewController showDetailViewController:[[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssdetail"] sender:nil];
     
 }
@@ -512,13 +513,13 @@
 #pragma mark - cell点击方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    for (int i = 0; i < 4; i++) {
-        if (i == 0) {
+        if (_currentPage == 0) {
             Comic *comic = _hotArray[indexPath.row];
-            
-            [self.xlReconmmendViewController showViewController:[[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssdetail"] sender:nil];
+            SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+            SSDetailTVC.comicId = comic.comicId;
+            NSLog(@"SSDetailTVC.comicId ====== %@",SSDetailTVC.comicId);
+            [self.xlReconmmendViewController showViewController:SSDetailTVC sender:nil];
         }
-    }
 }
 
 
