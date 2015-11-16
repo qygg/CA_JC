@@ -70,6 +70,11 @@
 		29E98B2C1BF4B13F006F201B /* ZCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */; };
 		29E98B301BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */; };
 		29E98B311BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */; };
+		C20440641BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */; };
+		C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */; };
+		C20440681BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */; };
+		C204406A1BF9D0EE008C85B7 /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */; };
+		C204406C1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */; };
 		C23078851BF6D1F400E6CDDE /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785B1BF6D1F400E6CDDE /* MJRefreshAutoFooter.m */; };
 		C23078861BF6D1F400E6CDDE /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785D1BF6D1F400E6CDDE /* MJRefreshBackFooter.m */; };
 		C23078871BF6D1F400E6CDDE /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785F1BF6D1F400E6CDDE /* MJRefreshComponent.m */; };
@@ -225,6 +230,13 @@
 		29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCategoryCollectionViewCell.h; sourceTree = "<group>"; };
 		29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		C20440611BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLClassifyDetailsTableViewCell.h; sourceTree = "<group>"; };
+		C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLClassifyDetailsTableViewCell.m; sourceTree = "<group>"; };
+		C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XLClassifyDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		C20440661BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLClassifyDetailsTableViewController.h; sourceTree = "<group>"; };
+		C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLClassifyDetailsTableViewController.m; sourceTree = "<group>"; };
+		C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
+		C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XLClassifyDetailsTableViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		C230785A1BF6D1F400E6CDDE /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		C230785B1BF6D1F400E6CDDE /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		C230785C1BF6D1F400E6CDDE /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -471,6 +483,7 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */,
 				C27043571BF38174001F7CC1 /* arrow.png */,
 				C27043551BF3816E001F7CC1 /* arrow1.png */,
 				C27043531BF3816B001F7CC1 /* image_1.jpg */,
@@ -492,6 +505,9 @@
 			isa = PBXGroup;
 			children = (
 				299F6FEE1BF2CF83009F228C /* Sign */,
+				C20440611BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.h */,
+				C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */,
+				C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */,
 				C23078981BF6D22B00E6CDDE /* XLReconmmendView.h */,
 				C23078991BF6D22B00E6CDDE /* XLReconmmendView.m */,
 				C230789B1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.h */,
@@ -521,6 +537,9 @@
 				2985351F1BF9CE64005FDE11 /* ZCBookshelfViewController.h */,
 				298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */,
 				2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */,
+				C20440661BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.h */,
+				C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */,
+				C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -789,11 +808,13 @@
 			files = (
 				299F6FF51BF2CF83009F228C /* Sign in Resources */,
 				2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */,
+				C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */,
 				C23078BE1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard in Resources */,
 				299F6FFC1BF2CF83009F228C /* Sign in Resources */,
 				299F6FF91BF2CF83009F228C /* Sign in Resources */,
 				C27043581BF38174001F7CC1 /* arrow.png in Resources */,
 				C230789F1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib in Resources */,
+				C204406C1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard in Resources */,
 				C27043601BF381B6001F7CC1 /* SSDetail.storyboard in Resources */,
 				299F70461BF33587009F228C /* T2Storyboard.storyboard in Resources */,
 				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
@@ -807,6 +828,7 @@
 				299F704A1BF33595009F228C /* T4Storyboard.storyboard in Resources */,
 				299F6FFD1BF2CF83009F228C /* Sign in Resources */,
 				29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */,
+				C204406A1BF9D0EE008C85B7 /* expandableImage@2x.png in Resources */,
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				C23078931BF6D1F400E6CDDE /* MJRefresh.bundle in Resources */,
@@ -882,6 +904,7 @@
 				C23078851BF6D1F400E6CDDE /* MJRefreshAutoFooter.m in Sources */,
 				299F70031BF2E982009F228C /* ScrollingImage.m in Sources */,
 				C23078BC1BF6D2D800E6CDDE /* XLReconmmendViewController.m in Sources */,
+				C20440641BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m in Sources */,
 				292BD3571BF46CD20013559E /* UIImage+MultiFormat.m in Sources */,
 				C23078B51BF6D25700E6CDDE /* TADotView.m in Sources */,
 				C270435E1BF381AC001F7CC1 /* SSDetailTableViewController.m in Sources */,
@@ -895,6 +918,7 @@
 				292BD3511BF46CD20013559E /* SDWebImageDownloader.m in Sources */,
 				299F703C1BF32E32009F228C /* NSString+MJExtension.m in Sources */,
 				299F703F1BF3345D009F228C /* RootViewController.m in Sources */,
+				C20440681BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m in Sources */,
 				299F700C1BF31BB0009F228C /* Chapter.m in Sources */,
 				299F70061BF2EBDA009F228C /* Comic.m in Sources */,
 				C27043631BF381CE001F7CC1 /* SSChapterTableViewCell.m in Sources */,
