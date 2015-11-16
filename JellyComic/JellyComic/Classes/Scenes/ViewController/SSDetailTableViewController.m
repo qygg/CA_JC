@@ -17,11 +17,10 @@
 @interface SSDetailTableViewController ()<UIGestureRecognizerDelegate>
 
 // 是否展开
-@property (assign, nonatomic) BOOL expand;
+@property (nonatomic, assign) BOOL expand;
 @property (nonatomic, strong) ComicDetail *comicDetail;
 @property (nonatomic, strong) NSMutableArray *comicStrArray;
-
-@property (nonatomic, strong) ComicSource *comicSource;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 
 @end
@@ -32,29 +31,23 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self requestComicDetailData];
-   
     _expand = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStyleDone) target:self action:@selector(comebackXLReconmmendVC)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"评论" style:(UIBarButtonItemStyleDone) target:self action:@selector(toCommentVC)];
+    
+    [self requestComicDetailData];
+    
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:@"SSDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"detail"];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    // 打开Label用户交互
-    _introduceLabel.userInteractionEnabled = YES;
-    
-    // 手势
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerAction:)];
-    tapGesture.delegate = self;
-    tapGesture.numberOfTapsRequired = 1;
-    [self.introduceLabel addGestureRecognizer:tapGesture];
-    
-    self.comicDetail = [ComicDetail new];
 }
 
 
@@ -67,14 +60,14 @@
         for (ComicSource *comicSource in self.comicDetail.comicSrc) {
             [self.comicStrArray addObject:comicSource];
         }
-         // 加载视图
+        // 加载视图
         [self reloadView];
     }];
 }
 
-
 - (void)reloadView
 {
+    self.title = self.comicDetail.title;
     // headerView
     _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width,320)];
     
@@ -140,6 +133,7 @@
     _collectButton.tintColor = [UIColor whiteColor];
     _collectButton.backgroundColor = [UIColor colorWithRed:0.077 green:0.250 blue:1.000 alpha:1.000];
     _collectButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_collectButton addTarget:self action:@selector(addCollectAction:) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:_collectButton];
     
     // 开始阅读
@@ -149,6 +143,7 @@
     _startReadButton.tintColor = [UIColor whiteColor];
     _startReadButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.456 blue:0.092 alpha:1.000];
     _startReadButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_startReadButton addTarget:self action:@selector(startReadingAction:) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:_startReadButton];
     
     // 内容介绍
@@ -157,6 +152,13 @@
     _introduceLabel.numberOfLines = 0;
     _introduceLabel.font = [UIFont systemFontOfSize:15];
     [_headerView addSubview:_introduceLabel];
+    
+    // 打开Label用户交互
+    self.introduceLabel.userInteractionEnabled = YES;
+    
+    // 手势
+    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerAction:)];
+    [self.introduceLabel addGestureRecognizer:_tapGesture];
     
     _arrowLabel = [[UILabel alloc] initWithFrame:CGRectMake (self.tableView.frame.size.width - 30,_introduceLabel.frame.origin.y + 55, 14, 15)];
     _arrowLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"arrow.png"]];
@@ -175,11 +177,23 @@
 }
 
 
+
+- (void)comebackXLReconmmendVC
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 跳转评论页面
+- (void)toCommentVC
+{
+    
+}
+
+
 - (void)tapGestureRecognizerAction:(UITapGestureRecognizer *)recognizer
 {
-    NSLog(@"*************");
-    if (NO == _expand) {
-        
+    if (NO == _expand)
+    {
         _headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width,320);
         
         _introduceLabel.frame = CGRectMake(_imgView.frame.origin.x, _imgView.frame.size.height + 20, _headerView.frame.size.width - 30, 54);
@@ -222,13 +236,13 @@
 #pragma mark -  添加收藏
 - (void)addCollectAction:(UIButton *)sender
 {
-    
+    NSLog(@"添加收藏");
 }
 
 #pragma mark -  开始阅读
 - (void)startReadingAction:(UIButton *)sender
 {
-    
+    NSLog(@"开始阅读");
 }
 
 
@@ -273,7 +287,6 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:comicSource.lastCharpterUpdateTime];
     cell.dateLabel.text =  [formatter stringFromDate:date];
 
-    
     cell.upDateLabel.text = [NSString stringWithFormat:@"最新更新:%@",comicSource.lastCharpterTitle];
     return cell;
 }
@@ -287,8 +300,10 @@
 {
     ComicSource *comicSource = self.comicStrArray[indexPath.row];
      SSChapterViewController *chapterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SSChapterVC"];
-    chapterVC.comicSoureID = comicSource.lastCharpterId;
+    chapterVC.comicSoureID = comicSource.ID;
     chapterVC.comicID = self.comicId;
+    chapterVC.siteText = comicSource.title;
+    chapterVC.ncTitle = self.comicDetail.title;
     [self.navigationController pushViewController:chapterVC animated:YES];
 }
 

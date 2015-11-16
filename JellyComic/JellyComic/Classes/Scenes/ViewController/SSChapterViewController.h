@@ -13,5 +13,7 @@
 
 @property (nonatomic, strong) NSString *comicSoureID;
 @property (nonatomic, strong) NSString *comicID;
+@property (nonatomic, strong) NSString *siteText;
+@property (nonatomic, strong) NSString *ncTitle;
 
 @end

@@ -17,23 +17,34 @@
 @property (strong, nonatomic) IBOutlet UIView *headerView;              // headerView
 @property (strong, nonatomic) IBOutlet UITableView *tableView;          // tableView
 @property (strong, nonatomic) IBOutlet UIView *footerView;              // footerView
-@property (strong, nonatomic) IBOutlet UILabel *siteLabel;              // 站点
 @property (strong, nonatomic) IBOutlet UIButton *downLoadLabel;         // 缓存
 @property (strong, nonatomic) IBOutlet UIButton *taskButton;            // 管理任务
+@property (strong, nonatomic) IBOutlet UILabel *siteLabel;              // 站点
+
+@property (strong, nonatomic) NSMutableArray *chapterMutArray;
 
 
-@property (strong, nonatomic) NSMutableArray *chapterArray;
+@property (strong, nonatomic) NSArray *chapterArray;
 
 @property (assign, nonatomic) BOOL isSorting;
-
-@property (nonatomic, strong) Chapter *chapter;
 
 @end
 
 @implementation SSChapterViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.siteLabel.text = self.siteText;
+    [self requestChapterData];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.ncTitle;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"缓存" style:(UIBarButtonItemStyleDone) target:self action:@selector(allDownLoadAction)];
+    
     
     // 设置代理、代码源
     _tableView.delegate = self;
@@ -43,22 +54,19 @@
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
-    
-//    for (int i = 0; i < 10; i++) {
-//        NSString *string = [NSString stringWithFormat:@"第%d章",i];
-//        [self.chapterArray addObject:string];
-//    }
-    
     _isSorting = NO;
 }
 
 - (void)requestChapterData
 {
     [[DataManager sharedDataManager] loadChapterWithComicsrcid:self.comicSoureID comicid:self.comicID completion:^{
-        NSLog(@"[DataManager sharedDataManager].chapter = %ld",[DataManager sharedDataManager].chapter.count);
-        [self.chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
-    
+        self.chapterArray = [NSArray arrayWithArray:[DataManager sharedDataManager].chapter];
+        for (int i = (int)self.chapterArray.count - 1; i >= 0; i--) {
+            [self.chapterMutArray addObject:self.chapterArray[i]];
+        }
+        [self.tableView reloadData];
     }];
+    
 }
 
 
@@ -73,28 +81,32 @@
 // 章节顺序
 - (IBAction)sortOfChaptersAction:(UIButton *)sender
 {
-    
+    if (self.isSorting) {
+        self.isSorting = NO;
+    } else {
+        self.isSorting = YES;
+    }
+    [self.tableView reloadData];
 }
 
-// 缓存
-- (IBAction)downloadAction:(UIBarButtonItem *)sender
-{
-    
-}
 
 // 管理任务
 - (IBAction)managerOfTaskAction:(UIButton *)sender
 {
-    
+    NSLog(@"管理任务");
 }
 
+// 缓存
+- (void)allDownLoadAction
+{
+    NSLog(@"缓存全部");
+}
 
 
 #pragma mark -  UITableViewDataSource,UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"self.chapterArray.count == %ld",self.chapterArray.count);
     return self.chapterArray.count;
 }
 
@@ -106,8 +118,13 @@
     }else{
         cell.backgroundColor = [UIColor whiteColor];
     }
-    NSString *text = self.chapterArray[indexPath.row];
-    cell.chapterLabel.text = text;
+    Chapter *chapter = nil;
+    if (!self.isSorting) {
+        chapter = self.chapterArray[indexPath.row];
+    } else {
+        chapter = self.chapterMutArray[indexPath.row];
+    }
+    cell.chapterLabel.text = chapter.title;
     
     return cell;
 }
@@ -121,15 +138,20 @@
 
 
 #pragma mark - 懒加载
-- (NSMutableArray *)chapterArray
+- (NSArray *)chapterArray
 {
     if (!_chapterArray) {
-        self.chapterArray = [NSMutableArray new];
+        self.chapterArray = [NSArray new];
     }
     return _chapterArray;
 }
 
-
+- (NSMutableArray *)chapterMutArray {
+    if (!_chapterMutArray) {
+        _chapterMutArray = [NSMutableArray array];
+    }
+    return _chapterMutArray;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
