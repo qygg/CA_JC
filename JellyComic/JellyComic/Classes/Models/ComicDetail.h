@@ -18,7 +18,7 @@
 // 封面地址
 @property (nonatomic, copy) NSString *thumb;
 // 作者
-@property (nonatomic, copy) NSString *autherName;
+@property (nonatomic, copy) NSString *authorName;
 // 类型
 @property (nonatomic, copy) NSString *comicType;
 // 地区

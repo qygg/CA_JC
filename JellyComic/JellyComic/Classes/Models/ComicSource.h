@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@import UIKit;
 
 // 漫画来源
 @interface ComicSource : NSObject
@@ -20,6 +19,6 @@
 // 最新章节id
 @property (nonatomic, copy) NSString *lastCharpterId;
 // 最近更新时间（时间戳）
-@property (nonatomic, assign) CGFloat lastCharpterUpdateTime;
+@property (nonatomic, assign) NSInteger lastCharpterUpdateTime;
 
 @end
