@@ -20,11 +20,11 @@
                             <constraint firstAttribute="width" secondItem="qs8-8t-WT0" secondAttribute="height" multiplier="1:1" id="OfC-cZ-bg8"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-TB-E3m">
-                        <rect key="frame" x="84" y="201" width="42" height="35"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-TB-E3m">
+                        <rect key="frame" x="90.5" y="201" width="30" height="18"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -32,7 +32,6 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <animations/>
-            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qs8-8t-WT0" secondAttribute="trailing" constant="10" id="2lT-EF-6xd"/>
                 <constraint firstItem="LXc-TB-E3m" firstAttribute="top" secondItem="qs8-8t-WT0" secondAttribute="bottom" constant="10" id="46O-1h-MiC"/>
@@ -42,6 +41,11 @@
                 <constraint firstItem="qs8-8t-WT0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="X6W-Wy-i44"/>
             </constraints>
             <size key="customSize" width="211" height="236"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="LOO-uj-c2f"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="imgView" destination="qs8-8t-WT0" id="xNV-z9-Puf"/>
                 <outlet property="titleLabel" destination="LXc-TB-E3m" id="aOv-WU-C9G"/>
