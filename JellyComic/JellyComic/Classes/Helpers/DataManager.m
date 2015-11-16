@@ -15,6 +15,7 @@
 #import "Chapter.h"
 #import "Content.h"
 #import "Categories.h"
+#import "ComicSource.h"
 
 @interface DataManager ()
 
@@ -167,6 +168,11 @@
         [ComicDetail mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"comicSrc": @"ComicSource"
+                     };
+        }];
+        [ComicSource mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"ID": @"id"
                      };
         }];
         self.comicDetail = [ComicDetail mj_objectWithKeyValues:dict[@"data"]];
