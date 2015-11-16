@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="29H-Qk-CcF">
+                            <searchBar contentMode="redraw" placeholder="漫画 | 作者" translatesAutoresizingMaskIntoConstraints="NO" id="29H-Qk-CcF">
                                 <rect key="frame" x="0.0" y="20" width="600" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="43c-JN-A3c"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.6830755585039231" green="0.88683946476613051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.68235294117647061" green="0.88627450980392153" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uLR-pD-CGJ">

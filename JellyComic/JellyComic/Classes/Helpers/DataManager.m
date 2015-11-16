@@ -296,7 +296,7 @@
         }
         for (NSDictionary *dic in dict[@"data"]) {
             Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.categoryDetailArray addObject:comic];
+            [self.searchResultArray addObject:comic];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion();

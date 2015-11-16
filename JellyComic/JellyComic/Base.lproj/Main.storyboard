@@ -28,7 +28,7 @@
         <scene sceneID="tbr-so-tdf">
             <objects>
                 <tabBarController id="sRw-FS-4Z0" customClass="RootViewController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ajv-g9-sff">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="ajv-g9-sff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
