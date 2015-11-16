@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "Comic.h"
 #import "UIImageView+WebCache.h"
+#import "SSDetailTableViewController.h"
 
 @interface XLClassifyDetailsTableViewController ()
 {
@@ -339,7 +340,32 @@
 #pragma mark - tableview点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
     
+    switch (i) {
+        case 1:
+        {
+            Comic *comic = _topHotArray[indexPath.row];
+            SSDetailTVC.comicId = comic.comicId;
+        }
+            break;
+        case 2:
+        {
+            Comic *comic = _timeArray[indexPath.row];
+            SSDetailTVC.comicId = comic.comicId;
+        }
+            break;
+        case 3:
+        {
+            Comic *comic = _finishArray[indexPath.row];
+            SSDetailTVC.comicId = comic.comicId;
+        }
+            break;
+        default:
+            break;
+    }
+    UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+    [self showViewController:SSDeatilNC sender:nil];
 }
 
 /*

@@ -12,6 +12,8 @@
 #import "MJRefresh.h"
 #import "XLClassifyDetailsTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "SSDetailTableViewController.h"
+
 @interface XLSearchDetailTableViewController ()
 {
     int page;
@@ -100,7 +102,11 @@
 #pragma mark - tableview点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+    Comic *comic = _dataArray[indexPath.row];
+    SSDetailTVC.comicId = comic.comicId;
+    UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+    [self showViewController:SSDeatilNC sender:nil];
 }
 
 /*
