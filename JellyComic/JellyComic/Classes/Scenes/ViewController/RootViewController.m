@@ -7,8 +7,6 @@
 //
 
 #import "RootViewController.h"
-#import "DataManager.h"
-#import "ScrollingImage.h"
 
 @interface RootViewController ()
 
@@ -18,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     
 }

@@ -60,7 +60,6 @@
 		299F703B1BF32E32009F228C /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F702F1BF32E32009F228C /* NSObject+MJProperty.m */; };
 		299F703C1BF32E32009F228C /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F70311BF32E32009F228C /* NSString+MJExtension.m */; };
 		299F703F1BF3345D009F228C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F703E1BF3345D009F228C /* RootViewController.m */; };
-		299F70461BF33587009F228C /* T2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70451BF33587009F228C /* T2Storyboard.storyboard */; };
 		299F704A1BF33595009F228C /* T4Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70491BF33595009F228C /* T4Storyboard.storyboard */; };
 		29CD4DA91BF23EFD003EFA93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD4DA81BF23EFD003EFA93 /* main.m */; };
 		29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB01BF23EFD003EFA93 /* Main.storyboard */; };
@@ -221,7 +220,6 @@
 		299F70311BF32E32009F228C /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		299F703D1BF3345D009F228C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		299F703E1BF3345D009F228C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		299F70451BF33587009F228C /* T2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T2Storyboard.storyboard; sourceTree = "<group>"; };
 		299F70491BF33595009F228C /* T4Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T4Storyboard.storyboard; sourceTree = "<group>"; };
 		29CD4DA41BF23EFD003EFA93 /* JellyComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JellyComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CD4DA81BF23EFD003EFA93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -431,22 +429,22 @@
 		299F6FE21BF2CF82009F228C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				299F6FE31BF2CF82009F228C /* Sign */,
 				C27043611BF381C9001F7CC1 /* SSChapterTableViewCell.h */,
 				C27043621BF381CE001F7CC1 /* SSChapterTableViewCell.m */,
 				C27043641BF381D5001F7CC1 /* SSChapterTableViewCell.xib */,
 				C27043661BF381E4001F7CC1 /* SSDetailTableViewCell.h */,
 				C27043671BF381ED001F7CC1 /* SSDetailTableViewCell.m */,
 				C27043691BF381F2001F7CC1 /* SSDetailTableViewCell.xib */,
-				299F6FE31BF2CF82009F228C /* Sign */,
-				29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */,
-				29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */,
-				29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */,
-				298535221BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.h */,
-				298535231BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m */,
-				298535241BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib */,
 				298535271BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.h */,
 				298535281BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.m */,
 				298535291BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib */,
+				298535221BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.h */,
+				298535231BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m */,
+				298535241BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib */,
+				29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */,
+				29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */,
+				29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -473,21 +471,21 @@
 		299F6FE81BF2CF82009F228C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FE91BF2CF82009F228C /* Sign */,
-				299F6FFE1BF2E79D009F228C /* ComicSource.h */,
-				299F6FFF1BF2E79D009F228C /* ComicSource.m */,
-				299F70011BF2E982009F228C /* ScrollingImage.h */,
-				299F70021BF2E982009F228C /* ScrollingImage.m */,
+				299F70131BF321B5009F228C /* Categories.h */,
+				299F70141BF321B5009F228C /* Categories.m */,
+				299F700A1BF31BB0009F228C /* Chapter.h */,
+				299F700B1BF31BB0009F228C /* Chapter.m */,
 				299F70041BF2EBDA009F228C /* Comic.h */,
 				299F70051BF2EBDA009F228C /* Comic.m */,
 				299F70071BF2EE40009F228C /* ComicDetail.h */,
 				299F70081BF2EE40009F228C /* ComicDetail.m */,
-				299F700A1BF31BB0009F228C /* Chapter.h */,
-				299F700B1BF31BB0009F228C /* Chapter.m */,
+				299F6FFE1BF2E79D009F228C /* ComicSource.h */,
+				299F6FFF1BF2E79D009F228C /* ComicSource.m */,
 				299F700D1BF31F98009F228C /* Content.h */,
 				299F700E1BF31F98009F228C /* Content.m */,
-				299F70131BF321B5009F228C /* Categories.h */,
-				299F70141BF321B5009F228C /* Categories.m */,
+				299F70011BF2E982009F228C /* ScrollingImage.h */,
+				299F70021BF2E982009F228C /* ScrollingImage.m */,
+				299F6FE91BF2CF82009F228C /* Sign */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,13 +493,13 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C216ABBC1BFAC231005FBB80 /* titlebg.png */,
-				C204406F1BF9DB29008C85B7 /* return.png */,
-				C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */,
 				C27043571BF38174001F7CC1 /* arrow.png */,
 				C27043551BF3816E001F7CC1 /* arrow1.png */,
+				C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */,
 				C27043531BF3816B001F7CC1 /* image_1.jpg */,
+				C204406F1BF9DB29008C85B7 /* return.png */,
 				299F6FEB1BF2CF83009F228C /* Sign */,
+				C216ABBC1BFAC231005FBB80 /* titlebg.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -522,11 +520,11 @@
 				C20440611BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.h */,
 				C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */,
 				C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */,
-				C23078981BF6D22B00E6CDDE /* XLReconmmendView.h */,
-				C23078991BF6D22B00E6CDDE /* XLReconmmendView.m */,
 				C230789B1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.h */,
 				C230789C1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.m */,
 				C230789D1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib */,
+				C23078981BF6D22B00E6CDDE /* XLReconmmendView.h */,
+				C23078991BF6D22B00E6CDDE /* XLReconmmendView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -542,23 +540,23 @@
 				C270435F1BF381B6001F7CC1 /* SSDetail.storyboard */,
 				C270435C1BF381A8001F7CC1 /* SSDetailTableViewController.h */,
 				C270435D1BF381AC001F7CC1 /* SSDetailTableViewController.m */,
-				29E98B251BF4B06C006F201B /* ZCCategory.storyboard */,
-				29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */,
-				29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */,
-				C23078BA1BF6D2D800E6CDDE /* XLReconmmendViewController.h */,
-				C23078BB1BF6D2D800E6CDDE /* XLReconmmendViewController.m */,
-				C23078BD1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard */,
-				2985351F1BF9CE64005FDE11 /* ZCBookshelfViewController.h */,
-				298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */,
-				2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */,
+				C20440761BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.h */,
+				C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */,
 				C20440661BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.h */,
 				C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */,
 				C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */,
+				C23078BA1BF6D2D800E6CDDE /* XLReconmmendViewController.h */,
+				C23078BB1BF6D2D800E6CDDE /* XLReconmmendViewController.m */,
+				C23078BD1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard */,
 				C20440711BF9E72E008C85B7 /* XLSearchDetailTableViewController.h */,
 				C20440721BF9E72E008C85B7 /* XLSearchDetailTableViewController.m */,
 				C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */,
-				C20440761BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.h */,
-				C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */,
+				2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */,
+				2985351F1BF9CE64005FDE11 /* ZCBookshelfViewController.h */,
+				298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */,
+				29E98B251BF4B06C006F201B /* ZCCategory.storyboard */,
+				29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */,
+				29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -566,10 +564,10 @@
 		299F6FF11BF2CF83009F228C /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				C23078A01BF6D25700E6CDDE /* SDCycleScrollView */,
-				C23078581BF6D1F400E6CDDE /* MJRefresh */,
-				292BD32A1BF46CD20013559E /* SDWebImage */,
 				299F701A1BF32E32009F228C /* MJExtension */,
+				C23078581BF6D1F400E6CDDE /* MJRefresh */,
+				C23078A01BF6D25700E6CDDE /* SDCycleScrollView */,
+				292BD32A1BF46CD20013559E /* SDWebImage */,
 				299F6FF21BF2CF83009F228C /* Sign */,
 			);
 			path = Vendors;
@@ -626,7 +624,6 @@
 			children = (
 				299F6FD91BF2CF82009F228C /* Classes */,
 				29CD4DB01BF23EFD003EFA93 /* Main.storyboard */,
-				299F70451BF33587009F228C /* T2Storyboard.storyboard */,
 				299F70491BF33595009F228C /* T4Storyboard.storyboard */,
 				29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */,
 				29CD4DB51BF23EFD003EFA93 /* LaunchScreen.storyboard */,
@@ -835,7 +832,6 @@
 				C230789F1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib in Resources */,
 				C204406C1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard in Resources */,
 				C27043601BF381B6001F7CC1 /* SSDetail.storyboard in Resources */,
-				299F70461BF33587009F228C /* T2Storyboard.storyboard in Resources */,
 				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
 				2985352B1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib in Resources */,
 				299F6FF61BF2CF83009F228C /* Sign in Resources */,
