@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSMutableArray<Comic *> *categoryDetailArray;
 @property (nonatomic, strong) NSMutableArray<Comic *> *searchResultArray;
 
+@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+
 @end
 
 @implementation DataManager
@@ -221,9 +223,11 @@
         if (page == 1) {
             [self.authorListArray removeAllObjects];
         }
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.authorListArray addObject:comic];
+        if (![dict[@"data"] isEqual:[NSNull null]]) {
+            for (NSDictionary *dic in dict[@"data"]) {
+                Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                [self.authorListArray addObject:comic];
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion();
@@ -289,26 +293,33 @@
 - (void)loadSearchResultWithKeyword:(NSString *)keyword page:(NSInteger)page completion:(Callback)completion {
     NSURL *url = [NSURL URLWithString:[kSearch_URL stringByAppendingFormat:@"&keyword=%@&page=%ld", [keyword stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]], page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
-    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"lastCharpter_id": @"lastCharpter.id",
-                     @"lastCharpter_title": @"lastCharpter.title"
-                     };
-        }];
+    [self.dataTask cancel];
+    self.dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (page == 1) {
             [self.searchResultArray removeAllObjects];
         }
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.searchResultArray addObject:comic];
+        if (data != nil) {
+            
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"lastCharpter_id": @"lastCharpter.id",
+                         @"lastCharpter_title": @"lastCharpter.title"
+                         };
+            }];
+            if (![dict[@"data"] isEqual:[NSNull null]]) {
+                for (NSDictionary *dic in dict[@"data"]) {
+                    Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                    [self.searchResultArray addObject:comic];
+                }
+            }
+            
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion();
         });
     }];
-    [dataTask resume];
+    [self.dataTask resume];
 }
 
 - (NSMutableArray *)hotListArray {
@@ -422,10 +433,6 @@
 }
 
 @end
-
-
-
-
 
 
 

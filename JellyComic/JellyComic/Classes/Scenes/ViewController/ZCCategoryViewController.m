@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, assign) BOOL needsClean;
+
 
 @end
 
@@ -75,6 +77,9 @@ static NSString * const tableViewReuseID = @"sysdef";
 #pragma mark - UITableViewDataSource & Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.needsClean) {
+        return 0;
+    }
     return [DataManager sharedDataManager].searchResult.count;
 }
 
@@ -88,8 +93,8 @@ static NSString * const tableViewReuseID = @"sysdef";
 #pragma mark - cell点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.searchBar resignFirstResponder];
-    NSLog(@"%ld", indexPath.row);
-    NSLog(@"--%@", [DataManager sharedDataManager].searchResult[indexPath.row].title);
+//    NSLog(@"%ld", indexPath.row);
+//    NSLog(@"--%@", [DataManager sharedDataManager].searchResult[indexPath.row].title);
     XLSearchDetailTableViewController *xlsearch = [[UIStoryboard storyboardWithName:@"XLSearchDetailTableViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"xlSearch"];
     xlsearch.key = [DataManager sharedDataManager].searchResult[indexPath.row].title;
     UINavigationController *xlsearchNC = [[UINavigationController alloc] initWithRootViewController:xlsearch];
@@ -126,6 +131,12 @@ static NSString * const tableViewReuseID = @"sysdef";
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.needsClean = YES;
+    [self.tableView reloadData];
+    [[DataManager sharedDataManager] loadSearchResultWithKeyword:searchBar.text page:1 completion:^{
+        self.needsClean = NO;
+        [self.tableView reloadData];
+    }];
     
     self.visualEffectView.hidden = NO;
     self.searchBar.showsCancelButton = YES;
@@ -160,6 +171,7 @@ static NSString * const tableViewReuseID = @"sysdef";
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [[DataManager sharedDataManager] loadSearchResultWithKeyword:searchText page:1 completion:^{
+        self.needsClean = NO;
         [self.tableView reloadData];
     }];
 }
