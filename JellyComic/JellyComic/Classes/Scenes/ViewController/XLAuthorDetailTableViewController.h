@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Comic;
 @interface XLAuthorDetailTableViewController : UITableViewController
-
+@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) Comic *comic;
+@property (nonatomic, strong) NSString *author;
 @end

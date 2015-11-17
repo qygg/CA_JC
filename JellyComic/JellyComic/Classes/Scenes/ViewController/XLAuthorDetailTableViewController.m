@@ -7,23 +7,53 @@
 //
 
 #import "XLAuthorDetailTableViewController.h"
-
+#import "DataManager.h"
+#import "XLClassifyDetailsTableViewCell.h"
+#import "MJRefresh.h"
+#import "Comic.h"
+#import "UIImageView+WebCache.h"
 @interface XLAuthorDetailTableViewController ()
-
+{
+    int page;
+}
+@property (nonatomic, strong) NSArray *dataArray;
 @end
 
 @implementation XLAuthorDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+    UINib *cellNib = [UINib nibWithNibName:@"XLClassifyDetailsTableViewCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:@"b"];
+    self.title = self.author;
+    [self initDataTable];
+    [self initDataSource];
 
+    
+}
+- (void)initDataSource
+{
+    [[DataManager sharedDataManager] loadAuthorlistWithComicid:self.key page:page completion:^{
+        if (_dataArray.count == [[DataManager sharedDataManager] authorList].count) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        _dataArray = [[DataManager sharedDataManager] authorList];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+}
+- (void)initDataTable
+{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        page = 1;
+        [self initDataSource];
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        page++;
+        [self initDataSource];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -32,24 +62,37 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return _dataArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    XLClassifyDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"b" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    self.comic = _dataArray[indexPath.row];
+    cell.nameLabel.text = _comic.title;
+    cell.authorLabel.text = _comic.authorName;
+    cell.typeLabel.text = _comic.comicType;
+    cell.bestNewLabel.text = _comic.lastCharpter_title;
+    [cell.comicShowImageView sd_setImageWithURL:[NSURL URLWithString:_comic.thumb]];
+
     return cell;
 }
-*/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
+#pragma mark - tableView点击方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

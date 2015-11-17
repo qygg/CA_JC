@@ -13,7 +13,7 @@
 #import "ComicDetail.h"
 #import "UIImageView+WebCache.h"
 #import "ComicSource.h"
-
+#import "XLAuthorDetailTableViewController.h"
 @interface SSDetailTableViewController ()<UIGestureRecognizerDelegate>
 
 // 是否展开
@@ -94,6 +94,7 @@
     _authorButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [_authorButton setTitleColor:[UIColor colorWithRed:0.221 green:0.579 blue:0.148 alpha:1.000] forState:(UIControlStateNormal)];
     _authorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [_authorButton addTarget:self action:@selector(authorAction:) forControlEvents:UIControlEventTouchUpInside];
     
     // 设置下划线
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:_authorButton.titleLabel.text];
@@ -176,6 +177,13 @@
     [self.tableView reloadData];
 }
 
+- (void)authorAction:(id)sender
+{
+    XLAuthorDetailTableViewController *xlAuthorDetailVC = [XLAuthorDetailTableViewController new];
+    xlAuthorDetailVC.key = self.comicDetail.comicId;
+    xlAuthorDetailVC.author = self.comicDetail.authorName;
+    [self.navigationController pushViewController:xlAuthorDetailVC animated:YES];
+}
 
 
 - (void)comebackXLReconmmendVC
