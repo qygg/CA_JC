@@ -61,6 +61,8 @@
 		299F703C1BF32E32009F228C /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F70311BF32E32009F228C /* NSString+MJExtension.m */; };
 		299F703F1BF3345D009F228C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F703E1BF3345D009F228C /* RootViewController.m */; };
 		299F704A1BF33595009F228C /* T4Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299F70491BF33595009F228C /* T4Storyboard.storyboard */; };
+		29B93A3B1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B93A391BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.m */; };
+		29B93A3C1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B93A3A1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib */; };
 		29CD4DA91BF23EFD003EFA93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD4DA81BF23EFD003EFA93 /* main.m */; };
 		29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB01BF23EFD003EFA93 /* Main.storyboard */; };
 		29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */; };
@@ -221,6 +223,9 @@
 		299F703D1BF3345D009F228C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		299F703E1BF3345D009F228C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		299F70491BF33595009F228C /* T4Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = T4Storyboard.storyboard; sourceTree = "<group>"; };
+		29B93A381BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBookshelfSelectedTableViewCell.h; sourceTree = "<group>"; };
+		29B93A391BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBookshelfSelectedTableViewCell.m; sourceTree = "<group>"; };
+		29B93A3A1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCBookshelfSelectedTableViewCell.xib; sourceTree = "<group>"; };
 		29CD4DA41BF23EFD003EFA93 /* JellyComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JellyComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CD4DA81BF23EFD003EFA93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29CD4DB11BF23EFD003EFA93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -442,6 +447,9 @@
 				298535221BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.h */,
 				298535231BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m */,
 				298535241BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib */,
+				29B93A381BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.h */,
+				29B93A391BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.m */,
+				29B93A3A1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib */,
 				29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */,
 				29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */,
 				29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */,
@@ -845,6 +853,7 @@
 				299F6FFD1BF2CF83009F228C /* Sign in Resources */,
 				29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */,
 				C204406A1BF9D0EE008C85B7 /* expandableImage@2x.png in Resources */,
+				29B93A3C1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib in Resources */,
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				C216ABBD1BFAC231005FBB80 /* titlebg.png in Resources */,
@@ -870,6 +879,7 @@
 				C230788F1BF6D1F400E6CDDE /* MJRefreshBackStateFooter.m in Sources */,
 				292BD3521BF46CD20013559E /* SDWebImageDownloaderOperation.m in Sources */,
 				292BD3581BF46CD20013559E /* UIImage+WebP.m in Sources */,
+				29B93A3B1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.m in Sources */,
 				C23078891BF6D1F400E6CDDE /* MJRefreshHeader.m in Sources */,
 				292BD3541BF46CD20013559E /* SDWebImagePrefetcher.m in Sources */,
 				C23078B81BF6D25700E6CDDE /* SDCycleScrollView.m in Sources */,
