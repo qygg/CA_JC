@@ -28,6 +28,7 @@
     
     self.title = self.key;
     page = 1;
+    
     [self initDataTable];
     [self initDataSource];
     UINib *cellNib = [UINib nibWithNibName:@"XLClassifyDetailsTableViewCell" bundle:nil];
@@ -40,8 +41,9 @@
 - (void)initDataSource
 {
     [[DataManager sharedDataManager] loadSearchResultWithKeyword:self.key page:page completion:^{
-        if (_dataArray.count == [[DataManager sharedDataManager] searchResult].count) {
+        if (_dataArray.count == [[DataManager sharedDataManager] searchResult].count && page != 1) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return;
         }
         _dataArray = [[DataManager sharedDataManager] searchResult];
         [self.tableView reloadData];

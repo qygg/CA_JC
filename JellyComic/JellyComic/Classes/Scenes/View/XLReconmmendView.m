@@ -104,7 +104,7 @@
 - (void)initDataSource1
 {
     [[DataManager sharedDataManager] loadHotlistWithPage:page completion:^{
-        if (_hotArray.count == [[DataManager sharedDataManager] hotList].count) {
+        if (_hotArray.count == [[DataManager sharedDataManager] hotList].count && page != 1) {
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             return;
         }
@@ -120,7 +120,7 @@
 - (void)initDataSource2
 {
     [[DataManager sharedDataManager] loadEditorlistWithPage:page1 completion:^{
-        if (_editorArray.count == [[DataManager sharedDataManager] editorList].count) {
+        if (_editorArray.count == [[DataManager sharedDataManager] editorList].count && page1 != 1) {
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
 
             return;
@@ -137,7 +137,7 @@
 - (void)initDataSource3
 {
     [[DataManager sharedDataManager] loadHothklistWithPage:page2 completion:^{
-        if (_hotHKArray.count == [[DataManager sharedDataManager] hotHkList].count) {
+        if (_hotHKArray.count == [[DataManager sharedDataManager] hotHkList].count && page2 != 1) {
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             return;
         }
@@ -152,7 +152,7 @@
 - (void)initDataSource4
 {
     [[DataManager sharedDataManager] loadRecentUpdateWithPage:page3 completion:^{
-        if (_recentUpdateArray.count == [[DataManager sharedDataManager] recentUpdate].count) {
+        if (_recentUpdateArray.count == [[DataManager sharedDataManager] recentUpdate].count && page3 != 1) {
             [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             return;
         }

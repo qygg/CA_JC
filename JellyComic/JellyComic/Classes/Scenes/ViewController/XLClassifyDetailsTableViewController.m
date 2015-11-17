@@ -129,8 +129,9 @@
 - (void)initDataSourceTopHot
 {
     [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeTophot cateId:self.categories.cateId page:page completion:^{
-        if (_topHotArray.count == [[DataManager sharedDataManager] categoryDetail].count) {
+        if (_topHotArray.count == [[DataManager sharedDataManager] categoryDetail].count && page != 1) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return;
         }
         _topHotArray = [[DataManager sharedDataManager] categoryDetail];
         [self.tableView reloadData];
@@ -142,8 +143,9 @@
 - (void)initDataSourceTime
 {
     [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeTime cateId:self.categories.cateId page:page1 completion:^{
-        if (_timeArray.count == [[DataManager sharedDataManager] categoryDetail].count) {
+        if (_timeArray.count == [[DataManager sharedDataManager] categoryDetail].count && page1 != 1) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return;
         }
         _timeArray = [[DataManager sharedDataManager] categoryDetail];
         [self.tableView reloadData];
@@ -155,8 +157,9 @@
 - (void)initDataSourceFinish
 {
     [[DataManager sharedDataManager] loadCategoryDetailWithCategoryType:CategoryTypeFinished cateId:self.categories.cateId page:page2 completion:^{
-        if (_finishArray.count == [[DataManager sharedDataManager] categoryDetail].count) {
+        if (_finishArray.count == [[DataManager sharedDataManager] categoryDetail].count && page2 != 1) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return;
         }
         _finishArray = [[DataManager sharedDataManager] categoryDetail];
         [self.tableView reloadData];

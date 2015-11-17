@@ -20,24 +20,36 @@
 @end
 
 @implementation XLAuthorDetailTableViewController
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    _dataArray = nil;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [[DataManager sharedDataManager] loadAuthorlistWithComicid:self.key page:page completion:^{
+//        _dataArray = [[DataManager sharedDataManager] authorList];
+//        [self.tableView reloadData];
+//    }];
+    page = 1;
     UINib *cellNib = [UINib nibWithNibName:@"XLClassifyDetailsTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"b"];
     self.title = self.author;
-    [self initDataTable];
     [self initDataSource];
+    [self initDataTable];
+    
 
     
 }
 - (void)initDataSource
 {
     [[DataManager sharedDataManager] loadAuthorlistWithComicid:self.key page:page completion:^{
-        if (_dataArray.count == [[DataManager sharedDataManager] authorList].count) {
+        if (_dataArray.count == [[DataManager sharedDataManager] authorList].count && page != 1) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return;
         }
         _dataArray = [[DataManager sharedDataManager] authorList];
+        NSLog(@"%ld",[[DataManager sharedDataManager] authorList].count);
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
