@@ -10,4 +10,6 @@
 
 @interface ZCBookshelfTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
 @end

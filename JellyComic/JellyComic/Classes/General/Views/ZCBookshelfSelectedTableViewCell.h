@@ -10,4 +10,8 @@
 
 @interface ZCBookshelfSelectedTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+@property (weak, nonatomic) IBOutlet UIButton *detailButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
 @end
