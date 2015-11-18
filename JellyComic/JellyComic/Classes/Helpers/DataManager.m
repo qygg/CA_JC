@@ -191,6 +191,11 @@
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         [self.chapterArray removeAllObjects];
+        [Chapter mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"ID": @"id"
+                     };
+        }];
         for (NSDictionary *dic in dict[@"data"]) {
             Chapter *chapter = [Chapter mj_objectWithKeyValues:dic];
             [self.chapterArray addObject:chapter];
