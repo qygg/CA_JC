@@ -212,7 +212,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        self.content = [Content mj_objectWithKeyValues:dict];
+        self.content = [Content mj_objectWithKeyValues:dict[@"data"]];
         dispatch_async(dispatch_get_main_queue(), ^{
             completion();
         });
