@@ -23,6 +23,7 @@
 		292BD3591BF46CD20013559E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3471BF46CD20013559E /* UIImageView+HighlightedWebCache.m */; };
 		292BD35A1BF46CD20013559E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3491BF46CD20013559E /* UIImageView+WebCache.m */; };
 		292BD35B1BF46CD20013559E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */; };
+		2966A60B1BFCBD8000A96AC4 /* SComic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2966A60A1BFCBD8000A96AC4 /* SComic.m */; };
 		2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */; };
 		298535211BF9CE64005FDE11 /* ZCBookshelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */; };
 		298535251BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 298535231BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m */; };
@@ -159,6 +160,8 @@
 		292BD3491BF46CD20013559E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		292BD34A1BF46CD20013559E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		2966A6091BFCBD8000A96AC4 /* SComic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SComic.h; sourceTree = "<group>"; };
+		2966A60A1BFCBD8000A96AC4 /* SComic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SComic.m; sourceTree = "<group>"; };
 		2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCBookshelfStoryboard.storyboard; sourceTree = "<group>"; };
 		2985351F1BF9CE64005FDE11 /* ZCBookshelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBookshelfViewController.h; sourceTree = "<group>"; };
 		298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBookshelfViewController.m; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 				299F6FFF1BF2E79D009F228C /* ComicSource.m */,
 				299F700D1BF31F98009F228C /* Content.h */,
 				299F700E1BF31F98009F228C /* Content.m */,
+				2966A6091BFCBD8000A96AC4 /* SComic.h */,
+				2966A60A1BFCBD8000A96AC4 /* SComic.m */,
 				299F70011BF2E982009F228C /* ScrollingImage.h */,
 				299F70021BF2E982009F228C /* ScrollingImage.m */,
 				299F6FE91BF2CF82009F228C /* Sign */,
@@ -912,6 +917,7 @@
 				C23078B91BF6D25700E6CDDE /* UIView+SDExtension.m in Sources */,
 				C23078881BF6D1F400E6CDDE /* MJRefreshFooter.m in Sources */,
 				C230789E1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.m in Sources */,
+				2966A60B1BFCBD8000A96AC4 /* SComic.m in Sources */,
 				C20440731BF9E72E008C85B7 /* XLSearchDetailTableViewController.m in Sources */,
 				C23078B41BF6D25700E6CDDE /* TAAnimatedDotView.m in Sources */,
 				299F703B1BF32E32009F228C /* NSObject+MJProperty.m in Sources */,
