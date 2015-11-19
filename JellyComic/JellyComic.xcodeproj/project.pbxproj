@@ -144,6 +144,8 @@
 		C286A6111BFD62C700A93826 /* userName.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60A1BFD62C700A93826 /* userName.png */; };
 		C286A6121BFD62C700A93826 /* version.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60B1BFD62C700A93826 /* version.png */; };
 		C286A6131BFD62C700A93826 /* we.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60C1BFD62C700A93826 /* we.png */; };
+		C286A6161BFDA5F100A93826 /* XLLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */; };
+		C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C286A6171BFDA60400A93826 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -381,6 +383,9 @@
 		C286A60A1BFD62C700A93826 /* userName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userName.png; sourceTree = "<group>"; };
 		C286A60B1BFD62C700A93826 /* version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = version.png; sourceTree = "<group>"; };
 		C286A60C1BFD62C700A93826 /* we.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = we.png; sourceTree = "<group>"; };
+		C286A6141BFDA5F100A93826 /* XLLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLLocalDataManager.h; sourceTree = "<group>"; };
+		C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLocalDataManager.m; sourceTree = "<group>"; };
+		C286A6171BFDA60400A93826 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +393,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +522,8 @@
 				299F6FE51BF2CF82009F228C /* Sign */,
 				299F70161BF32340009F228C /* DataManager.h */,
 				299F70171BF32340009F228C /* DataManager.m */,
+				C286A6141BFDA5F100A93826 /* XLLocalDataManager.h */,
+				C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -700,6 +708,7 @@
 		29CD4D9B1BF23EFD003EFA93 = {
 			isa = PBXGroup;
 			children = (
+				C286A6171BFDA60400A93826 /* libsqlite3.tbd */,
 				29CD4DA61BF23EFD003EFA93 /* JellyComic */,
 				29CD4DA51BF23EFD003EFA93 /* Products */,
 			);
@@ -1047,6 +1056,7 @@
 				292BD34D1BF46CD20013559E /* NSData+ImageContentType.m in Sources */,
 				292BD3551BF46CD20013559E /* UIButton+WebCache.m in Sources */,
 				292BD35A1BF46CD20013559E /* UIImageView+WebCache.m in Sources */,
+				C286A6161BFDA5F100A93826 /* XLLocalDataManager.m in Sources */,
 				299F70391BF32E32009F228C /* NSObject+MJCoding.m in Sources */,
 				C270435B1BF381A2001F7CC1 /* SSChapterViewController.m in Sources */,
 				292BD3561BF46CD20013559E /* UIImage+GIF.m in Sources */,
