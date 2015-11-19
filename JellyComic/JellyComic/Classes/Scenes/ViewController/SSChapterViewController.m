@@ -10,6 +10,7 @@
 #import "SSChapterTableViewCell.h"
 #import "DataManager.h"
 #import "Chapter.h"
+#import "SSContentViewController.h"
 
 @interface SSChapterViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *siteLabel;              // 站点
 
 @property (strong, nonatomic) NSMutableArray *chapterMutArray;
+//@property (strong, nonatomic) NSArray *chapterArr;
 
 
 @property (strong, nonatomic) NSArray *chapterArray;
@@ -36,6 +38,7 @@
 {
     [super viewWillAppear:animated];
     self.siteLabel.text = self.siteText;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self requestChapterData];
 }
 
@@ -43,9 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.ncTitle;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"缓存" style:(UIBarButtonItemStyleDone) target:self action:@selector(allDownLoadAction)];
-    
-    
+   
     // 设置代理、代码源
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -90,17 +91,6 @@
 }
 
 
-// 管理任务
-- (IBAction)managerOfTaskAction:(UIButton *)sender
-{
-    NSLog(@"管理任务");
-}
-
-// 缓存
-- (void)allDownLoadAction
-{
-    NSLog(@"缓存全部");
-}
 
 
 #pragma mark -  UITableViewDataSource,UITableViewDelegate
@@ -118,6 +108,7 @@
     }else{
         cell.backgroundColor = [UIColor whiteColor];
     }
+    
     Chapter *chapter = nil;
     if (!self.isSorting) {
         chapter = self.chapterArray[indexPath.row];
@@ -132,6 +123,24 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    SSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
+    
+    Chapter *chapter = [Chapter new];
+    if (!self.isSorting) {
+        chapter = self.chapterArray[indexPath.row];
+    } else {
+        chapter = self.chapterMutArray[indexPath.row];
+    }
+    
+    contentVC.chapterID = chapter.ID;
+    contentVC.site = self.siteText;
+    NSLog(@"--------%@",contentVC.chapterID);
+    [self.navigationController pushViewController:contentVC animated:YES];
 }
 
 

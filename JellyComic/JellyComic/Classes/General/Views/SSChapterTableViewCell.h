@@ -12,8 +12,5 @@
 
 // 章节
 @property (strong, nonatomic) IBOutlet UILabel *chapterLabel;
-// 缓存
-@property (strong, nonatomic) IBOutlet UIButton *downloadLabel;
-
 
 @end

@@ -95,46 +95,10 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NN5-4c-xk9">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前漫画无缓存任务" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8o-Hu-4rI">
-                                        <rect key="frame" x="15" y="0.0" width="144" height="50"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="textColor" red="0.92941176469999998" green="0.5135808945" blue="0.08051156558" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awM-3K-qSX">
-                                        <rect key="frame" x="520" y="10" width="70" height="30"/>
-                                        <animations/>
-                                        <color key="backgroundColor" red="0.92941176469999998" green="0.5135808945" blue="0.08051156558" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="KSR-9R-u9I"/>
-                                            <constraint firstAttribute="width" secondItem="awM-3K-qSX" secondAttribute="height" id="Zlg-PP-507"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <state key="normal" title="管理任务">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Zlg-PP-507"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="managerOfTaskAction:" destination="Fck-Hf-XD5" eventType="touchUpInside" id="ymQ-i4-Yao"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.9309550003713607" green="0.9309550003713607" blue="0.9309550003713607" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Amj-OQ-nid"/>
-                                    <constraint firstAttribute="bottom" secondItem="F8o-Hu-4rI" secondAttribute="bottom" id="Tox-V5-uqH"/>
-                                    <constraint firstAttribute="bottom" secondItem="awM-3K-qSX" secondAttribute="bottom" constant="10" id="WjO-Nd-LDP"/>
-                                    <constraint firstAttribute="trailing" secondItem="awM-3K-qSX" secondAttribute="trailing" constant="10" id="geK-Hw-Twt"/>
-                                    <constraint firstItem="awM-3K-qSX" firstAttribute="top" secondItem="NN5-4c-xk9" secondAttribute="top" constant="10" id="lOP-cN-dWs"/>
-                                    <constraint firstItem="F8o-Hu-4rI" firstAttribute="top" secondItem="NN5-4c-xk9" secondAttribute="top" id="rG2-aK-GVP"/>
-                                    <constraint firstItem="F8o-Hu-4rI" firstAttribute="leading" secondItem="NN5-4c-xk9" secondAttribute="leading" constant="15" id="vtv-fe-42M"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BUw-w0-CfN">
@@ -164,12 +128,29 @@
                         <outlet property="headerView" destination="gXG-mq-T4B" id="WqW-3l-r0U"/>
                         <outlet property="siteLabel" destination="P6B-Zu-1Va" id="iK9-h2-RbT"/>
                         <outlet property="tableView" destination="BUw-w0-CfN" id="Y3j-yk-1Et"/>
-                        <outlet property="taskButton" destination="awM-3K-qSX" id="NUC-mW-qJE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3S-uO-Exq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1083" y="1109"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="rjd-uL-YGf">
+            <objects>
+                <viewController storyboardIdentifier="ContentViewController" id="ael-OG-aoC" customClass="SSContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VNe-u7-Ram"/>
+                        <viewControllerLayoutGuide type="bottom" id="F9P-e0-KBV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RLA-vS-68k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yiI-gR-2sh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760" y="1059"/>
         </scene>
     </scenes>
 </document>

@@ -81,6 +81,7 @@
 		C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */; };
 		C20440781BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */; };
 		C216ABBD1BFAC231005FBB80 /* titlebg.png in Resources */ = {isa = PBXBuildFile; fileRef = C216ABBC1BFAC231005FBB80 /* titlebg.png */; };
+		C223E38F1BFDB2AE0063F155 /* SSContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C223E38E1BFDB2AE0063F155 /* SSContentViewController.m */; };
 		C23078851BF6D1F400E6CDDE /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785B1BF6D1F400E6CDDE /* MJRefreshAutoFooter.m */; };
 		C23078861BF6D1F400E6CDDE /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785D1BF6D1F400E6CDDE /* MJRefreshBackFooter.m */; };
 		C23078871BF6D1F400E6CDDE /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785F1BF6D1F400E6CDDE /* MJRefreshComponent.m */; };
@@ -276,6 +277,8 @@
 		C20440761BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLAuthorDetailTableViewController.h; sourceTree = "<group>"; };
 		C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLAuthorDetailTableViewController.m; sourceTree = "<group>"; };
 		C216ABBC1BFAC231005FBB80 /* titlebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlebg.png; sourceTree = "<group>"; };
+		C223E38D1BFDB2AE0063F155 /* SSContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSContentViewController.h; sourceTree = "<group>"; };
+		C223E38E1BFDB2AE0063F155 /* SSContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSContentViewController.m; sourceTree = "<group>"; };
 		C230785A1BF6D1F400E6CDDE /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		C230785B1BF6D1F400E6CDDE /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		C230785C1BF6D1F400E6CDDE /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -624,35 +627,37 @@
 				299F6FF01BF2CF83009F228C /* Sign */,
 				C27043591BF38197001F7CC1 /* SSChapterViewController.h */,
 				C270435A1BF381A2001F7CC1 /* SSChapterViewController.m */,
+				C223E38D1BFDB2AE0063F155 /* SSContentViewController.h */,
+				C223E38E1BFDB2AE0063F155 /* SSContentViewController.m */,
 				C270435F1BF381B6001F7CC1 /* SSDetail.storyboard */,
 				C270435C1BF381A8001F7CC1 /* SSDetailTableViewController.h */,
 				C270435D1BF381AC001F7CC1 /* SSDetailTableViewController.m */,
+				C286A5FE1BFD61A700A93826 /* XLAmendNickNameViewController.h */,
+				C286A5FF1BFD61A700A93826 /* XLAmendNickNameViewController.m */,
+				C286A6001BFD61A700A93826 /* XLAmendPwdViewController.h */,
+				C286A6011BFD61A700A93826 /* XLAmendPwdViewController.m */,
 				C20440761BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.h */,
 				C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */,
 				C20440661BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.h */,
 				C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */,
 				C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */,
-				C23078BA1BF6D2D800E6CDDE /* XLReconmmendViewController.h */,
-				C23078BB1BF6D2D800E6CDDE /* XLReconmmendViewController.m */,
-				C23078BD1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard */,
-				C20440711BF9E72E008C85B7 /* XLSearchDetailTableViewController.h */,
-				C20440721BF9E72E008C85B7 /* XLSearchDetailTableViewController.m */,
-				C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */,
-				C286A5E51BFD617F00A93826 /* XLMoreTableViewController.h */,
-				C286A5E61BFD617F00A93826 /* XLMoreTableViewController.m */,
-				C286A5E71BFD617F00A93826 /* XLLoginViewController.h */,
-				C286A5E81BFD617F00A93826 /* XLLoginViewController.m */,
-				C286A5E91BFD617F00A93826 /* XLRegisterViewController.h */,
-				C286A5EA1BFD617F00A93826 /* XLRegisterViewController.m */,
 				C286A5EB1BFD617F00A93826 /* XLFindPwdViewController.h */,
 				C286A5EC1BFD617F00A93826 /* XLFindPwdViewController.m */,
 				C286A5ED1BFD617F00A93826 /* XLLoginDetailTableViewController.h */,
 				C286A5EE1BFD617F00A93826 /* XLLoginDetailTableViewController.m */,
-				C286A5FE1BFD61A700A93826 /* XLAmendNickNameViewController.h */,
-				C286A5FF1BFD61A700A93826 /* XLAmendNickNameViewController.m */,
-				C286A6001BFD61A700A93826 /* XLAmendPwdViewController.h */,
-				C286A6011BFD61A700A93826 /* XLAmendPwdViewController.m */,
+				C286A5E71BFD617F00A93826 /* XLLoginViewController.h */,
+				C286A5E81BFD617F00A93826 /* XLLoginViewController.m */,
+				C286A5E51BFD617F00A93826 /* XLMoreTableViewController.h */,
+				C286A5E61BFD617F00A93826 /* XLMoreTableViewController.m */,
 				C286A6041BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard */,
+				C23078BA1BF6D2D800E6CDDE /* XLReconmmendViewController.h */,
+				C23078BB1BF6D2D800E6CDDE /* XLReconmmendViewController.m */,
+				C23078BD1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard */,
+				C286A5E91BFD617F00A93826 /* XLRegisterViewController.h */,
+				C286A5EA1BFD617F00A93826 /* XLRegisterViewController.m */,
+				C20440711BF9E72E008C85B7 /* XLSearchDetailTableViewController.h */,
+				C20440721BF9E72E008C85B7 /* XLSearchDetailTableViewController.m */,
+				C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */,
 				2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */,
 				2985351F1BF9CE64005FDE11 /* ZCBookshelfViewController.h */,
 				298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */,
@@ -1007,6 +1012,7 @@
 				299F6FF31BF2CF83009F228C /* AppDelegate.m in Sources */,
 				C23078911BF6D1F400E6CDDE /* MJRefreshNormalHeader.m in Sources */,
 				C230789A1BF6D22B00E6CDDE /* XLReconmmendView.m in Sources */,
+				C223E38F1BFDB2AE0063F155 /* SSContentViewController.m in Sources */,
 				292BD35B1BF46CD20013559E /* UIView+WebCacheOperation.m in Sources */,
 				C23078861BF6D1F400E6CDDE /* MJRefreshBackFooter.m in Sources */,
 				C23078B71BF6D25700E6CDDE /* SDCollectionViewCell.m in Sources */,
