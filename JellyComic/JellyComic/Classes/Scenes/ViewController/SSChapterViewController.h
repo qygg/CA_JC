@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SComic;
 @interface SSChapterViewController : UIViewController
 
 
@@ -15,5 +15,7 @@
 @property (nonatomic, strong) NSString *comicID;
 @property (nonatomic, strong) NSString *siteText;
 @property (nonatomic, strong) NSString *ncTitle;
+
+@property (nonatomic, strong) SComic *xlSComic;
 
 @end

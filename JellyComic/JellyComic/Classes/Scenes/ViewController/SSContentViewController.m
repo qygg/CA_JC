@@ -9,10 +9,14 @@
 #import "SSContentViewController.h"
 #import "DataManager.h"
 #import "Content.h"
+
 #import "UIImageView+WebCache.h"
 #import "Chapter.h"
 #import "SSSettingTableViewController.h"
 
+
+
+#import "XLLocalDataManager.h"
 
 @interface SSContentViewController ()<UIScrollViewDelegate>
 {
@@ -564,12 +568,24 @@
     return _dataSource;
 }
 
+
 - (NSMutableArray *)chapArray
 {
     if (!_chapArray) {
         self.chapArray = [NSMutableArray array];
     }
     return _chapArray;
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.xlSComic.contentPage = _currentPage;
+    [[XLLocalDataManager shareManager] open];
+    [[XLLocalDataManager shareManager] createTable:tableListhistory];
+    [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+    [[XLLocalDataManager shareManager] close];
+    
+
 }
 
 

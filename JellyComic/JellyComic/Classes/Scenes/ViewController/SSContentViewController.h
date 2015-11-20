@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class Chapter;
+
+
+@class SSReusableView;
+@class SComic;
 
 @interface SSContentViewController : UIViewController
 
@@ -18,5 +23,5 @@
 @property (nonatomic, assign) NSInteger index;
 
 
-
+@property (nonatomic, strong) SComic *xlSComic;
 @end

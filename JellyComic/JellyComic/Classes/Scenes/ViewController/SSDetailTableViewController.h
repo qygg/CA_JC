@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class ComicDetail;
-
+@class SComic;
 @interface SSDetailTableViewController : UITableViewController
 
 @property (strong, nonatomic) UIView *headerView;
@@ -25,7 +25,7 @@
 
 
 @property (strong, nonatomic) NSString  *comicId;                  // 漫画id
-
+@property (nonatomic, strong) SComic *xlSComic;
 
 
 @end

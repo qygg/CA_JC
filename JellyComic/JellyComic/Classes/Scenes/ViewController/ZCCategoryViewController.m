@@ -98,6 +98,7 @@ static NSString * const tableViewReuseID = @"sysdef";
     XLSearchDetailTableViewController *xlsearch = [[UIStoryboard storyboardWithName:@"XLSearchDetailTableViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"xlSearch"];
     xlsearch.key = [DataManager sharedDataManager].searchResult[indexPath.row].title;
     UINavigationController *xlsearchNC = [[UINavigationController alloc] initWithRootViewController:xlsearch];
+    xlsearchNC.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
     [self showViewController:xlsearchNC sender:nil];
     
 }
@@ -124,6 +125,7 @@ static NSString * const tableViewReuseID = @"sysdef";
     Categories *categories = [DataManager sharedDataManager].category[indexPath.item];
     xlClassifyDetail.categories = categories;
     UINavigationController *XLClassDetial = [[UINavigationController alloc] initWithRootViewController:xlClassifyDetail];
+    XLClassDetial.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
     [self showViewController:XLClassDetial sender:nil];
     
 }
@@ -165,6 +167,7 @@ static NSString * const tableViewReuseID = @"sysdef";
     XLSearchDetailTableViewController *xlsearch = [[UIStoryboard storyboardWithName:@"XLSearchDetailTableViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"xlSearch"];
     xlsearch.key = searchBar.text;
     UINavigationController *xlsearchNC = [[UINavigationController alloc] initWithRootViewController:xlsearch];
+    xlsearchNC.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
     [self showViewController:xlsearchNC sender:nil];
 
 }

@@ -98,7 +98,7 @@
     }
     
     _slideView = [[UIView alloc] initWithFrame:CGRectMake(0, TOPHEIGHT - 5, width, 5)];
-    [_slideView setBackgroundColor:[UIColor orangeColor]];
+    [_slideView setBackgroundColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
     [_topScrollView addSubview:_slideView];
 }
 - (void)initDataSource1
@@ -197,11 +197,9 @@
     [_topMainView addSubview:_topScrollView];
     for (int i = 0; i < _tabCount; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * width, 0, width, TOPHEIGHT)];
-        view.backgroundColor = [UIColor lightGrayColor];
-        if (i %2) {
-            view.backgroundColor = [UIColor grayColor];
-        }
+        view.backgroundColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, TOPHEIGHT)];
+        [button setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
         button.tag = i;
         if (i == 0) {
             [button setTitle:@"热门连载" forState:UIControlStateNormal];
@@ -238,6 +236,7 @@
     flowout.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
     flowout.headerReferenceSize = CGSizeMake(self.frame.size.width, 190);
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 60) collectionViewLayout:flowout];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     // 下拉刷新
     self.collectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         page = 1;
@@ -251,7 +250,7 @@
     }];
     
     
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [_scrollTableViews addObject:self.collectionView];
@@ -290,6 +289,7 @@
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height - 60) collectionViewLayout:flow];
+    reusecollectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     reusecollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         page1 = 1;
         [reusecollectionView.mj_header beginRefreshing];
@@ -303,7 +303,7 @@
     }];
     
     
-    reusecollectionView.backgroundColor = [UIColor whiteColor];
+
     reusecollectionView.delegate = self;
     reusecollectionView.dataSource = self;
     
@@ -331,7 +331,7 @@
         [self initDataSource3];
         
     }];
-    reusecollectionView.backgroundColor = [UIColor whiteColor];
+    reusecollectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     reusecollectionView.delegate = self;
     reusecollectionView.dataSource = self;
     
@@ -360,7 +360,7 @@
         [self initDataSource4];
         
     }];
-    reusecollectionView.backgroundColor = [UIColor whiteColor];
+    reusecollectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     reusecollectionView.delegate = self;
     reusecollectionView.dataSource = self;
     [_scrollTableViews addObject:reusecollectionView];

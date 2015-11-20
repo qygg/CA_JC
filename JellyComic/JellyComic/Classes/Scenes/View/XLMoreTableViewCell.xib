@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -16,14 +15,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wQp-7w-0jh">
-                        <rect key="frame" x="10" y="15" width="55" height="55"/>
+                        <rect key="frame" x="20" y="15" width="55" height="55"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wQp-7w-0jh" secondAttribute="height" multiplier="1:1" id="Nhq-Se-TJ6"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqI-9r-KzD">
-                        <rect key="frame" x="70" y="15" width="49" height="55"/>
+                        <rect key="frame" x="80" y="15" width="49" height="55"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="0.067784257329469716" green="0.070512820512820484" blue="0.069893270456506354" alpha="1" colorSpace="calibratedRGB"/>
@@ -32,7 +31,7 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="wQp-7w-0jh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="JD0-MH-t4M"/>
+                    <constraint firstItem="wQp-7w-0jh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JD0-MH-t4M"/>
                     <constraint firstItem="HqI-9r-KzD" firstAttribute="bottom" secondItem="wQp-7w-0jh" secondAttribute="bottom" id="OcM-CO-unF"/>
                     <constraint firstItem="wQp-7w-0jh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Yxu-pJ-VXT"/>
                     <constraint firstItem="HqI-9r-KzD" firstAttribute="top" secondItem="wQp-7w-0jh" secondAttribute="top" id="fzR-6N-aD9"/>
@@ -41,12 +40,12 @@
                 </constraints>
             </tableViewCellContentView>
             <animations/>
-            <color key="backgroundColor" red="0.86263396650912316" green="0.94708524049183807" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.81176470588235294" green="0.89803921568627454" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="backImage" destination="wQp-7w-0jh" id="If3-sA-qvU"/>
                 <outlet property="tagLabel" destination="HqI-9r-KzD" id="4I4-nd-FJA"/>
             </connections>
-            <point key="canvasLocation" x="298" y="319"/>
+            <point key="canvasLocation" x="418" y="210"/>
         </tableViewCell>
     </objects>
 </document>

@@ -14,6 +14,8 @@
 #import "UIImageView+WebCache.h"
 #import "ComicSource.h"
 #import "XLAuthorDetailTableViewController.h"
+#import "SComic.h"
+#import "XLLocalDataManager.h"
 @interface SSDetailTableViewController ()<UIGestureRecognizerDelegate>
 
 // 是否展开
@@ -245,6 +247,19 @@
 - (void)addCollectAction:(UIButton *)sender
 {
     NSLog(@"添加收藏");
+    [[XLLocalDataManager shareManager] open];
+    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+    for (SComic *s in array) {
+        if ([s.comicID isEqualToString:self.comicId]) {
+            [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
+            [[XLLocalDataManager shareManager] close];
+            return;
+        }
+    }
+    self.xlSComic.comicID = self.comicId;
+    [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListcollect];
+    [[XLLocalDataManager shareManager] close];
+    
 }
 
 #pragma mark -  开始阅读
@@ -312,6 +327,11 @@
     chapterVC.comicID = self.comicId;
     chapterVC.siteText = comicSource.title;
     chapterVC.ncTitle = self.comicDetail.title;
+    
+    self.xlSComic.comicID = self.comicId;
+    self.xlSComic.comicsrcID = comicSource.ID;
+    chapterVC.xlSComic = _xlSComic;
+    
     [self.navigationController pushViewController:chapterVC animated:YES];
 }
 

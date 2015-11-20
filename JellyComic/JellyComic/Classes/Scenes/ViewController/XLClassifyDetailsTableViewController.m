@@ -46,10 +46,10 @@
     self.menuButton.titleLabel.font = [UIFont systemFontOfSize:14.f];
     
     [self.menuButton setTitle:@"热门" forState:UIControlStateNormal];
-    
+    [self.menuButton setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
     [self.menuButton setImage:[UIImage imageNamed:@"expandableImage"] forState:UIControlStateNormal];
     self.menuButton.imageEdgeInsets = UIEdgeInsetsMake(11, 52, 11, 0);
-    [self.menuButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+
     [_menuButton addTarget:self action:@selector(btnPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_menuButton];
 
@@ -57,20 +57,23 @@
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"b"];
     CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 70;
     self.menuView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth, 64, 60, 110)];
-    self.menuView.backgroundColor = [UIColor blackColor];
-    
+    self.menuView.backgroundColor = [UIColor colorWithRed:0.812 green:0.898 blue:1.000 alpha:1.000];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     UIButton *hotButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 40, 30)];
     [hotButton setTitle:@"热门" forState:UIControlStateNormal];
+    [hotButton setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
     [hotButton addTarget:self action:@selector(hotAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.menuView addSubview:hotButton];
     
     UIButton *newButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 40, hotButton.frame.size.width, 30)];
     [newButton setTitle:@"最新" forState:UIControlStateNormal];
+    [newButton setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
     [newButton addTarget:self action:@selector(newAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.menuView addSubview:newButton];
     
     UIButton *finishButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 70, hotButton.frame.size.width, 30)];
     [finishButton setTitle:@"完结" forState:UIControlStateNormal];
+    [finishButton setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
     [finishButton addTarget:self action:@selector(finishAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.menuView addSubview:finishButton];
     self.bgWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -99,7 +102,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeAction)];
     [self.bgView addGestureRecognizer:tap];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStyleDone target:self action:@selector(returnAction:)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor orangeColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
     
 }
 - (void)returnAction:(UIBarButtonItem *)sender

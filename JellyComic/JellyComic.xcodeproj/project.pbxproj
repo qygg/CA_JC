@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29097ED31BFE007C00B94FCE /* userdef.png in Resources */ = {isa = PBXBuildFile; fileRef = 29097ED21BFE007C00B94FCE /* userdef.png */; };
+		29097ED71BFE02FA00B94FCE /* ZCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */; };
+		29097EDA1BFE036300B94FCE /* ZCLoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */; };
+		29097EDC1BFE06AB00B94FCE /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = 29097EDB1BFE06AB00B94FCE /* password.png */; };
 		292BD34C1BF46CD20013559E /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD32C1BF46CD20013559E /* MKAnnotationView+WebCache.m */; };
 		292BD34D1BF46CD20013559E /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD32E1BF46CD20013559E /* NSData+ImageContentType.m */; };
 		292BD34E1BF46CD20013559E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3301BF46CD20013559E /* SDImageCache.m */; };
@@ -23,6 +27,8 @@
 		292BD3591BF46CD20013559E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3471BF46CD20013559E /* UIImageView+HighlightedWebCache.m */; };
 		292BD35A1BF46CD20013559E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3491BF46CD20013559E /* UIImageView+WebCache.m */; };
 		292BD35B1BF46CD20013559E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */; };
+		2942D9F81BFEC5100053A5C3 /* ZCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */; };
+		2942D9FB1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */; };
 		2966A60B1BFCBD8000A96AC4 /* SComic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2966A60A1BFCBD8000A96AC4 /* SComic.m */; };
 		2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */; };
 		298535211BF9CE64005FDE11 /* ZCBookshelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */; };
@@ -71,12 +77,12 @@
 		29E98B2C1BF4B13F006F201B /* ZCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */; };
 		29E98B301BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */; };
 		29E98B311BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */; };
+		5D205F42D62C7B88E67D6E8E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324A0CFA8043E240339F582E /* Pods.framework */; };
 		C20440641BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */; };
 		C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */; };
 		C20440681BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */; };
 		C204406A1BF9D0EE008C85B7 /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */; };
 		C204406C1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */; };
-		C20440701BF9DB29008C85B7 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = C204406F1BF9DB29008C85B7 /* return.png */; };
 		C20440731BF9E72E008C85B7 /* XLSearchDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440721BF9E72E008C85B7 /* XLSearchDetailTableViewController.m */; };
 		C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */; };
 		C20440781BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */; };
@@ -138,18 +144,25 @@
 		C286A6021BFD61A700A93826 /* XLAmendNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C286A5FF1BFD61A700A93826 /* XLAmendNickNameViewController.m */; };
 		C286A6031BFD61A700A93826 /* XLAmendPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C286A6011BFD61A700A93826 /* XLAmendPwdViewController.m */; };
 		C286A6051BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C286A6041BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard */; };
-		C286A60D1BFD62C700A93826 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6061BFD62C700A93826 /* envelope.png */; };
 		C286A60E1BFD62C700A93826 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6071BFD62C700A93826 /* key.png */; };
-		C286A60F1BFD62C700A93826 /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6081BFD62C700A93826 /* set.png */; };
-		C286A6101BFD62C700A93826 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6091BFD62C700A93826 /* user.png */; };
 		C286A6111BFD62C700A93826 /* userName.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60A1BFD62C700A93826 /* userName.png */; };
-		C286A6121BFD62C700A93826 /* version.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60B1BFD62C700A93826 /* version.png */; };
-		C286A6131BFD62C700A93826 /* we.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60C1BFD62C700A93826 /* we.png */; };
 		C286A6161BFDA5F100A93826 /* XLLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */; };
 		C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C286A6171BFDA60400A93826 /* libsqlite3.tbd */; };
+		C2A582F31BFF164C0009091A /* version.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582ED1BFF164C0009091A /* version.png */; };
+		C2A582F41BFF164C0009091A /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582EE1BFF164C0009091A /* user.png */; };
+		C2A582F51BFF164C0009091A /* we.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582EF1BFF164C0009091A /* we.png */; };
+		C2A582F61BFF164C0009091A /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582F01BFF164C0009091A /* return.png */; };
+		C2A582F71BFF164C0009091A /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582F11BFF164C0009091A /* envelope.png */; };
+		C2A582F81BFF164C0009091A /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582F21BFF164C0009091A /* set.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		234C91A53258F8A6AAD98446 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		29097ED21BFE007C00B94FCE /* userdef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userdef.png; sourceTree = "<group>"; };
+		29097ED41BFE02FA00B94FCE /* ZCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLoginViewController.h; sourceTree = "<group>"; };
+		29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLoginViewController.m; sourceTree = "<group>"; };
+		29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCLoginStoryboard.storyboard; sourceTree = "<group>"; };
+		29097EDB1BFE06AB00B94FCE /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password.png; sourceTree = "<group>"; };
 		292BD32B1BF46CD20013559E /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		292BD32C1BF46CD20013559E /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		292BD32D1BF46CD20013559E /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -183,6 +196,10 @@
 		292BD3491BF46CD20013559E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		292BD34A1BF46CD20013559E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		2942D9F61BFEC5100053A5C3 /* ZCRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRegisterViewController.h; sourceTree = "<group>"; };
+		2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRegisterViewController.m; sourceTree = "<group>"; };
+		2942D9F91BFF0EE40053A5C3 /* ZCFindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFindPasswordViewController.h; sourceTree = "<group>"; };
+		2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCFindPasswordViewController.m; sourceTree = "<group>"; };
 		2966A6091BFCBD8000A96AC4 /* SComic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SComic.h; sourceTree = "<group>"; };
 		2966A60A1BFCBD8000A96AC4 /* SComic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SComic.m; sourceTree = "<group>"; };
 		2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCBookshelfStoryboard.storyboard; sourceTree = "<group>"; };
@@ -263,6 +280,7 @@
 		29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCategoryCollectionViewCell.h; sourceTree = "<group>"; };
 		29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		324A0CFA8043E240339F582E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20440611BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLClassifyDetailsTableViewCell.h; sourceTree = "<group>"; };
 		C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLClassifyDetailsTableViewCell.m; sourceTree = "<group>"; };
 		C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XLClassifyDetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -270,7 +288,6 @@
 		C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLClassifyDetailsTableViewController.m; sourceTree = "<group>"; };
 		C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
 		C204406B1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XLClassifyDetailsTableViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
-		C204406F1BF9DB29008C85B7 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
 		C20440711BF9E72E008C85B7 /* XLSearchDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSearchDetailTableViewController.h; sourceTree = "<group>"; };
 		C20440721BF9E72E008C85B7 /* XLSearchDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSearchDetailTableViewController.m; sourceTree = "<group>"; };
 		C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XLSearchDetailTableViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
@@ -379,16 +396,18 @@
 		C286A6001BFD61A700A93826 /* XLAmendPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLAmendPwdViewController.h; sourceTree = "<group>"; };
 		C286A6011BFD61A700A93826 /* XLAmendPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLAmendPwdViewController.m; sourceTree = "<group>"; };
 		C286A6041BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XLMoreTableViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
-		C286A6061BFD62C700A93826 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = "<group>"; };
 		C286A6071BFD62C700A93826 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
-		C286A6081BFD62C700A93826 /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
-		C286A6091BFD62C700A93826 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		C286A60A1BFD62C700A93826 /* userName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userName.png; sourceTree = "<group>"; };
-		C286A60B1BFD62C700A93826 /* version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = version.png; sourceTree = "<group>"; };
-		C286A60C1BFD62C700A93826 /* we.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = we.png; sourceTree = "<group>"; };
 		C286A6141BFDA5F100A93826 /* XLLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLLocalDataManager.h; sourceTree = "<group>"; };
 		C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLocalDataManager.m; sourceTree = "<group>"; };
 		C286A6171BFDA60400A93826 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C2A582ED1BFF164C0009091A /* version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = version.png; sourceTree = "<group>"; };
+		C2A582EE1BFF164C0009091A /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		C2A582EF1BFF164C0009091A /* we.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = we.png; sourceTree = "<group>"; };
+		C2A582F01BFF164C0009091A /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
+		C2A582F11BFF164C0009091A /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = "<group>"; };
+		C2A582F21BFF164C0009091A /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
+		D0D07F1ADAD519410BDE6F12 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */,
+				5D205F42D62C7B88E67D6E8E /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,18 +587,20 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C286A6061BFD62C700A93826 /* envelope.png */,
+				C2A582ED1BFF164C0009091A /* version.png */,
+				C2A582EE1BFF164C0009091A /* user.png */,
+				C2A582EF1BFF164C0009091A /* we.png */,
+				C2A582F01BFF164C0009091A /* return.png */,
+				C2A582F11BFF164C0009091A /* envelope.png */,
+				C2A582F21BFF164C0009091A /* set.png */,
+				29097EDB1BFE06AB00B94FCE /* password.png */,
+				29097ED21BFE007C00B94FCE /* userdef.png */,
 				C286A6071BFD62C700A93826 /* key.png */,
-				C286A6081BFD62C700A93826 /* set.png */,
-				C286A6091BFD62C700A93826 /* user.png */,
 				C286A60A1BFD62C700A93826 /* userName.png */,
-				C286A60B1BFD62C700A93826 /* version.png */,
-				C286A60C1BFD62C700A93826 /* we.png */,
 				C27043571BF38174001F7CC1 /* arrow.png */,
 				C27043551BF3816E001F7CC1 /* arrow1.png */,
 				C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */,
 				C27043531BF3816B001F7CC1 /* image_1.jpg */,
-				C204406F1BF9DB29008C85B7 /* return.png */,
 				299F6FEB1BF2CF83009F228C /* Sign */,
 				C216ABBC1BFAC231005FBB80 /* titlebg.png */,
 			);
@@ -664,6 +686,13 @@
 				29E98B251BF4B06C006F201B /* ZCCategory.storyboard */,
 				29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */,
 				29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */,
+				29097ED41BFE02FA00B94FCE /* ZCLoginViewController.h */,
+				29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */,
+				29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */,
+				2942D9F61BFEC5100053A5C3 /* ZCRegisterViewController.h */,
+				2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */,
+				2942D9F91BFF0EE40053A5C3 /* ZCFindPasswordViewController.h */,
+				2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -716,6 +745,8 @@
 				C286A6171BFDA60400A93826 /* libsqlite3.tbd */,
 				29CD4DA61BF23EFD003EFA93 /* JellyComic */,
 				29CD4DA51BF23EFD003EFA93 /* Products */,
+				B1A0A44488B9F5105E8319A4 /* Pods */,
+				352A09F51E7B9BB19BA0421C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -746,6 +777,23 @@
 				29CD4DA81BF23EFD003EFA93 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		352A09F51E7B9BB19BA0421C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				324A0CFA8043E240339F582E /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1A0A44488B9F5105E8319A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				234C91A53258F8A6AAD98446 /* Pods.debug.xcconfig */,
+				D0D07F1ADAD519410BDE6F12 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C23078581BF6D1F400E6CDDE /* MJRefresh */ = {
@@ -879,9 +927,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29CD4DBB1BF23EFD003EFA93 /* Build configuration list for PBXNativeTarget "JellyComic" */;
 			buildPhases = (
+				0CB9AD202FD1464408BDDA60 /* Check Pods Manifest.lock */,
 				29CD4DA01BF23EFD003EFA93 /* Sources */,
 				29CD4DA11BF23EFD003EFA93 /* Frameworks */,
 				29CD4DA21BF23EFD003EFA93 /* Resources */,
+				100F9CAF94865953352E1C92 /* Embed Pods Frameworks */,
+				5AE525875B2A59EA278AA0F2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -932,26 +983,30 @@
 				299F6FF51BF2CF83009F228C /* Sign in Resources */,
 				2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */,
 				C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */,
-				C286A6131BFD62C700A93826 /* we.png in Resources */,
 				C286A6111BFD62C700A93826 /* userName.png in Resources */,
 				C286A6051BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard in Resources */,
 				C23078BE1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard in Resources */,
+				C2A582F81BFF164C0009091A /* set.png in Resources */,
 				299F6FFC1BF2CF83009F228C /* Sign in Resources */,
 				299F6FF91BF2CF83009F228C /* Sign in Resources */,
 				C27043581BF38174001F7CC1 /* arrow.png in Resources */,
+				29097EDC1BFE06AB00B94FCE /* password.png in Resources */,
 				C230789F1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib in Resources */,
 				C204406C1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard in Resources */,
+				29097ED31BFE007C00B94FCE /* userdef.png in Resources */,
 				C27043601BF381B6001F7CC1 /* SSDetail.storyboard in Resources */,
+				C2A582F41BFF164C0009091A /* user.png in Resources */,
 				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
-				C286A60F1BFD62C700A93826 /* set.png in Resources */,
 				2985352B1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib in Resources */,
 				299F6FF61BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */,
+				29097EDA1BFE036300B94FCE /* ZCLoginStoryboard.storyboard in Resources */,
 				299F6FFB1BF2CF83009F228C /* Sign in Resources */,
 				C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */,
 				299F6FF41BF2CF83009F228C /* Sign in Resources */,
 				299F6FFA1BF2CF83009F228C /* Sign in Resources */,
 				C286A5FB1BFD619A00A93826 /* XLDetialTableViewCell.xib in Resources */,
+				C2A582F51BFF164C0009091A /* we.png in Resources */,
 				C270436A1BF381F2001F7CC1 /* SSDetailTableViewCell.xib in Resources */,
 				299F6FFD1BF2CF83009F228C /* Sign in Resources */,
 				29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */,
@@ -960,24 +1015,71 @@
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				C286A5E41BFD615F00A93826 /* XLMoreTableViewCell.xib in Resources */,
-				C286A6101BFD62C700A93826 /* user.png in Resources */,
+				C2A582F31BFF164C0009091A /* version.png in Resources */,
 				C216ABBD1BFAC231005FBB80 /* titlebg.png in Resources */,
 				C23078931BF6D1F400E6CDDE /* MJRefresh.bundle in Resources */,
 				298535261BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib in Resources */,
 				C286A5FD1BFD619A00A93826 /* XLChangeHeadTableViewCell.xib in Resources */,
+				C2A582F61BFF164C0009091A /* return.png in Resources */,
 				299F6FF81BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */,
 				299F6FF71BF2CF83009F228C /* Sign in Resources */,
 				C286A60E1BFD62C700A93826 /* key.png in Resources */,
+				C2A582F71BFF164C0009091A /* envelope.png in Resources */,
 				29E98B311BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib in Resources */,
-				C286A60D1BFD62C700A93826 /* envelope.png in Resources */,
-				C286A6121BFD62C700A93826 /* version.png in Resources */,
 				C27043651BF381D5001F7CC1 /* SSChapterTableViewCell.xib in Resources */,
-				C20440701BF9DB29008C85B7 /* return.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CB9AD202FD1464408BDDA60 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		100F9CAF94865953352E1C92 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AE525875B2A59EA278AA0F2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		29CD4DA01BF23EFD003EFA93 /* Sources */ = {
@@ -1006,6 +1108,7 @@
 				299F703A1BF32E32009F228C /* NSObject+MJKeyValue.m in Sources */,
 				299F70091BF2EE40009F228C /* ComicDetail.m in Sources */,
 				298535251BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m in Sources */,
+				2942D9F81BFEC5100053A5C3 /* ZCRegisterViewController.m in Sources */,
 				299F70181BF32340009F228C /* DataManager.m in Sources */,
 				C286A6021BFD61A700A93826 /* XLAmendNickNameViewController.m in Sources */,
 				C230788E1BF6D1F400E6CDDE /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1020,6 +1123,7 @@
 				292BD34F1BF46CD20013559E /* SDWebImageCompat.m in Sources */,
 				298535211BF9CE64005FDE11 /* ZCBookshelfViewController.m in Sources */,
 				C23078941BF6D1F400E6CDDE /* MJRefreshConst.m in Sources */,
+				29097ED71BFE02FA00B94FCE /* ZCLoginViewController.m in Sources */,
 				C23078B31BF6D25700E6CDDE /* TAAbstractDotView.m in Sources */,
 				C23078951BF6D1F400E6CDDE /* UIScrollView+MJExtension.m in Sources */,
 				29CD4DA91BF23EFD003EFA93 /* main.m in Sources */,
@@ -1070,6 +1174,7 @@
 				299F703C1BF32E32009F228C /* NSString+MJExtension.m in Sources */,
 				C286A5FA1BFD619A00A93826 /* XLDetialTableViewCell.m in Sources */,
 				299F703F1BF3345D009F228C /* RootViewController.m in Sources */,
+				2942D9FB1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m in Sources */,
 				C20440681BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m in Sources */,
 				299F700C1BF31BB0009F228C /* Chapter.m in Sources */,
 				299F70061BF2EBDA009F228C /* Comic.m in Sources */,
@@ -1187,6 +1292,7 @@
 		};
 		29CD4DBC1BF23EFD003EFA93 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 234C91A53258F8A6AAD98446 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JellyComic/Info.plist;
@@ -1198,6 +1304,7 @@
 		};
 		29CD4DBD1BF23EFD003EFA93 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D07F1ADAD519410BDE6F12 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JellyComic/Info.plist;

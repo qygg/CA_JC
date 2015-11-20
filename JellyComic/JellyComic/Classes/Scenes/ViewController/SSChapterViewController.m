@@ -11,7 +11,7 @@
 #import "DataManager.h"
 #import "Chapter.h"
 #import "SSContentViewController.h"
-
+#import "SComic.h"
 @interface SSChapterViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 
@@ -144,8 +144,15 @@
     }
     contentVC.chapter = chapter;
     contentVC.site = self.siteText;
+
     
     NSLog(@"%ld",contentVC.chapter.sid);
+
+
+   self.xlSComic.chapterID = chapter.ID;
+    contentVC.xlSComic = self.xlSComic;
+
+
     [self.navigationController pushViewController:contentVC animated:YES];
 
 }
