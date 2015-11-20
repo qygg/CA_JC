@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class SSReusableView;
-
+@class SComic;
 @interface SSContentViewController : UIViewController
 
 
@@ -16,5 +16,5 @@
 @property (strong, nonatomic) SSReusableView *reusableView;
 @property (strong, nonatomic) NSString *site;
 
-
+@property (nonatomic, strong) SComic *xlSComic;
 @end

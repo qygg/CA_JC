@@ -9,7 +9,7 @@
 #import "SSContentViewController.h"
 #import "DataManager.h"
 #import "Content.h"
-
+#import "XLLocalDataManager.h"
 @interface SSContentViewController ()<UIScrollViewDelegate>
 {
    BOOL isHidden;
@@ -283,6 +283,16 @@
     return _chapterArray;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.xlSComic.contentPage = _currentPage;
+    [[XLLocalDataManager shareManager] open];
+    [[XLLocalDataManager shareManager] createTable:tableListhistory];
+    [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+    [[XLLocalDataManager shareManager] close];
+    
+}
 
 
 

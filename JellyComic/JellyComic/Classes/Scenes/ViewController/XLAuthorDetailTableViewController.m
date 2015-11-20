@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "Comic.h"
 #import "UIImageView+WebCache.h"
+#import "SSDetailTableViewController.h"
 @interface XLAuthorDetailTableViewController ()
 {
     int page;
@@ -31,6 +32,7 @@
 //        _dataArray = [[DataManager sharedDataManager] authorList];
 //        [self.tableView reloadData];
 //    }];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     page = 1;
     UINib *cellNib = [UINib nibWithNibName:@"XLClassifyDetailsTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"b"];

@@ -31,10 +31,11 @@
     
     [self initDataTable];
     [self initDataSource];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     UINib *cellNib = [UINib nibWithNibName:@"XLClassifyDetailsTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"b"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStyleDone target:self action:@selector(returnAction:)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor orangeColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
     
 }
 

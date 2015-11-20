@@ -23,19 +23,35 @@ static sqlite3 *db = nil;
     if (db != nil) {
         return;
     }
-    NSString *path = NSHomeDirectory();
-    path = [path stringByAppendingPathComponent:@"SComic.sqlite"];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    path = [path stringByAppendingPathComponent:@"SComic1.sqlite"];
     int result = sqlite3_open(path.UTF8String, &db);
     if (result == SQLITE_OK) {
         NSLog(@"打开成功");
     }else
     {
-        NSLog(@"打开失败");
+        NSLog(@"打开失败,%d",result);
     }
 }
-- (void)createTable
+- (void)createTable:(tableList)type
 {
-    NSString *sqlString = @"CREATE  TABLE IF NOT EXISTS 'scomic' ('comicID' TEXT PRIMARY KEY NOT NULL, 'comicsrcID' TEXT NOT NULL, 'chapterID' TEXT NOT NULL, 'contentPage'INTEGER NOT NULL)";
+    NSString *tablelist = nil;
+    switch (type) {
+            
+        case tableListhistory:
+            tablelist = @"scomic";
+            break;
+        case tableListcollect:
+            tablelist = @"scomic1";
+            break;
+        default:
+            break;
+    }
+    NSString *s = @"CREATE  TABLE IF NOT EXISTS '";
+    NSString *s1 = @"' ('comicID' TEXT PRIMARY KEY NOT NULL, 'comicsrcID' TEXT NOT NULL, 'chapterID' TEXT NOT NULL, 'contentPage'INTEGER NOT NULL)";
+    NSString *s2 = [s stringByAppendingString:tablelist];
+    NSString *s3 = [s2 stringByAppendingString:s1];
+    NSString *sqlString = s3;
     char *error = nil;
     sqlite3_exec(db, sqlString.UTF8String, nil, nil, &error);
     if (error == nil) {
@@ -45,9 +61,21 @@ static sqlite3 *db = nil;
         NSLog(@"创建失败,失败操作数== '%s'",error);
     }
 }
-- (void)insertSComic:(SComic *)sComic
+- (void)insertSComic:(SComic *)sComic tableList:(tableList)type
 {
-    NSString *sqlString = [NSString stringWithFormat:@"insert into 'scomic' (comicID,comicsrcID,chapterID,contentPage) values ('%@','%@','%@','%ld')",sComic.comicID,sComic.comicsrcID,sComic.chapterID,sComic.contentPage];
+    NSString *tablelist = nil;
+    switch (type) {
+        case tableListhistory:
+            tablelist = @"scomic";
+            break;
+        case tableListcollect:
+            tablelist = @"scomic1";
+            break;
+        default:
+            break;
+    }
+
+    NSString *sqlString = [NSString stringWithFormat:@"insert into '%@' (comicID,comicsrcID,chapterID,contentPage) values ('%@','%@','%@','%ld')", tablelist, sComic.comicID,sComic.comicsrcID,sComic.chapterID,sComic.contentPage];
     char *error = nil;
     sqlite3_exec(db, sqlString.UTF8String, nil, nil, &error);
     if (error == nil) {
@@ -57,9 +85,19 @@ static sqlite3 *db = nil;
         NSLog(@"插入失败");
     }
 }
-- (void)deleteWithSComic:(NSString *)comicID
+- (void)deleteWithSComic:(NSString *)comicID tableList:(tableList)type
 {
-    NSString *sqlString = [NSString stringWithFormat:@"delete from 'scomic' where comicID = '%@'",comicID];
+    NSString *tablelist = nil;
+    switch (type) {
+        case tableListhistory:
+            tablelist = @"scomic";
+            break;
+            case tableListcollect:
+            tablelist = @"scomic1";
+        default:
+            break;
+    }
+    NSString *sqlString = [NSString stringWithFormat:@"delete from '%@' where comicID = '%@'",tablelist,comicID];
     char *error = nil;
     sqlite3_exec(db, sqlString.UTF8String, nil, nil, &error);
     if (error == nil) {
@@ -69,11 +107,22 @@ static sqlite3 *db = nil;
         NSLog(@"删除失败");
     }
 }
-- (NSArray *)selectAllSComic
+- (NSArray *)selectAllSComic:(tableList)type
 {
     NSMutableArray *array = nil;
     sqlite3_stmt *stmt = nil;
-    NSString *sqlString = @"select *from 'scomic'";
+    NSString *tablelist = nil;
+    switch (type) {
+        case tableListhistory:
+            tablelist = @"scomic";
+            break;
+        case tableListcollect:
+            tablelist = @"scomic1";
+            break;
+        default:
+            break;
+    }
+    NSString *sqlString = [NSString stringWithFormat:@"select *from '%@'",tablelist];
     int result = sqlite3_prepare(db, sqlString.UTF8String, -1, &stmt, nil);
     if (result == SQLITE_OK) {
         array = [[NSMutableArray alloc] initWithCapacity:20];
@@ -94,10 +143,21 @@ static sqlite3 *db = nil;
     sqlite3_finalize(stmt);
     return array;
 }
-- (SComic *)selectWithComicID:(NSString *)comicID
+- (SComic *)selectWithComicID:(NSString *)comicID tableList:(tableList)type
 {
     SComic *s = [SComic new];
-    NSString *sqlString = [NSString stringWithFormat:@"select * from 'scomic' where comicID = '%@'",comicID];
+    NSString *tablelist = nil;
+    switch (type) {
+        case tableListhistory:
+            tablelist = @"scomic";
+            break;
+            case tableListcollect:
+            tablelist = @"scomic1";
+            break;
+        default:
+            break;
+    }
+    NSString *sqlString = [NSString stringWithFormat:@"select * from '%@' where comicID = '%@'",tablelist,comicID];
     static sqlite3_stmt *stmt = nil;
     int result = sqlite3_prepare(db, sqlString.UTF8String, -1, &stmt, nil);
     if (result == SQLITE_OK) {
