@@ -28,6 +28,8 @@
 		292BD3591BF46CD20013559E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3471BF46CD20013559E /* UIImageView+HighlightedWebCache.m */; };
 		292BD35A1BF46CD20013559E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3491BF46CD20013559E /* UIImageView+WebCache.m */; };
 		292BD35B1BF46CD20013559E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */; };
+		2942D9F81BFEC5100053A5C3 /* ZCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */; };
+		2942D9FB1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */; };
 		2966A60B1BFCBD8000A96AC4 /* SComic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2966A60A1BFCBD8000A96AC4 /* SComic.m */; };
 		2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */; };
 		298535211BF9CE64005FDE11 /* ZCBookshelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */; };
@@ -195,6 +197,10 @@
 		292BD3491BF46CD20013559E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		292BD34A1BF46CD20013559E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		2942D9F61BFEC5100053A5C3 /* ZCRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRegisterViewController.h; sourceTree = "<group>"; };
+		2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRegisterViewController.m; sourceTree = "<group>"; };
+		2942D9F91BFF0EE40053A5C3 /* ZCFindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFindPasswordViewController.h; sourceTree = "<group>"; };
+		2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCFindPasswordViewController.m; sourceTree = "<group>"; };
 		2966A6091BFCBD8000A96AC4 /* SComic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SComic.h; sourceTree = "<group>"; };
 		2966A60A1BFCBD8000A96AC4 /* SComic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SComic.m; sourceTree = "<group>"; };
 		2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCBookshelfStoryboard.storyboard; sourceTree = "<group>"; };
@@ -683,6 +689,10 @@
 				29097ED41BFE02FA00B94FCE /* ZCLoginViewController.h */,
 				29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */,
 				29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */,
+				2942D9F61BFEC5100053A5C3 /* ZCRegisterViewController.h */,
+				2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */,
+				2942D9F91BFF0EE40053A5C3 /* ZCFindPasswordViewController.h */,
+				2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1098,6 +1108,7 @@
 				299F703A1BF32E32009F228C /* NSObject+MJKeyValue.m in Sources */,
 				299F70091BF2EE40009F228C /* ComicDetail.m in Sources */,
 				298535251BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.m in Sources */,
+				2942D9F81BFEC5100053A5C3 /* ZCRegisterViewController.m in Sources */,
 				299F70181BF32340009F228C /* DataManager.m in Sources */,
 				C286A6021BFD61A700A93826 /* XLAmendNickNameViewController.m in Sources */,
 				C230788E1BF6D1F400E6CDDE /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1163,6 +1174,7 @@
 				299F703C1BF32E32009F228C /* NSString+MJExtension.m in Sources */,
 				C286A5FA1BFD619A00A93826 /* XLDetialTableViewCell.m in Sources */,
 				299F703F1BF3345D009F228C /* RootViewController.m in Sources */,
+				2942D9FB1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m in Sources */,
 				C20440681BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m in Sources */,
 				299F700C1BF31BB0009F228C /* Chapter.m in Sources */,
 				299F70061BF2EBDA009F228C /* Comic.m in Sources */,

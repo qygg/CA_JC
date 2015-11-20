@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <AVOSCloud/AVOSCloud.h>
+
+#define kAppID @"3dJmT0meAQlTJSWX6eAm8IRs"
+#define kAppKey @"dBCFBwG0RUnrTvAa9A01sWfU"
 
 @interface AppDelegate ()
 
@@ -16,7 +20,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [AVOSCloud setApplicationId:kAppID clientKey:kAppKey];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     return YES;
 }
 
