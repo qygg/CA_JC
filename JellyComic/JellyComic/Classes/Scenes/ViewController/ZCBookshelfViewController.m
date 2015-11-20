@@ -65,6 +65,15 @@ static NSString * const reuseCVID = @"bookcv";
     [self.collectButton addTarget:self action:@selector(collectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.historyButton addTarget:self action:@selector(historyButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userCenterAction:)];
+    UITapGestureRecognizer *tapGR2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userCenterAction:)];
+    [self.userPhoto addGestureRecognizer:tapGR];
+    [self.userNameLabel addGestureRecognizer:tapGR2];
+    
+}
+
+- (void)userCenterAction:(id)sender {
+    [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
 }
 
 - (void)didReceiveMemoryWarning {

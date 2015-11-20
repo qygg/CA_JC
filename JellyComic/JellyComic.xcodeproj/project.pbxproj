@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29097ED11BFE006F00B94FCE /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 29097ED01BFE006F00B94FCE /* user.png */; };
+		29097ED31BFE007C00B94FCE /* userdef.png in Resources */ = {isa = PBXBuildFile; fileRef = 29097ED21BFE007C00B94FCE /* userdef.png */; };
+		29097ED71BFE02FA00B94FCE /* ZCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */; };
+		29097EDA1BFE036300B94FCE /* ZCLoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */; };
+		29097EDC1BFE06AB00B94FCE /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = 29097EDB1BFE06AB00B94FCE /* password.png */; };
 		292BD34C1BF46CD20013559E /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD32C1BF46CD20013559E /* MKAnnotationView+WebCache.m */; };
 		292BD34D1BF46CD20013559E /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD32E1BF46CD20013559E /* NSData+ImageContentType.m */; };
 		292BD34E1BF46CD20013559E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD3301BF46CD20013559E /* SDImageCache.m */; };
@@ -142,7 +147,6 @@
 		C286A60D1BFD62C700A93826 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6061BFD62C700A93826 /* envelope.png */; };
 		C286A60E1BFD62C700A93826 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6071BFD62C700A93826 /* key.png */; };
 		C286A60F1BFD62C700A93826 /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6081BFD62C700A93826 /* set.png */; };
-		C286A6101BFD62C700A93826 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A6091BFD62C700A93826 /* user.png */; };
 		C286A6111BFD62C700A93826 /* userName.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60A1BFD62C700A93826 /* userName.png */; };
 		C286A6121BFD62C700A93826 /* version.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60B1BFD62C700A93826 /* version.png */; };
 		C286A6131BFD62C700A93826 /* we.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60C1BFD62C700A93826 /* we.png */; };
@@ -152,6 +156,12 @@
 
 /* Begin PBXFileReference section */
 		234C91A53258F8A6AAD98446 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		29097ED01BFE006F00B94FCE /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		29097ED21BFE007C00B94FCE /* userdef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userdef.png; sourceTree = "<group>"; };
+		29097ED41BFE02FA00B94FCE /* ZCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLoginViewController.h; sourceTree = "<group>"; };
+		29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLoginViewController.m; sourceTree = "<group>"; };
+		29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCLoginStoryboard.storyboard; sourceTree = "<group>"; };
+		29097EDB1BFE06AB00B94FCE /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password.png; sourceTree = "<group>"; };
 		292BD32B1BF46CD20013559E /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		292BD32C1BF46CD20013559E /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		292BD32D1BF46CD20013559E /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -385,7 +395,6 @@
 		C286A6061BFD62C700A93826 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = "<group>"; };
 		C286A6071BFD62C700A93826 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		C286A6081BFD62C700A93826 /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
-		C286A6091BFD62C700A93826 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		C286A60A1BFD62C700A93826 /* userName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userName.png; sourceTree = "<group>"; };
 		C286A60B1BFD62C700A93826 /* version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = version.png; sourceTree = "<group>"; };
 		C286A60C1BFD62C700A93826 /* we.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = we.png; sourceTree = "<group>"; };
@@ -572,10 +581,12 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				29097EDB1BFE06AB00B94FCE /* password.png */,
+				29097ED21BFE007C00B94FCE /* userdef.png */,
+				29097ED01BFE006F00B94FCE /* user.png */,
 				C286A6061BFD62C700A93826 /* envelope.png */,
 				C286A6071BFD62C700A93826 /* key.png */,
 				C286A6081BFD62C700A93826 /* set.png */,
-				C286A6091BFD62C700A93826 /* user.png */,
 				C286A60A1BFD62C700A93826 /* userName.png */,
 				C286A60B1BFD62C700A93826 /* version.png */,
 				C286A60C1BFD62C700A93826 /* we.png */,
@@ -669,6 +680,9 @@
 				29E98B251BF4B06C006F201B /* ZCCategory.storyboard */,
 				29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */,
 				29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */,
+				29097ED41BFE02FA00B94FCE /* ZCLoginViewController.h */,
+				29097ED51BFE02FA00B94FCE /* ZCLoginViewController.m */,
+				29097ED91BFE036300B94FCE /* ZCLoginStoryboard.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -966,14 +980,18 @@
 				299F6FFC1BF2CF83009F228C /* Sign in Resources */,
 				299F6FF91BF2CF83009F228C /* Sign in Resources */,
 				C27043581BF38174001F7CC1 /* arrow.png in Resources */,
+				29097EDC1BFE06AB00B94FCE /* password.png in Resources */,
 				C230789F1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib in Resources */,
+				29097ED11BFE006F00B94FCE /* user.png in Resources */,
 				C204406C1BF9D0FF008C85B7 /* XLClassifyDetailsTableViewControllerStoryboard.storyboard in Resources */,
+				29097ED31BFE007C00B94FCE /* userdef.png in Resources */,
 				C27043601BF381B6001F7CC1 /* SSDetail.storyboard in Resources */,
 				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
 				C286A60F1BFD62C700A93826 /* set.png in Resources */,
 				2985352B1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib in Resources */,
 				299F6FF61BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */,
+				29097EDA1BFE036300B94FCE /* ZCLoginStoryboard.storyboard in Resources */,
 				299F6FFB1BF2CF83009F228C /* Sign in Resources */,
 				C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */,
 				299F6FF41BF2CF83009F228C /* Sign in Resources */,
@@ -987,7 +1005,6 @@
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				C286A5E41BFD615F00A93826 /* XLMoreTableViewCell.xib in Resources */,
-				C286A6101BFD62C700A93826 /* user.png in Resources */,
 				C216ABBD1BFAC231005FBB80 /* titlebg.png in Resources */,
 				C23078931BF6D1F400E6CDDE /* MJRefresh.bundle in Resources */,
 				298535261BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib in Resources */,
@@ -1095,6 +1112,7 @@
 				292BD34F1BF46CD20013559E /* SDWebImageCompat.m in Sources */,
 				298535211BF9CE64005FDE11 /* ZCBookshelfViewController.m in Sources */,
 				C23078941BF6D1F400E6CDDE /* MJRefreshConst.m in Sources */,
+				29097ED71BFE02FA00B94FCE /* ZCLoginViewController.m in Sources */,
 				C23078B31BF6D25700E6CDDE /* TAAbstractDotView.m in Sources */,
 				C23078951BF6D1F400E6CDDE /* UIScrollView+MJExtension.m in Sources */,
 				29CD4DA91BF23EFD003EFA93 /* main.m in Sources */,
