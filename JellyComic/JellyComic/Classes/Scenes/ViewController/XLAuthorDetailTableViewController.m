@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "Comic.h"
 #import "UIImageView+WebCache.h"
+#import "SSDetailTableViewController.h"
 @interface XLAuthorDetailTableViewController ()
 {
     int page;
@@ -103,7 +104,10 @@
 #pragma mark - tableView点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    Comic *comic = _dataArray[indexPath.row];
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+    SSDetailTVC.comicId = comic.comicId;
+    [self.navigationController pushViewController:SSDetailTVC animated:YES];
 }
 
 /*

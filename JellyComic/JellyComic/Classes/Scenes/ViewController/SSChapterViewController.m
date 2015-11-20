@@ -133,14 +133,21 @@
     Chapter *chapter = [Chapter new];
     if (!self.isSorting) {
         chapter = self.chapterArray[indexPath.row];
+        contentVC.chapterArray = [NSArray arrayWithArray:self.chapterArray];
+        contentVC.index = indexPath.row;
+        NSLog(@"########%ld",indexPath.row);
     } else {
         chapter = self.chapterMutArray[indexPath.row];
+        contentVC.chapterArray = [NSArray arrayWithArray:self.chapterMutArray];
+        contentVC.index = indexPath.row;
+        NSLog(@"$$$$$$$$$%ld",indexPath.row);
     }
-    
-    contentVC.chapterID = chapter.ID;
+    contentVC.chapter = chapter;
     contentVC.site = self.siteText;
-    NSLog(@"--------%@",contentVC.chapterID);
+    
+    NSLog(@"%ld",contentVC.chapter.sid);
     [self.navigationController pushViewController:contentVC animated:YES];
+
 }
 
 

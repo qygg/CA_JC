@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SSReusableView;
+@class Chapter;
 
 @interface SSContentViewController : UIViewController
 
 
-@property (nonatomic, strong) NSString *chapterID;
-@property (strong, nonatomic) SSReusableView *reusableView;
 @property (strong, nonatomic) NSString *site;
+@property (nonatomic, strong) Chapter *chapter;
+@property (nonatomic, strong) NSArray *chapterArray;
+@property (nonatomic, assign) NSInteger index;
+
 
 
 @end
