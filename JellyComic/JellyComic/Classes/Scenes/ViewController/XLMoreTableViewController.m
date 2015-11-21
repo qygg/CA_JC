@@ -72,6 +72,7 @@
         cell.tagLabel.text = @"版本号：1.0";
         cell.layer.borderColor = [[UIColor colorWithRed:0.489 green:0.788 blue:1.000 alpha:1.000] CGColor];
         cell.backImage.image = [UIImage imageNamed:@"version"];
+        
     }
     
     return cell;

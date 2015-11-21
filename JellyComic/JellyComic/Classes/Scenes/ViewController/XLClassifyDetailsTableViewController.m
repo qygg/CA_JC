@@ -310,6 +310,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XLClassifyDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"b" forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor colorWithRed:0.812 green:0.898 blue:1.000 alpha:1.000];
+    }else
+    {
+        cell.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
+    }
     if (i == 1) {
         self.comic = _topHotArray[indexPath.row];
         cell.nameLabel.text = _comic.title;
@@ -371,6 +377,7 @@
             break;
     }
     UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+
     [self showViewController:SSDeatilNC sender:nil];
 }
 

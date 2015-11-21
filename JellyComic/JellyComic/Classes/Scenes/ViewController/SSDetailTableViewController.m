@@ -38,11 +38,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
+    self.view.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStyleDone) target:self action:@selector(comebackXLReconmmendVC)];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"评论" style:(UIBarButtonItemStyleDone) target:self action:@selector(toCommentVC)];
-    
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
     [self requestComicDetailData];
     
     // 注册
@@ -72,7 +73,7 @@
     self.title = self.comicDetail.title;
     // headerView
     _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width,320)];
-    
+    _headerView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     // 图片
     _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(_headerView.frame.origin.x + 12, _headerView.frame.origin.y + 12, _headerView.frame.size.width /2.85,_headerView.frame.size.height / 1.85)];
     [_imgView sd_setImageWithURL:[NSURL URLWithString:self.comicDetail.thumb]];
@@ -94,7 +95,7 @@
     _authorButton.frame = CGRectMake(authorLabel.frame.origin.x + 40, authorLabel.frame.origin.y, _titleLabel.frame.size.width - 50, 25);
     [_authorButton setTitle:[NSString stringWithString:self.comicDetail.authorName] forState:UIControlStateNormal];
     _authorButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [_authorButton setTitleColor:[UIColor colorWithRed:0.221 green:0.579 blue:0.148 alpha:1.000] forState:(UIControlStateNormal)];
+    [_authorButton setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:(UIControlStateNormal)];
     _authorButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [_authorButton addTarget:self action:@selector(authorAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -131,7 +132,19 @@
     
     // 添加收藏
     _collectButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [_collectButton setTitle:@"添加收藏" forState:(UIControlStateNormal)];
+    [[XLLocalDataManager shareManager] open];
+    BOOL flag = NO;
+    NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+    for (SComic *s in array1) {
+        if ([s.comicID isEqualToString:self.comicId]) {
+            [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
+            [[XLLocalDataManager shareManager] close];
+            flag = YES;
+        }
+    }
+    if (flag == NO) {
+        [_collectButton setTitle:@"添加收藏" forState:(UIControlStateNormal)];
+    }
     [_collectButton setFrame:CGRectMake(_titleLabel.frame.origin.x, (_imgView.frame.origin.y + _imgView.frame.size.height) - 35, 80, 35)];
     _collectButton.tintColor = [UIColor whiteColor];
     _collectButton.backgroundColor = [UIColor colorWithRed:0.077 green:0.250 blue:1.000 alpha:1.000];
@@ -170,9 +183,10 @@
     // 提示
     _hintLabel = [[UILabel alloc] initWithFrame:CGRectMake(_hintLabel.frame.origin.x, _introduceLabel.frame.origin.y + 75, _headerView.frame.size.width, 40)];
     _hintLabel.text = @"    请选择漫画站进行阅读或者缓存。";
-    _hintLabel.textColor = [UIColor colorWithRed:0.934 green:0.461 blue:0.008 alpha:1.000];
+    
+    _hintLabel.textColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
     _hintLabel.font = [UIFont systemFontOfSize:15 weight:1];
-    _hintLabel.backgroundColor = [UIColor colorWithWhite:0.889 alpha:1.000];
+    _hintLabel.backgroundColor = [UIColor colorWithRed:0.841 green:0.847 blue:1.000 alpha:1.000];
     [_headerView addSubview:_hintLabel];
 
     self.tableView.tableHeaderView = _headerView;
@@ -246,30 +260,46 @@
 #pragma mark -  添加收藏
 - (void)addCollectAction:(UIButton *)sender
 {
-    NSLog(@"添加收藏");
+
     [[XLLocalDataManager shareManager] open];
-    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
-    for (SComic *s in array) {
+    NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+    NSArray *array2 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+    SComic *scomic = [SComic new];
+    for (SComic *s in array2) {
         if ([s.comicID isEqualToString:self.comicId]) {
+
+            [[XLLocalDataManager shareManager] close];
+            return;
+        }
+    }
+    for (SComic *s in array1) {
+        if ([s.comicID isEqualToString:self.comicId]) {
+            [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
             [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
             [[XLLocalDataManager shareManager] close];
             return;
         }
     }
-    self.xlSComic.comicID = self.comicId;
-    [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListcollect];
+    scomic.comicID = self.comicId;
+    [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
+    [[XLLocalDataManager shareManager] createTable:tableListcollect];
+    [[XLLocalDataManager shareManager] insertSComic:scomic tableList:tableListcollect];
     [[XLLocalDataManager shareManager] close];
-    
 }
 
 #pragma mark -  开始阅读
 - (void)startReadingAction:(UIButton *)sender
 {
-    NSLog(@"开始阅读");
+    [[XLLocalDataManager shareManager] open];
+    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+    for (SComic *s in array) {
+        if ([s.comicID isEqualToString:self.comicId]) {
+            NSLog(@"==-=-=-%@",s.chapterID);
+            [[XLLocalDataManager shareManager] close];
+            return;
+        }
+    }
 }
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -293,9 +323,10 @@
 {
     SSDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"detail" forIndexPath:indexPath];
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithWhite:0.961 alpha:1.000];
-    }else{
-        cell.backgroundColor = [UIColor whiteColor];
+        cell.backgroundColor = [UIColor colorWithRed:0.812 green:0.898 blue:1.000 alpha:1.000];
+    }else
+    {
+        cell.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     }
 
     
@@ -328,10 +359,13 @@
     chapterVC.siteText = comicSource.title;
     chapterVC.ncTitle = self.comicDetail.title;
     
-    self.xlSComic.comicID = self.comicId;
-    self.xlSComic.comicsrcID = comicSource.ID;
-    chapterVC.xlSComic = _xlSComic;
-    
+    SComic *scomic = [SComic new];
+    scomic.comicID = self.comicId;
+    scomic.comicsrcID = comicSource.ID;
+
+   
+    chapterVC.xlSComic = scomic;
+
     [self.navigationController pushViewController:chapterVC animated:YES];
 }
 

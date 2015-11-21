@@ -25,7 +25,7 @@
 
 
 @property (strong, nonatomic) NSString  *comicId;                  // 漫画id
-@property (nonatomic, strong) SComic *xlSComic;
+
 
 
 @end

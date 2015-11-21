@@ -46,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.ncTitle;
-   
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     // 设置代理、代码源
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -104,9 +104,10 @@
 {
     SSChapterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chapter" forIndexPath:indexPath];
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithWhite:0.974 alpha:1.000];
-    }else{
-        cell.backgroundColor = [UIColor whiteColor];
+        cell.backgroundColor = [UIColor colorWithRed:0.812 green:0.898 blue:1.000 alpha:1.000];
+    }else
+    {
+        cell.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     }
     
     Chapter *chapter = nil;

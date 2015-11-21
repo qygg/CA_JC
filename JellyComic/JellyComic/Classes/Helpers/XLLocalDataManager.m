@@ -82,7 +82,7 @@ static sqlite3 *db = nil;
         NSLog(@"插入成功");
     }else
     {
-        NSLog(@"插入失败");
+        NSLog(@"插入失败，%s",error);
     }
 }
 - (void)deleteWithSComic:(NSString *)comicID tableList:(tableList)type
@@ -137,9 +137,7 @@ static sqlite3 *db = nil;
     }else{
         NSLog(@"查询失败，失败操作数为%d",result);
     }
-    for (SComic *s in array) {
-        NSLog(@"%@",s);
-    }
+    
     sqlite3_finalize(stmt);
     return array;
 }
