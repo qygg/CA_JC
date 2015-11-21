@@ -580,11 +580,13 @@
 {
     [super viewWillDisappear:animated];
     self.xlSComic.contentPage = _currentPage;
-    NSLog(@"contentPage = %ld",self.xlSComic.contentPage);
-    NSLog(@"comicID = %@",self.xlSComic.comicID);
+    self.xlSComic.comicsrcTitle = _site;
+
     [[XLLocalDataManager shareManager] open];
     [[XLLocalDataManager shareManager] createTable:tableListhistory];
+    NSLog(@"%@",self.xlSComic.comicsrcTitle);
     [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+    
     [[XLLocalDataManager shareManager] close];
     
 

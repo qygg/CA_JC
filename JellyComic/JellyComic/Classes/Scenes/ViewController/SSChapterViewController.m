@@ -143,6 +143,7 @@
         contentVC.index = indexPath.row;
         NSLog(@"$$$$$$$$$%ld",indexPath.row);
     }
+    
     contentVC.chapter = chapter;
     contentVC.site = self.siteText;
 
@@ -151,8 +152,9 @@
 
 
    self.xlSComic.chapterID = chapter.ID;
+    self.xlSComic.chapterTitle = chapter.title;
     contentVC.xlSComic = self.xlSComic;
-
+    
 
     [self.navigationController pushViewController:contentVC animated:YES];
 

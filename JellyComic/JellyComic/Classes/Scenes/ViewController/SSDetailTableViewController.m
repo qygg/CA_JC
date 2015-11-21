@@ -16,6 +16,8 @@
 #import "XLAuthorDetailTableViewController.h"
 #import "SComic.h"
 #import "XLLocalDataManager.h"
+#import "Chapter.h"
+#import "SSContentViewController.h"
 @interface SSDetailTableViewController ()<UIGestureRecognizerDelegate>
 
 // 是否展开
@@ -155,6 +157,8 @@
     // 开始阅读
     _startReadButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     [_startReadButton setTitle:@"开始阅读" forState:(UIControlStateNormal)];
+    
+    
     [_startReadButton setFrame:CGRectMake(_collectButton.frame.origin.x + 95, (_imgView.frame.origin.y + _imgView.frame.size.height) - 35, 80, 35)];
     _startReadButton.tintColor = [UIColor whiteColor];
     _startReadButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.456 blue:0.092 alpha:1.000];
@@ -262,12 +266,15 @@
 {
 
     [[XLLocalDataManager shareManager] open];
+
+    
     NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     NSArray *array2 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
     SComic *scomic = [SComic new];
     for (SComic *s in array2) {
         if ([s.comicID isEqualToString:self.comicId]) {
-
+            [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+            [_collectButton setTitle:@"添加收藏" forState:UIControlStateNormal];
             [[XLLocalDataManager shareManager] close];
             return;
         }
@@ -294,7 +301,7 @@
     NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     for (SComic *s in array) {
         if ([s.comicID isEqualToString:self.comicId]) {
-            NSLog(@"==-=-=-%@",s.chapterID);
+            
             [[XLLocalDataManager shareManager] close];
             return;
         }
@@ -361,8 +368,9 @@
     
     SComic *scomic = [SComic new];
     scomic.comicID = self.comicId;
-    scomic.comicsrcID = comicSource.ID;
+    scomic.comicImageUrl = self.comicDetail.thumb;
 
+    scomic.comicTitle = self.comicDetail.title;
    
     chapterVC.xlSComic = scomic;
 
