@@ -14,5 +14,9 @@
 @property (nonatomic, copy) NSString *comicsrcID;
 @property (nonatomic, copy) NSString *chapterID;
 @property (nonatomic, assign) NSInteger contentPage;
+@property (nonatomic, copy) NSString *comicTitle;
+@property (nonatomic, copy) NSString *comicsrcTitle;
+@property (nonatomic, copy) NSString *chapterTitle;
+@property (nonatomic, copy) NSString *comicImageUrl;
 
 @end
