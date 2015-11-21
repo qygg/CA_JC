@@ -73,6 +73,7 @@
 		29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB01BF23EFD003EFA93 /* Main.storyboard */; };
 		29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */; };
 		29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CD4DB51BF23EFD003EFA93 /* LaunchScreen.storyboard */; };
+		29CD882A1C00B08100A0BD4C /* ZCContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD88291C00B08100A0BD4C /* ZCContentTableViewController.m */; };
 		29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B251BF4B06C006F201B /* ZCCategory.storyboard */; };
 		29E98B2C1BF4B13F006F201B /* ZCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */; };
 		29E98B301BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */; };
@@ -274,6 +275,8 @@
 		29CD4DB31BF23EFD003EFA93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CD4DB61BF23EFD003EFA93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CD4DB81BF23EFD003EFA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29CD88281C00B08100A0BD4C /* ZCContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCContentTableViewController.h; sourceTree = "<group>"; };
+		29CD88291C00B08100A0BD4C /* ZCContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCContentTableViewController.m; sourceTree = "<group>"; };
 		29E98B251BF4B06C006F201B /* ZCCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ZCCategory.storyboard; path = ../../../ZCCategory.storyboard; sourceTree = "<group>"; };
 		29E98B2A1BF4B13F006F201B /* ZCCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCategoryViewController.h; sourceTree = "<group>"; };
 		29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCategoryViewController.m; sourceTree = "<group>"; };
@@ -693,6 +696,8 @@
 				2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */,
 				2942D9F91BFF0EE40053A5C3 /* ZCFindPasswordViewController.h */,
 				2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */,
+				29CD88281C00B08100A0BD4C /* ZCContentTableViewController.h */,
+				29CD88291C00B08100A0BD4C /* ZCContentTableViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1148,6 +1153,7 @@
 				C23078921BF6D1F400E6CDDE /* MJRefreshStateHeader.m in Sources */,
 				292BD3591BF46CD20013559E /* UIImageView+HighlightedWebCache.m in Sources */,
 				C286A5F01BFD617F00A93826 /* XLLoginViewController.m in Sources */,
+				29CD882A1C00B08100A0BD4C /* ZCContentTableViewController.m in Sources */,
 				299F70341BF32E32009F228C /* MJFoundation.m in Sources */,
 				C286A6031BFD61A700A93826 /* XLAmendPwdViewController.m in Sources */,
 				299F70371BF32E32009F228C /* MJPropertyType.m in Sources */,

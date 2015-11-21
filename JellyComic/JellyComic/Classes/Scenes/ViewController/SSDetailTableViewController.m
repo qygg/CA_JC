@@ -190,7 +190,7 @@
     
     _hintLabel.textColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
     _hintLabel.font = [UIFont systemFontOfSize:15 weight:1];
-    _hintLabel.backgroundColor = [UIColor colorWithRed:0.841 green:0.847 blue:1.000 alpha:1.000];
+    _hintLabel.backgroundColor = [UIColor colorWithRed:0.750 green:0.837 blue:1.000 alpha:1.000];
     [_headerView addSubview:_hintLabel];
 
     self.tableView.tableHeaderView = _headerView;
