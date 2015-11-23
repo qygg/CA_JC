@@ -299,6 +299,7 @@
         if ([s.comicID isEqualToString:self.comicId]) {
             [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
             [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
             [[XLLocalDataManager shareManager] close];
             return;
         }
@@ -307,6 +308,7 @@
     
 
     [[XLLocalDataManager shareManager] insertSComic:scomic tableList:tableListcollect];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
     [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
     [[XLLocalDataManager shareManager] close];
 }
