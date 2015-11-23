@@ -109,10 +109,45 @@ static sqlite3 *db = nil;
 }
 - (NSArray *)selectAllSComic:(tableList)type
 {
-    SComic *s = [SComic new];
+    
+//    NSMutableArray *array = nil;
+//   static sqlite3_stmt *stmt = nil;
+//    NSString *tablelist = nil;
+//    switch (type) {
+//        case tableListhistory:
+//            tablelist = @"scomic";
+//            break;
+//        case tableListcollect:
+//            tablelist = @"scomic1";
+//            break;
+//        default:
+//            break;
+//    }
+//    NSString *sqlString = [NSString stringWithFormat:@"select *from '%@'",tablelist];
+//    int result = sqlite3_prepare(db, sqlString.UTF8String, -1, &stmt, nil);
+//    if (result == SQLITE_OK) {
+//        SComic *s = [SComic new];
+//        array = [[NSMutableArray alloc] initWithCapacity:20];
+//        while (sqlite3_step(stmt) == SQLITE_ROW) {
+//            s.comicID = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 0)];
+//            s.comicsrcID = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 1)];
+//            s.chapterID = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 2)];
+//            s.contentPage = sqlite3_column_int(stmt, 3);
+//            s.comicTitle = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 4)];
+//            s.comicsrcTitle = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 5)];
+//            s.chapterTitle = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 6)];
+//            s.comicImageUrl = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 7)];
+//            [array addObject:s];
+//        }
+//    }
+//    
+//    sqlite3_finalize(stmt);
+//    return array;
+    
+    
     NSMutableArray *array = nil;
-    sqlite3_stmt *stmt = nil;
     NSString *tablelist = nil;
+    static sqlite3_stmt *stmt = nil;
     switch (type) {
         case tableListhistory:
             tablelist = @"scomic";
@@ -123,11 +158,12 @@ static sqlite3 *db = nil;
         default:
             break;
     }
-    NSString *sqlString = [NSString stringWithFormat:@"select *from '%@'",tablelist];
+    NSString *sqlString = [NSString stringWithFormat:@"select * from '%@'",tablelist];
     int result = sqlite3_prepare(db, sqlString.UTF8String, -1, &stmt, nil);
     if (result == SQLITE_OK) {
         array = [[NSMutableArray alloc] initWithCapacity:20];
         while (sqlite3_step(stmt) == SQLITE_ROW) {
+            SComic *s = [SComic new];
             s.comicID = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 0)];
             s.comicsrcID = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 1)];
             s.chapterID = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 2)];
@@ -138,10 +174,7 @@ static sqlite3 *db = nil;
             s.comicImageUrl = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 7)];
             [array addObject:s];
         }
-    }else{
-        NSLog(@"查询失败，失败操作数为%d",result);
     }
-    
     sqlite3_finalize(stmt);
     return array;
 }
