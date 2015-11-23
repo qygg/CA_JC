@@ -18,7 +18,14 @@
 #import "XLLocalDataManager.h"
 #import "Chapter.h"
 #import "SSContentViewController.h"
+#import "SSRollingBtn.h"
+#import "SSContentViewController.h"
+
 @interface SSDetailTableViewController ()<UIGestureRecognizerDelegate>
+{
+    BOOL isRead;
+    
+}
 
 // 是否展开
 @property (nonatomic, assign) BOOL expand;
@@ -35,7 +42,27 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     _expand = YES;
+    isRead = NO;
+    
+    [[XLLocalDataManager shareManager] open];
+    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+    for (SComic *s in array) {
+        if ([s.comicID isEqualToString:self.comicId]) {
+            NSLog(@"%@",s.chapterTitle);
+            NSString *string = @"续看：";
+            NSString *string1 = [string stringByAppendingString:s.chapterTitle];
+            [_startReadButton setTextString:string1];
+//            [_startReadButton setRollingSpeed:40.f];
+//            _startReadButton.contentLabel.textColor = [UIColor whiteColor];
+//            _startReadButton.contentLabel.font = [UIFont systemFontOfSize:14];
+//            [_startReadButton start];
+            [[XLLocalDataManager shareManager] close];
+            isRead = YES;
+        }
+    }
+    
 }
 
 - (void)viewDidLoad {
@@ -155,30 +182,31 @@
     [_headerView addSubview:_collectButton];
     
     // 开始阅读
-    _startReadButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    _startReadButton = [SSRollingBtn buttonWithType:(UIButtonTypeCustom)];
+    [_startReadButton setFrame:CGRectMake(_collectButton.frame.origin.x + 95, (_imgView.frame.origin.y + _imgView.frame.size.height) - 35, 80, 35)];
+    _startReadButton.tintColor = [UIColor whiteColor];
+    _startReadButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.456 blue:0.092 alpha:1.000];
+    _startReadButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    
     [[XLLocalDataManager shareManager] open];
     NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
-    BOOL b = NO;
     for (SComic *s in array) {
         if ([s.comicID isEqualToString:self.comicId]) {
             NSLog(@"%@",s.chapterTitle);
             NSString *string = @"续看：";
             NSString *string1 = [string stringByAppendingString:s.chapterTitle];
-            [_startReadButton setTitle:string1 forState:UIControlStateNormal];
+            [_startReadButton setTextString:string1];
+            [_startReadButton setRollingSpeed:40.f];
+            _startReadButton.contentLabel.textColor = [UIColor whiteColor];
+            _startReadButton.contentLabel.font = [UIFont systemFontOfSize:14];
+            [_startReadButton start];
             [[XLLocalDataManager shareManager] close];
-            b = YES;
+            isRead = YES;
         }
     }
-    if (b == NO) {
+    if (isRead == NO) {
         [_startReadButton setTitle:@"开始阅读" forState:(UIControlStateNormal)];
     }
-    
-    
-    
-    [_startReadButton setFrame:CGRectMake(_collectButton.frame.origin.x + 95, (_imgView.frame.origin.y + _imgView.frame.size.height) - 35, 80, 35)];
-    _startReadButton.tintColor = [UIColor whiteColor];
-    _startReadButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.456 blue:0.092 alpha:1.000];
-    _startReadButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [_startReadButton addTarget:self action:@selector(startReadingAction:) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:_startReadButton];
     
@@ -280,9 +308,7 @@
 #pragma mark -  添加收藏
 - (void)addCollectAction:(UIButton *)sender
 {
-
     [[XLLocalDataManager shareManager] open];
-
     [[XLLocalDataManager shareManager] createTable:tableListcollect];
     NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     NSArray *array2 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
@@ -318,8 +344,51 @@
 #pragma mark -  开始阅读
 - (void)startReadingAction:(UIButton *)sender
 {
-
+    SSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
+    
+    if (isRead == NO) {
+        ComicSource *comicSource = _comicStrArray[0];
+        NSMutableArray *chapterArray = [NSMutableArray array];
+        [[DataManager sharedDataManager] loadChapterWithComicsrcid:comicSource.ID comicid:self.comicId completion:^{
+            [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
+            Chapter *chapter = chapterArray[0];
+            contentVC.chapterID = chapter.ID;
+            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+            contentVC.index = 0;
+            contentVC.site = comicSource.title;
+            [self.navigationController pushViewController:contentVC animated:YES];
+        }];
+        isRead = YES;
+    }else{
+        ComicSource *comicSource = [ComicSource new];
+        [[XLLocalDataManager shareManager] open];
+        SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.comicId tableList:tableListhistory];
+        comicSource.ID = scomic.comicsrcID;
+        contentVC.contectPage = scomic.contentPage;
+        NSLog(@" ========== %ld",scomic.contentPage);
+        contentVC.chapterID = scomic.chapterID;
+        contentVC.site = scomic.comicsrcTitle;
+        [[XLLocalDataManager shareManager] close];
+        
+        NSMutableArray *chapterArray = [NSMutableArray array];
+        [[DataManager sharedDataManager] loadChapterWithComicsrcid:scomic.comicsrcID comicid:self.comicId completion:^{
+            [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
+            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+            
+            for (int i = 0; i < chapterArray.count - 1; i++) {
+                Chapter *chapter = chapterArray[i];
+                if ([contentVC.chapterID isEqualToString:chapter.ID]) {
+                    contentVC.index = i;
+                }
+            }
+            [self.navigationController pushViewController:contentVC animated:YES];
+        }];
+        
+    }
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
