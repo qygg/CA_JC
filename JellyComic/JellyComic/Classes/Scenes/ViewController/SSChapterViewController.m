@@ -56,6 +56,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SSChapterTableViewCell" bundle:nil] forCellReuseIdentifier:@"chapter"];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
 
     _isSorting = NO;
 }

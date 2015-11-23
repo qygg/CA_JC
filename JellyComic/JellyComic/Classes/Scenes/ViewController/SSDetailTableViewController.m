@@ -308,9 +308,7 @@
 #pragma mark -  添加收藏
 - (void)addCollectAction:(UIButton *)sender
 {
-
     [[XLLocalDataManager shareManager] open];
-
     [[XLLocalDataManager shareManager] createTable:tableListcollect];
     NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     NSArray *array2 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
@@ -318,6 +316,7 @@
     for (SComic *s in array2) {
         if ([s.comicID isEqualToString:self.comicId]) {
             [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
             [_collectButton setTitle:@"添加收藏" forState:UIControlStateNormal];
             [[XLLocalDataManager shareManager] close];
             return;
@@ -327,6 +326,7 @@
         if ([s.comicID isEqualToString:self.comicId]) {
             [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
             [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
             [[XLLocalDataManager shareManager] close];
             return;
         }
@@ -336,6 +336,7 @@
     scomic.comicImageUrl = self.comicDetail.thumb;
     scomic.comicTitle = self.comicDetail.title;
     [[XLLocalDataManager shareManager] insertSComic:scomic tableList:tableListcollect];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
     [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
     [[XLLocalDataManager shareManager] close];
 }
