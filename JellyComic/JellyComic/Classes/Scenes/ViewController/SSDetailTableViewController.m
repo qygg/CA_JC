@@ -280,9 +280,7 @@
 #pragma mark -  添加收藏
 - (void)addCollectAction:(UIButton *)sender
 {
-
     [[XLLocalDataManager shareManager] open];
-
     [[XLLocalDataManager shareManager] createTable:tableListcollect];
     NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     NSArray *array2 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
