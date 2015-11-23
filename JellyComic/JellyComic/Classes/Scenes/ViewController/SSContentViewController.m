@@ -613,7 +613,7 @@
     
     [[XLLocalDataManager shareManager] close];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"dbchange" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
     
 }
 
