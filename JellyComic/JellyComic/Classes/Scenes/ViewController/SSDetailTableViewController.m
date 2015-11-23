@@ -304,8 +304,9 @@
         }
     }
     scomic.comicID = self.comicId;
-    
-
+    scomic.updateTime = ((SSDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).dateLabel.text;
+    scomic.comicImageUrl = self.comicDetail.thumb;
+    scomic.comicTitle = self.comicDetail.title;
     [[XLLocalDataManager shareManager] insertSComic:scomic tableList:tableListcollect];
     [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
     [[XLLocalDataManager shareManager] close];
@@ -355,8 +356,8 @@
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:comicSource.lastCharpterUpdateTime];
-    cell.dateLabel.text =  [formatter stringFromDate:date];
-    self.xlUpdate = cell.dateLabel.text;
+    cell.dateLabel.text = [formatter stringFromDate:date];
+   
     cell.upDateLabel.text = [NSString stringWithFormat:@"最新更新:%@",comicSource.lastCharpterTitle];
     return cell;
 }
@@ -380,7 +381,7 @@
     scomic.comicImageUrl = self.comicDetail.thumb;
     scomic.comicsrcID = comicSource.ID;
     scomic.comicTitle = self.comicDetail.title;
-    scomic.updateTime = self.xlUpdate;
+    scomic.updateTime = ((SSDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).dateLabel.text;
     chapterVC.xlSComic = scomic;
 
     [self.navigationController pushViewController:chapterVC animated:YES];
