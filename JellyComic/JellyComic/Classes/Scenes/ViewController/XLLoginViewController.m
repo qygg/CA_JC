@@ -9,7 +9,7 @@
 #import "XLLoginViewController.h"
 #import "XLRegisterViewController.h"
 #import "XLFindPwdViewController.h"
-#import "XLLoginDetailTableViewController.h"
+#import "XLLoginDetailViewController.h"
 @interface XLLoginViewController ()
 
 @property (nonatomic, strong) UIButton *loginButton;
@@ -83,7 +83,7 @@
 #pragma mark - 登陆点击事件
 - (void)loginButtonAction:(UIButton *)sender
 {
-    XLLoginDetailTableViewController *xlLoginDetail = [XLLoginDetailTableViewController new];
+    XLLoginDetailViewController *xlLoginDetail = [XLLoginDetailViewController new];
     [self.navigationController pushViewController:xlLoginDetail animated:YES];
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
