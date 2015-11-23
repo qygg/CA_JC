@@ -364,7 +364,7 @@
         SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.comicId tableList:tableListhistory];
         comicSource.ID = scomic.comicsrcID;
         contentVC.contectPage = scomic.contentPage;
-        NSLog(@" ========== %ld",scomic.contentPage);
+        NSLog(@" ========== %ld",contentVC.contectPage);
         contentVC.chapterID = scomic.chapterID;
         contentVC.site = scomic.comicsrcTitle;
         [[XLLocalDataManager shareManager] close];

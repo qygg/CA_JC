@@ -41,20 +41,11 @@
 @property (strong, nonatomic) UIView *middleView;            // 点击区域
 @property (strong, nonatomic) IBOutlet UILabel *stateLabel;  // 底部状态栏
 @property (assign, nonatomic) NSInteger currentPage;         // 当前页数
-
-@property (assign, nonatomic) NSInteger imageCount;
-
-
 @property (assign, nonatomic) NSInteger nowIndex;
-
 @property (strong, nonatomic) NSMutableArray *chapArray;
-
 // 标题
 @property (strong, nonatomic) UILabel *titleLabel;
-
 @property (assign, nonatomic) NSInteger nowPage;
-
-
 @property (assign, nonatomic) CGRect mFrame;
 
 @end
@@ -76,7 +67,7 @@
     
     isHidden = YES;
     isRotation = NO;
-    
+    _currentPage = 1;
     
     self.scrollImageViews = [[NSMutableArray alloc] init];
     self.chapter = [Chapter new];
@@ -106,14 +97,16 @@
 {
     _dataSource = [[NSMutableArray alloc] initWithCapacity:10];
     
-    [[DataManager sharedDataManager] loadContentWithCharpterid:self.chapter.ID completion:^{
+    [[DataManager sharedDataManager] loadContentWithCharpterid:self.chapterID completion:^{
         for (NSString *url in [DataManager sharedDataManager].content.addrs)
         {
             [_dataSource addObject:url];
         }
         [self initScrollViewToRightWithCounts:_dataSource.count];
         [self initDownImageViews];
+        
         [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
+    
         [self reloadView];
         return ;
     }];
@@ -224,7 +217,7 @@
     [self.view insertSubview:_middleView belowSubview:_brightnessView];
     // 轻拍手势
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureGrecognizerAction:)];
-    [self.middleView addGestureRecognizer:tapGesture];
+    [self.view addGestureRecognizer:tapGesture];
     
 }
 
@@ -581,15 +574,14 @@
     [super viewWillDisappear:animated];
     self.xlSComic.contentPage = _currentPage;
     self.xlSComic.comicsrcTitle = _site;
-
     [[XLLocalDataManager shareManager] open];
      [[XLLocalDataManager shareManager] createTable:tableListhistory];
     NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     for (SComic *s in array) {
 
-        if ([s.comicID isEqualToString:_comicid]) {
-            if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage == _currentPage) {
 
+        if ([s.comicID isEqualToString:_comicid]) {
+            if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage == self.currentPage) {
                 [[XLLocalDataManager shareManager] close];
                 return;
             }else if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage != _currentPage)

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class ComicDetail;
 @class SComic;
+@class SSRollingBtn;
 @interface SSDetailTableViewController : UITableViewController
 
 @property (strong, nonatomic) UIView *headerView;
@@ -18,7 +19,7 @@
 @property (strong, nonatomic) UILabel *regionLabel;               // 地区
 @property (strong, nonatomic) UILabel *typeLabel;                 // 种类
 @property (strong, nonatomic) UIButton *collectButton;            // 收藏按钮
-@property (strong, nonatomic) UIButton *startReadButton;          // 阅读按钮
+@property (strong, nonatomic) SSRollingBtn *startReadButton;          // 阅读按钮
 @property (strong, nonatomic) UILabel *introduceLabel;            // 简介
 @property (strong, nonatomic) UILabel *hintLabel;                 // 提示
 @property (strong, nonatomic) UILabel *arrowLabel;
