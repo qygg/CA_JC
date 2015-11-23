@@ -25,7 +25,7 @@
 @property (nonatomic, strong) ComicDetail *comicDetail;
 @property (nonatomic, strong) NSMutableArray *comicStrArray;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
-
+@property (nonatomic, strong) NSString *xlUpdate;
 
 @end
 
@@ -356,7 +356,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:comicSource.lastCharpterUpdateTime];
     cell.dateLabel.text =  [formatter stringFromDate:date];
-
+    self.xlUpdate = cell.dateLabel.text;
     cell.upDateLabel.text = [NSString stringWithFormat:@"最新更新:%@",comicSource.lastCharpterTitle];
     return cell;
 }
@@ -380,7 +380,7 @@
     scomic.comicImageUrl = self.comicDetail.thumb;
     scomic.comicsrcID = comicSource.ID;
     scomic.comicTitle = self.comicDetail.title;
-   
+    scomic.updateTime = self.xlUpdate;
     chapterVC.xlSComic = scomic;
 
     [self.navigationController pushViewController:chapterVC animated:YES];

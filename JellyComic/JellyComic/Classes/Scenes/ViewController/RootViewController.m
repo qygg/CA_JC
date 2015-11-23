@@ -7,7 +7,8 @@
 //
 
 #import "RootViewController.h"
-
+#import "XLLocalDataManager.h"
+#import "SComic.h"
 @interface RootViewController ()
 
 @end
@@ -16,8 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
+//    [[XLLocalDataManager shareManager] open];
+//   NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+//    for (SComic *s in array) {
+//        NSLog(@"%@",s.updateTime);
+//    }
+//    [[XLLocalDataManager shareManager] close];
 }
 
 - (void)didReceiveMemoryWarning {
