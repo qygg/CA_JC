@@ -290,6 +290,7 @@
     for (SComic *s in array2) {
         if ([s.comicID isEqualToString:self.comicId]) {
             [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
             [_collectButton setTitle:@"添加收藏" forState:UIControlStateNormal];
             [[XLLocalDataManager shareManager] close];
             return;
