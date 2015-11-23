@@ -36,6 +36,8 @@
 		298535261BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 298535241BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib */; };
 		2985352A1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 298535281BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.m */; };
 		2985352B1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 298535291BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib */; };
+		299CA11D1C01E9E700592528 /* ZCContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 299CA11B1C01E9E700592528 /* ZCContentTableViewCell.m */; };
+		299CA11E1C01E9E700592528 /* ZCContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299CA11C1C01E9E700592528 /* ZCContentTableViewCell.xib */; };
 		299F6FF31BF2CF83009F228C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F6FDC1BF2CF82009F228C /* AppDelegate.m */; };
 		299F6FF41BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FDF1BF2CF82009F228C /* Sign */; };
 		299F6FF51BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FE11BF2CF82009F228C /* Sign */; };
@@ -212,6 +214,9 @@
 		298535271BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBookshelfCollectionViewCell.h; sourceTree = "<group>"; };
 		298535281BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBookshelfCollectionViewCell.m; sourceTree = "<group>"; };
 		298535291BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCBookshelfCollectionViewCell.xib; sourceTree = "<group>"; };
+		299CA11A1C01E9E700592528 /* ZCContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCContentTableViewCell.h; sourceTree = "<group>"; };
+		299CA11B1C01E9E700592528 /* ZCContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCContentTableViewCell.m; sourceTree = "<group>"; };
+		299CA11C1C01E9E700592528 /* ZCContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCContentTableViewCell.xib; sourceTree = "<group>"; };
 		299F6FDB1BF2CF82009F228C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		299F6FDC1BF2CF82009F228C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		299F6FDF1BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
@@ -538,6 +543,9 @@
 				29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */,
 				29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */,
 				29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */,
+				299CA11A1C01E9E700592528 /* ZCContentTableViewCell.h */,
+				299CA11B1C01E9E700592528 /* ZCContentTableViewCell.m */,
+				299CA11C1C01E9E700592528 /* ZCContentTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1019,6 +1027,7 @@
 				29B93A3C1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib in Resources */,
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
+				299CA11E1C01E9E700592528 /* ZCContentTableViewCell.xib in Resources */,
 				C286A5E41BFD615F00A93826 /* XLMoreTableViewCell.xib in Resources */,
 				C2A582F31BFF164C0009091A /* version.png in Resources */,
 				C216ABBD1BFAC231005FBB80 /* titlebg.png in Resources */,
@@ -1147,6 +1156,7 @@
 				C23078961BF6D1F400E6CDDE /* UIScrollView+MJRefresh.m in Sources */,
 				C230788B1BF6D1F400E6CDDE /* MJRefreshAutoNormalFooter.m in Sources */,
 				299F70001BF2E79D009F228C /* ComicSource.m in Sources */,
+				299CA11D1C01E9E700592528 /* ZCContentTableViewCell.m in Sources */,
 				C23078B21BF6D25700E6CDDE /* NSData+SDDataCache.m in Sources */,
 				C286A5F21BFD617F00A93826 /* XLFindPwdViewController.m in Sources */,
 				299F70361BF32E32009F228C /* MJPropertyKey.m in Sources */,
