@@ -18,5 +18,7 @@
 @property (nonatomic, copy) NSString *comicsrcTitle;
 @property (nonatomic, copy) NSString *chapterTitle;
 @property (nonatomic, copy) NSString *comicImageUrl;
+// 更新时间
+@property (nonatomic, copy) NSString *updateTime;
 
 @end

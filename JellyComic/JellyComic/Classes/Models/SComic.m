@@ -19,6 +19,7 @@
     [aCoder encodeObject:_comicsrcTitle forKey:@"comicsrcTitle"];
     [aCoder encodeObject:_chapterTitle forKey:@"chapterTitle"];
     [aCoder encodeObject:_comicImageUrl forKey:@"comicImageUrl"];
+    [aCoder encodeObject:_updateTime forKey:@"updateTime"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -31,6 +32,7 @@
         _comicsrcTitle = [aDecoder decodeObjectForKey:@"comicsrcTitle"];
         _chapterTitle = [aDecoder decodeObjectForKey:@"chapterTitle"];
         _comicImageUrl = [aDecoder decodeObjectForKey:@"comicImageUrl"];
+        _updateTime = [aDecoder decodeObjectForKey:@"updateTime"];
     }
     return self;
 }
