@@ -154,7 +154,7 @@
    self.xlSComic.chapterID = chapter.ID;
     self.xlSComic.chapterTitle = chapter.title;
     contentVC.xlSComic = self.xlSComic;
-    
+    contentVC.comicid = self.comicID;
 
     [self.navigationController pushViewController:contentVC animated:YES];
 

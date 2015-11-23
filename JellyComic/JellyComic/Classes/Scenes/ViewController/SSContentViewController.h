@@ -21,7 +21,7 @@
 @property (nonatomic, strong) Chapter *chapter;
 @property (nonatomic, strong) NSArray *chapterArray;
 @property (nonatomic, assign) NSInteger index;
-
+@property (nonatomic, strong) NSString *comicid;
 
 @property (nonatomic, strong) SComic *xlSComic;
 @end

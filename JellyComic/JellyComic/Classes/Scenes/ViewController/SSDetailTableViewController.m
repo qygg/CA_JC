@@ -156,7 +156,23 @@
     
     // 开始阅读
     _startReadButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [_startReadButton setTitle:@"开始阅读" forState:(UIControlStateNormal)];
+    [[XLLocalDataManager shareManager] open];
+    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+    BOOL b = NO;
+    for (SComic *s in array) {
+        if ([s.comicID isEqualToString:self.comicId]) {
+            NSLog(@"%@",s.chapterTitle);
+            NSString *string = @"续看：";
+            NSString *string1 = [string stringByAppendingString:s.chapterTitle];
+            [_startReadButton setTitle:string1 forState:UIControlStateNormal];
+            [[XLLocalDataManager shareManager] close];
+            b = YES;
+        }
+    }
+    if (b == NO) {
+        [_startReadButton setTitle:@"开始阅读" forState:(UIControlStateNormal)];
+    }
+    
     
     
     [_startReadButton setFrame:CGRectMake(_collectButton.frame.origin.x + 95, (_imgView.frame.origin.y + _imgView.frame.size.height) - 35, 80, 35)];
@@ -267,7 +283,7 @@
 
     [[XLLocalDataManager shareManager] open];
 
-    
+    [[XLLocalDataManager shareManager] createTable:tableListcollect];
     NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     NSArray *array2 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
     SComic *scomic = [SComic new];
@@ -288,24 +304,17 @@
         }
     }
     scomic.comicID = self.comicId;
-    [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
-    [[XLLocalDataManager shareManager] createTable:tableListcollect];
+    
+
     [[XLLocalDataManager shareManager] insertSComic:scomic tableList:tableListcollect];
+    [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
     [[XLLocalDataManager shareManager] close];
 }
 
 #pragma mark -  开始阅读
 - (void)startReadingAction:(UIButton *)sender
 {
-    [[XLLocalDataManager shareManager] open];
-    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
-    for (SComic *s in array) {
-        if ([s.comicID isEqualToString:self.comicId]) {
-            
-            [[XLLocalDataManager shareManager] close];
-            return;
-        }
-    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -369,7 +378,7 @@
     SComic *scomic = [SComic new];
     scomic.comicID = self.comicId;
     scomic.comicImageUrl = self.comicDetail.thumb;
-
+    scomic.comicsrcID = comicSource.ID;
     scomic.comicTitle = self.comicDetail.title;
    
     chapterVC.xlSComic = scomic;
