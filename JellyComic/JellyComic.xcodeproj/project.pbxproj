@@ -90,6 +90,7 @@
 		C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20440741BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard */; };
 		C20440781BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */; };
 		C216ABBD1BFAC231005FBB80 /* titlebg.png in Resources */ = {isa = PBXBuildFile; fileRef = C216ABBC1BFAC231005FBB80 /* titlebg.png */; };
+		C2191EDA1C02C550003F3213 /* SSRollingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C2191ED91C02C550003F3213 /* SSRollingBtn.m */; };
 		C223E38F1BFDB2AE0063F155 /* SSContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C223E38E1BFDB2AE0063F155 /* SSContentViewController.m */; };
 		C23078851BF6D1F400E6CDDE /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785B1BF6D1F400E6CDDE /* MJRefreshAutoFooter.m */; };
 		C23078861BF6D1F400E6CDDE /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C230785D1BF6D1F400E6CDDE /* MJRefreshBackFooter.m */; };
@@ -302,6 +303,8 @@
 		C20440761BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLAuthorDetailTableViewController.h; sourceTree = "<group>"; };
 		C20440771BF9FF5B008C85B7 /* XLAuthorDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLAuthorDetailTableViewController.m; sourceTree = "<group>"; };
 		C216ABBC1BFAC231005FBB80 /* titlebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlebg.png; sourceTree = "<group>"; };
+		C2191ED81C02C54F003F3213 /* SSRollingBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRollingBtn.h; sourceTree = "<group>"; };
+		C2191ED91C02C550003F3213 /* SSRollingBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRollingBtn.m; sourceTree = "<group>"; };
 		C223E38D1BFDB2AE0063F155 /* SSContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSContentViewController.h; sourceTree = "<group>"; };
 		C223E38E1BFDB2AE0063F155 /* SSContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSContentViewController.m; sourceTree = "<group>"; };
 		C230785A1BF6D1F400E6CDDE /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -558,6 +561,8 @@
 				299F70171BF32340009F228C /* DataManager.m */,
 				C286A6141BFDA5F100A93826 /* XLLocalDataManager.h */,
 				C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */,
+				C2191ED81C02C54F003F3213 /* SSRollingBtn.h */,
+				C2191ED91C02C550003F3213 /* SSRollingBtn.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1162,6 +1167,7 @@
 				299F70361BF32E32009F228C /* MJPropertyKey.m in Sources */,
 				C23078921BF6D1F400E6CDDE /* MJRefreshStateHeader.m in Sources */,
 				292BD3591BF46CD20013559E /* UIImageView+HighlightedWebCache.m in Sources */,
+				C2191EDA1C02C550003F3213 /* SSRollingBtn.m in Sources */,
 				C286A5F01BFD617F00A93826 /* XLLoginViewController.m in Sources */,
 				29CD882A1C00B08100A0BD4C /* ZCContentTableViewController.m in Sources */,
 				299F70341BF32E32009F228C /* MJFoundation.m in Sources */,
