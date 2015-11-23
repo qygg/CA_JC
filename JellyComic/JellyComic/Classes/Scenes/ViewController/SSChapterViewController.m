@@ -12,6 +12,8 @@
 #import "Chapter.h"
 #import "SSContentViewController.h"
 #import "SComic.h"
+#import "ZCContentTableViewController.h"
+
 @interface SSChapterViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 
@@ -157,6 +159,10 @@
     
 
     [self.navigationController pushViewController:contentVC animated:YES];
+    
+//    ZCContentTableViewController *ZCContentTVC = [ZCContentTableViewController new];
+//    ZCContentTVC.chapterID = chapter.ID;
+//    [self.navigationController showViewController:ZCContentTVC sender:nil];
 
 }
 
