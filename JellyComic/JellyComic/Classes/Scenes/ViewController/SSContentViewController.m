@@ -583,8 +583,32 @@
     self.xlSComic.comicsrcTitle = _site;
 
     [[XLLocalDataManager shareManager] open];
-    [[XLLocalDataManager shareManager] createTable:tableListhistory];
-    NSLog(@"%@",self.xlSComic.comicsrcTitle);
+     [[XLLocalDataManager shareManager] createTable:tableListhistory];
+    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
+    for (SComic *s in array) {
+
+        if ([s.comicID isEqualToString:_comicid]) {
+            if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage == _currentPage) {
+
+                [[XLLocalDataManager shareManager] close];
+                return;
+            }else if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage != _currentPage)
+            {
+                [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
+                [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+                [[XLLocalDataManager shareManager] close];
+                return;
+            }else if (![s.chapterID isEqualToString:self.chapter.ID])
+            {
+                [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
+                [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+                [[XLLocalDataManager shareManager] close];
+                return;
+            }
+        }
+    }
+    
+
     [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
     
     [[XLLocalDataManager shareManager] close];
