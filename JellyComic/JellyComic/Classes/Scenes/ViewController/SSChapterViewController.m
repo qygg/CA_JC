@@ -137,11 +137,13 @@
     Chapter *chapter = [Chapter new];
     if (!self.isSorting) {
         chapter = self.chapterArray[indexPath.row];
+        contentVC.chapterID = chapter.ID;
         contentVC.chapterArray = [NSArray arrayWithArray:self.chapterArray];
         contentVC.index = indexPath.row;
         NSLog(@"########%ld",indexPath.row);
     } else {
         chapter = self.chapterMutArray[indexPath.row];
+        contentVC.chapterID = chapter.ID;
         contentVC.chapterArray = [NSArray arrayWithArray:self.chapterMutArray];
         contentVC.index = indexPath.row;
         NSLog(@"$$$$$$$$$%ld",indexPath.row);
