@@ -7,17 +7,16 @@
 //
 
 #import "ZCBookshelfSelectedTableViewCell.h"
+#import "SComic.h"
+#import "UIImageView+WebCache.h"
 
 @implementation ZCBookshelfSelectedTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setSComic:(SComic *)sComic {
+    self.titleLabel.text = sComic.comicTitle;
+    self.sourceLabel.text = [NSString stringWithFormat:@"站点：%@", sComic.comicsrcTitle];
+    self.chapterLabel.text = [NSString stringWithFormat:@"看到 %@", sComic.chapterTitle];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:sComic.comicImageUrl]];
 }
 
 @end

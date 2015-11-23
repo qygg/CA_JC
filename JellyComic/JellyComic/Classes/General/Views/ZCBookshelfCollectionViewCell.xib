@@ -20,7 +20,7 @@
                             <constraint firstAttribute="width" secondItem="lcQ-Bl-zr8" secondAttribute="height" multiplier="3:4" id="ee5-2b-55C"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titlebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="LOQ-zT-ZN9">
+                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titlebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="LOQ-zT-ZN9">
                         <rect key="frame" x="0.0" y="151" width="136" height="30"/>
                         <animations/>
                         <constraints>
@@ -28,21 +28,21 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="伪恋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2d-Pj-gNj">
-                        <rect key="frame" x="1" y="182" width="30" height="18"/>
+                        <rect key="frame" x="1" y="182" width="135" height="18"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看到：第193话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-IF-YWi">
-                        <rect key="frame" x="35" y="157" width="100.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看到：第193话" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-IF-YWi">
+                        <rect key="frame" x="0.0" y="157" width="135.5" height="18"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新：2015-11-14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltC-vI-6l3">
-                        <rect key="frame" x="1" y="202" width="115" height="17"/>
+                        <rect key="frame" x="1" y="202" width="135" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,21 +53,31 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <animations/>
+            <color key="backgroundColor" red="0.81176470590000005" green="0.8980392157" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="lcQ-Bl-zr8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="164-0B-EQC"/>
                 <constraint firstItem="fgY-IF-YWi" firstAttribute="centerY" secondItem="LOQ-zT-ZN9" secondAttribute="centerY" id="5XC-3v-0lz"/>
                 <constraint firstAttribute="trailing" secondItem="LOQ-zT-ZN9" secondAttribute="trailing" id="6NO-b8-0V3"/>
+                <constraint firstAttribute="trailing" secondItem="ltC-vI-6l3" secondAttribute="trailing" id="COt-Qr-gC9"/>
                 <constraint firstAttribute="trailing" secondItem="fgY-IF-YWi" secondAttribute="trailing" id="Loa-zI-IaL"/>
                 <constraint firstItem="ltC-vI-6l3" firstAttribute="top" secondItem="g2d-Pj-gNj" secondAttribute="bottom" constant="2" id="Pmu-Zx-ZSW"/>
+                <constraint firstAttribute="trailing" secondItem="g2d-Pj-gNj" secondAttribute="trailing" id="SYT-uq-UCl"/>
                 <constraint firstItem="LOQ-zT-ZN9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WIL-gG-qdU"/>
                 <constraint firstItem="g2d-Pj-gNj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="a1i-a2-bkW"/>
                 <constraint firstAttribute="trailing" secondItem="lcQ-Bl-zr8" secondAttribute="trailing" id="aLP-Z0-84y"/>
                 <constraint firstItem="lcQ-Bl-zr8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bMf-90-52l"/>
                 <constraint firstItem="LOQ-zT-ZN9" firstAttribute="bottom" secondItem="lcQ-Bl-zr8" secondAttribute="bottom" id="kgn-dc-rmY"/>
                 <constraint firstItem="g2d-Pj-gNj" firstAttribute="top" secondItem="lcQ-Bl-zr8" secondAttribute="bottom" constant="1" id="srR-2I-7Z4"/>
+                <constraint firstItem="fgY-IF-YWi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uLF-pg-A2n"/>
                 <constraint firstItem="ltC-vI-6l3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="wFE-c0-aZp"/>
             </constraints>
             <size key="customSize" width="136" height="223.5"/>
+            <connections>
+                <outlet property="chapterLabel" destination="fgY-IF-YWi" id="38Q-bB-1tS"/>
+                <outlet property="imgView" destination="lcQ-Bl-zr8" id="sUp-8z-jg7"/>
+                <outlet property="titleLabel" destination="g2d-Pj-gNj" id="HLl-ab-Bm4"/>
+                <outlet property="updateTimeLabel" destination="ltC-vI-6l3" id="xrj-8Q-G5z"/>
+            </connections>
             <point key="canvasLocation" x="466" y="413.75"/>
         </collectionViewCell>
     </objects>

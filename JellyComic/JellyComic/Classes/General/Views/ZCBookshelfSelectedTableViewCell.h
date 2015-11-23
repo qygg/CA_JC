@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SComic;
 
 @interface ZCBookshelfSelectedTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (weak, nonatomic) IBOutlet UIButton *detailButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (nonatomic, strong) SComic *sComic;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chapterLabel;
 
 @end

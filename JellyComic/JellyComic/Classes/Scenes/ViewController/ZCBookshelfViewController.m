@@ -10,6 +10,7 @@
 #import "ZCBookshelfCollectionViewCell.h"
 #import "ZCBookshelfTableViewCell.h"
 #import "ZCBookshelfSelectedTableViewCell.h"
+#import "XLLocalDataManager.h"
 
 @interface ZCBookshelfViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
@@ -25,9 +26,12 @@
 
 @property (nonatomic, assign) NSInteger selectedRow;
 
-@property (nonatomic, strong) NSMutableArray *array;
+@property (nonatomic, strong) NSMutableArray<SComic *> *collectArray;
+@property (nonatomic, strong) NSMutableArray<SComic *> *historyArray;
 
 @property (nonatomic, strong) UIView *sliderView;
+@property (nonatomic, strong) UILabel *collectHintLabel;
+@property (nonatomic, strong) UILabel *historyHintLabel;
 
 @end
 
@@ -40,6 +44,26 @@ static NSString * const reuseCVID = @"bookcv";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.historyHintLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    CGPoint point = self.view.center;
+    point.y -= 60;
+    self.historyHintLabel.center = point;
+    self.historyHintLabel.text = @"还未阅读任何漫画";
+    self.historyHintLabel.textColor = [UIColor grayColor];
+    self.historyHintLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+    self.historyHintLabel.textAlignment = NSTextAlignmentCenter;
+    self.historyHintLabel.hidden = YES;
+    [self.tableView addSubview:self.historyHintLabel];
+    
+    self.collectHintLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    self.collectHintLabel.center = point;
+    self.collectHintLabel.text = @"还未收藏任何漫画";
+    self.collectHintLabel.textColor = [UIColor grayColor];
+    self.collectHintLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+    self.collectHintLabel.textAlignment = NSTextAlignmentCenter;
+    self.collectHintLabel.hidden = YES;
+    [self.collectionView addSubview:self.collectHintLabel];
+    
     [self.headerView layoutIfNeeded];
     self.sliderView = [[UIView alloc] initWithFrame:CGRectMake(self.headerView.frame.size.width - 80, self.headerView.frame.origin.y + 38, 40, 2)];
     self.sliderView.backgroundColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
@@ -47,7 +71,10 @@ static NSString * const reuseCVID = @"bookcv";
     
     self.selectedRow = -1;
     
-    self.array = [NSMutableArray arrayWithArray:@[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"]];
+    [[XLLocalDataManager shareManager] open];
+    self.collectArray = [NSMutableArray arrayWithArray:[[XLLocalDataManager shareManager] selectAllSComic:tableListcollect]];
+    self.historyArray = [NSMutableArray arrayWithArray:[[XLLocalDataManager shareManager] selectAllSComic:tableListhistory]];
+    [[XLLocalDataManager shareManager] close];
     
     self.scrollView.delegate = self;
     self.tableView.delegate = self;
@@ -59,7 +86,7 @@ static NSString * const reuseCVID = @"bookcv";
     [self.tableView registerNib:[UINib nibWithNibName:@"ZCBookshelfSelectedTableViewCell" bundle:nil] forCellReuseIdentifier:reuseSTVID];
     [self.collectionView registerNib:[UINib nibWithNibName:@"ZCBookshelfCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseCVID];
     
-    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width / 3 - 10, 200);
+    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width / 3 - 10, (self.view.bounds.size.width / 3 - 10) / 3 * 4 + 40);
     self.flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     
     [self.collectButton addTarget:self action:@selector(collectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -70,15 +97,27 @@ static NSString * const reuseCVID = @"bookcv";
     [self.userPhoto addGestureRecognizer:tapGR];
     [self.userNameLabel addGestureRecognizer:tapGR2];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollect) name:@"collectchange" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHistory) name:@"historychange" object:nil];
+    
+}
+
+- (void)reloadCollect {
+    [[XLLocalDataManager shareManager] open];
+    self.collectArray = [NSMutableArray arrayWithArray:[[XLLocalDataManager shareManager] selectAllSComic:tableListcollect]];
+    [[XLLocalDataManager shareManager] close];
+    [self.collectionView reloadData];
+}
+
+- (void)reloadHistory {
+    [[XLLocalDataManager shareManager] open];
+    self.historyArray = [NSMutableArray arrayWithArray:[[XLLocalDataManager shareManager] selectAllSComic:tableListhistory]];
+    [[XLLocalDataManager shareManager] close];
+    [self.tableView reloadData];
 }
 
 - (void)userCenterAction:(id)sender {
     [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)collectButtonAction:(UIButton *)sender {
@@ -89,8 +128,16 @@ static NSString * const reuseCVID = @"bookcv";
     [self.scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width, 0) animated:YES];
 }
 
+#pragma mark - 历史详情按钮点击方法
+- (void)detailButtonAction:(UIButton *)sender {
+    
+}
+
 - (void)deleteButtonAction:(UIButton *)sender {
-    [self.array removeObjectAtIndex:self.selectedRow];
+    [[XLLocalDataManager shareManager] open];
+    [[XLLocalDataManager shareManager] deleteWithSComic:self.historyArray[self.selectedRow].comicID tableList:tableListhistory];
+    [[XLLocalDataManager shareManager] close];
+    [self.historyArray removeObjectAtIndex:self.selectedRow];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.selectedRow inSection:0];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     self.selectedRow = -1;
@@ -99,20 +146,30 @@ static NSString * const reuseCVID = @"bookcv";
 
 #pragma mark - UITableViewDataSource & Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.array.count;
+    if (self.historyArray.count == 0) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.historyHintLabel.hidden = NO;
+        self.tableView.scrollEnabled = NO;
+    } else {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.historyHintLabel.hidden = YES;
+        self.tableView.scrollEnabled = YES;
+    }
+    return self.historyArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.selectedRow) {
         ZCBookshelfSelectedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseSTVID forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.testLabel.text = self.array[indexPath.row];
+        cell.sComic = self.historyArray[indexPath.row];
+        [cell.detailButton addTarget:self action:@selector(detailButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.deleteButton addTarget:self action:@selector(deleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     ZCBookshelfTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseTVID forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.testLabel.text = self.array[indexPath.row];
+    cell.sComic = self.historyArray[indexPath.row];
     return cell;
 }
 
@@ -127,18 +184,24 @@ static NSString * const reuseCVID = @"bookcv";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.selectedRow) {
-        return 150;
+        return 170;
     }
-    return 80;
+    return 100;
 }
 
 #pragma mark - UICollectionViewDataSource & Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    if (self.collectArray.count == 0) {
+        self.collectHintLabel.hidden = NO;
+    } else {
+        self.collectHintLabel.hidden = YES;
+    }
+    return self.collectArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZCBookshelfCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseCVID forIndexPath:indexPath];
+    cell.sComic = self.collectArray[indexPath.item];
     return cell;
 }
 
@@ -150,15 +213,10 @@ static NSString * const reuseCVID = @"bookcv";
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 收藏item点击方法
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
-*/
 
 @end
 

@@ -7,11 +7,20 @@
 //
 
 #import "ZCBookshelfCollectionViewCell.h"
+#import "SComic.h"
+#import "UIImageView+WebCache.h"
 
 @implementation ZCBookshelfCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setSComic:(SComic *)sComic {
+    self.titleLabel.text = sComic.comicTitle;
+    self.updateTimeLabel.text = [NSString stringWithFormat:@"更新:%@", sComic.updateTime];
+    if ([sComic.chapterTitle isEqualToString:@"(null)"]) {
+        self.chapterLabel.text = @"未看";
+    } else {
+        self.chapterLabel.text = [NSString stringWithFormat:@"看到:%@", sComic.chapterTitle];
+    }
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:sComic.comicImageUrl]];
 }
 
 @end
