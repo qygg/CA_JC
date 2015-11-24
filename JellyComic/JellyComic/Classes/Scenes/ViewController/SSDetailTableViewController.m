@@ -379,11 +379,17 @@
         ComicSource *comicSource = [ComicSource new];
         [[XLLocalDataManager shareManager] open];
         SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.comicId tableList:tableListhistory];
+        NSLog(@"%@",scomic.chapterTitle);
+        NSLog(@"%@",scomic.comicsrcID);
+        NSLog(@"%@",scomic.chapterID);
         comicSource.ID = scomic.comicsrcID;
         contentVC.contectPage = scomic.contentPage;
-        NSLog(@" ========== %ld",contentVC.contectPage);
+        NSLog(@"%ld",contentVC.contectPage);
         contentVC.chapterID = scomic.chapterID;
+        NSLog(@"%@",contentVC.chapterID);
         contentVC.site = scomic.comicsrcTitle;
+        contentVC.comicid = self.comicId;
+        contentVC.xlSComic = scomic;
         [[XLLocalDataManager shareManager] close];
         
         NSMutableArray *chapterArray = [NSMutableArray array];

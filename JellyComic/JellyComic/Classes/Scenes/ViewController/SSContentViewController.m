@@ -509,12 +509,15 @@
 {
     [super viewWillDisappear:animated];
     self.xlSComic.contentPage = _currentPage;
+    NSLog(@"%@",self.xlSComic.chapterID);
+    NSLog(@"%@",self.xlSComic.chapterTitle);
     self.xlSComic.comicsrcTitle = _site;
+    self.xlSComic.chapterTitle = [DataManager sharedDataManager].content.title;
+    self.xlSComic.chapterID = self.chapterID;
     [[XLLocalDataManager shareManager] open];
      [[XLLocalDataManager shareManager] createTable:tableListhistory];
     NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     for (SComic *s in array) {
-
 
         if ([s.comicID isEqualToString:_comicid]) {
             if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage == self.currentPage) {
@@ -525,6 +528,7 @@
                 NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
                 for (SComic *s in array1) {
                     if ([s.comicID isEqualToString:_comicid]) {
+                       
                         [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
                         [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
                         [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
