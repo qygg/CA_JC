@@ -23,7 +23,6 @@
 {
     BOOL isHidden;
     BOOL isRotation;
-    BOOL isSlider;
 }
 
 // 整个视图的大小
@@ -72,7 +71,6 @@
     
     isHidden = YES;
     isRotation = NO;
-    isSlider = YES;
     _currentPage = 1;
     
     self.scrollImageViews = [[NSMutableArray alloc] init];
@@ -173,6 +171,7 @@
 }
 
 
+
 #pragma mark - FooterView
 - (void)reloadFooterView
 {
@@ -180,8 +179,11 @@
     _footerView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_footerView];
     
-    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 20, _footerView.frame.size.width - 150, 20)];
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 20, _footerView.frame.size.width - 20, 20)];
     self.slider.backgroundColor = [UIColor whiteColor];
+    self.slider.layer.cornerRadius = 9;
+    self.slider.layer.masksToBounds = YES;
+    self.slider.thumbTintColor = [UIColor colorWithRed:0.825 green:0.824 blue:0.778 alpha:1.000];
     [self.slider setMaximumValue:[DataManager sharedDataManager].content.counts];
     [self.slider setMinimumValue:1];
     [self.slider addTarget:self action:@selector(sliderChanged:) forControlEvents:(UIControlEventValueChanged)];
@@ -190,14 +192,18 @@
     [self.slider addTarget:self action:@selector(sliderDragUp) forControlEvents:(UIControlEventTouchUpOutside)];
     [_footerView addSubview:self.slider];
     
-    
-    UIButton *settingButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [settingButton setTitle:@"设置" forState:(UIControlStateNormal)];
-    [settingButton setFrame:CGRectMake(self.slider.frame.size.width + 75, 5, 50, 50)];
-    [settingButton addTarget:self action:@selector(settingAction:) forControlEvents:(UIControlEventTouchUpInside)];
-    [_footerView addSubview:settingButton];
+//    UIButton *settingButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+//    [settingButton setTitle:@"设置" forState:(UIControlStateNormal)];
+//    [settingButton setFrame:CGRectMake(self.slider.frame.size.width + 75, 5, 50, 50)];
+//    [settingButton addTarget:self action:@selector(settingAction:) forControlEvents:(UIControlEventTouchUpInside)];
+//    [_footerView addSubview:settingButton];
     _footerView.hidden = YES;
 }
+
+
+
+
+
 
 
 
@@ -280,13 +286,7 @@
     self.sliderLabel.hidden = YES;
 }
 
-#pragma mark - 放大缩小
 
-
-
-
-
- 
  // 手势
 - (void)tapGestureGrecognizerAction:(UITapGestureRecognizer *)recognizer
 {
@@ -410,6 +410,9 @@
         {
             if (self.nowIndex <= 0)  // 如果是第一章
             {
+                UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.mFrame.size.width, self.mFrame.size.height)];
+                imgView.image = [UIImage imageNamed:@"end"];
+                [self.scrollView addSubview:imgView];
                 NSLog(@"已经是第一章");
             }else
             {
@@ -430,6 +433,7 @@
                     [self updateFromLeftWithPageNumber:_dataSource.count - 1 dataSource:_dataSource];
                     [self reloadView];
                     _currentPage = _dataSource.count;
+                    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    电量:%.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
                     return ;
                 }];
                  
@@ -438,6 +442,9 @@
         {
             if (self.nowIndex >= _chapterArray.count - 1)
             {
+                UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake((_dataSource.count + 1)* self.mFrame.size.width, 0, self.mFrame.size.width, self.mFrame.size.height)];
+                imgView.image = [UIImage imageNamed:@"end"];
+                [self.scrollView addSubview:imgView];
                 NSLog(@"已经是最后一章");
             }else
             {
@@ -459,6 +466,7 @@
                     [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
                     [self reloadView];
                     _currentPage = 1;
+                    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    电量:%.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
                     return ;
                 }];
                 
@@ -474,7 +482,7 @@
             }
         }
         
-        self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    %.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
+        self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    电量:%.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
         return;
     }
     

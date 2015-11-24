@@ -55,10 +55,15 @@
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:@"SSChapterTableViewCell" bundle:nil] forCellReuseIdentifier:@"chapter"];
     
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStyleDone target:self action:@selector(comebackSSDetailTVC)];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
 
     _isSorting = NO;
+}
+
+- (void)comebackSSDetailTVC
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)requestChapterData
@@ -70,7 +75,6 @@
         }
         [self.tableView reloadData];
     }];
-    
 }
 
 
