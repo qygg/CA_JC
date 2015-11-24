@@ -100,6 +100,11 @@ static NSString * const reuseCVID = @"bookcv";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollect) name:@"collectchange" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHistory) name:@"historychange" object:nil];
     
+    self.tableView.tableFooterView = ({
+        UIView *view = [UIView new];
+        view;
+    });
+    
 }
 
 - (void)reloadCollect {
