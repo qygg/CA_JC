@@ -7,6 +7,7 @@
 //
 
 #import "SSContentViewController.h"
+#import <UIKit/UIKit.h>
 #import "DataManager.h"
 #import "Content.h"
 
@@ -22,6 +23,7 @@
 {
     BOOL isHidden;
     BOOL isRotation;
+    BOOL isSlider;
 }
 
 // 整个视图的大小
@@ -43,10 +45,13 @@
 @property (assign, nonatomic) NSInteger currentPage;         // 当前页数
 @property (assign, nonatomic) NSInteger nowIndex;
 @property (strong, nonatomic) NSMutableArray *chapArray;
-// 标题
-@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) NSString *dateTime;            // 时间
+@property (assign, nonatomic) CGFloat deviceLevel;           // 电量
+@property (strong, nonatomic) UILabel *titleLabel;           // 标题
 @property (assign, nonatomic) NSInteger nowPage;
 @property (assign, nonatomic) CGRect mFrame;
+@property (strong, nonatomic) UISlider *slider;
+@property (strong, nonatomic) UILabel *sliderLabel;
 
 @end
 
@@ -67,6 +72,7 @@
     
     isHidden = YES;
     isRotation = NO;
+    isSlider = YES;
     _currentPage = 1;
     
     self.scrollImageViews = [[NSMutableArray alloc] init];
@@ -104,9 +110,14 @@
         }
         [self initScrollViewToRightWithCounts:_dataSource.count];
         [self initDownImageViews];
+        if (_contectPage > 1 ) {
+            [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
+            _scrollView.contentOffset = CGPointMake(self.mFrame.size.width * _contectPage, 0);
+            _currentPage = _contectPage;
         
-        [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
-    
+        }else{
+            [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
+        }
         [self reloadView];
         return ;
     }];
@@ -126,7 +137,6 @@
 {
     [self reloadHeaderView];
     [self reloadFooterView];
-    [self reloadBrightnessView];
     [self reloadMiddleView];
     [self reloadBottomState];
     
@@ -170,56 +180,48 @@
     _footerView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_footerView];
     
-    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 20, _footerView.frame.size.width - 150, 20)];
-    slider.backgroundColor = [UIColor whiteColor];
-    [slider setMaximumValue:[DataManager sharedDataManager].content.counts];
-    [slider setMinimumValue:1];
-    [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:(UIControlEventValueChanged)];
-    [_footerView addSubview:slider];
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 20, _footerView.frame.size.width - 150, 20)];
+    self.slider.backgroundColor = [UIColor whiteColor];
+    [self.slider setMaximumValue:[DataManager sharedDataManager].content.counts];
+    [self.slider setMinimumValue:1];
+    [self.slider addTarget:self action:@selector(sliderChanged:) forControlEvents:(UIControlEventValueChanged)];
+    [self.slider addTarget:self action:@selector(sliderDragUp) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.slider addTarget:self action:@selector(sliderDragUp) forControlEvents:(UIControlEventTouchCancel)];
+    [self.slider addTarget:self action:@selector(sliderDragUp) forControlEvents:(UIControlEventTouchUpOutside)];
+    [_footerView addSubview:self.slider];
     
-    UIButton *screenButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [screenButton setTitle:@"横屏" forState:(UIControlStateNormal)];
-    [screenButton setFrame:CGRectMake(slider.frame.size.width + 20, 5, 50, 50)];
-    [screenButton addTarget:self action:@selector(changeScreenAction:) forControlEvents:(UIControlEventTouchUpInside)];
-    [_footerView addSubview:screenButton];
     
     UIButton *settingButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     [settingButton setTitle:@"设置" forState:(UIControlStateNormal)];
-    [settingButton setFrame:CGRectMake(slider.frame.size.width + 75, 5, 50, 50)];
+    [settingButton setFrame:CGRectMake(self.slider.frame.size.width + 75, 5, 50, 50)];
     [settingButton addTarget:self action:@selector(settingAction:) forControlEvents:(UIControlEventTouchUpInside)];
     [_footerView addSubview:settingButton];
     _footerView.hidden = YES;
 }
 
 
-#pragma mark - BrightnessView
-- (void)reloadBrightnessView
-{
-    _brightnessView = [[UIView alloc] initWithFrame:CGRectMake(0, self.mFrame.size.height / 2 - 60, 60, 60)];
-    _brightnessView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:_brightnessView];
-    
-    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [button setFrame:CGRectMake(0, 0, 60, 60)];
-    [button setTitle:@"亮度" forState:(UIControlStateNormal)];
-    [button setTitleColor:[UIColor orangeColor] forState:(UIControlStateNormal)];
-    button.titleLabel.font = [UIFont systemFontOfSize:15];
-    [button addTarget:self action:@selector(brightnessAction:) forControlEvents:(UIControlEventTouchUpInside)];
-    [_brightnessView addSubview:button];
-    _brightnessView.hidden = YES;
-}
 
 
 #pragma mark - MiddleView
 - (void)reloadMiddleView
 {
-    _middleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.mFrame.size.height / 2 - 80, self.view.frame.size.width, 150)];
-    [self.view insertSubview:_middleView belowSubview:_brightnessView];
     // 轻拍手势
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureGrecognizerAction:)];
     [self.view addGestureRecognizer:tapGesture];
     
+    self.sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake((self.mFrame.size.width - 100) / 2 , self.mFrame.size.height / 2 - 50, 100, 40)];
+    self.sliderLabel.textAlignment = NSTextAlignmentCenter;
+    self.sliderLabel.textColor = [UIColor whiteColor];
+    self.sliderLabel.backgroundColor = [UIColor blackColor];
+    self.sliderLabel.layer.masksToBounds = YES;
+    self.sliderLabel.layer.cornerRadius = 10;
+    self.sliderLabel.font = [UIFont systemFontOfSize:20];
+    
+    self.sliderLabel.hidden = YES;
+    [self.view addSubview:_sliderLabel];
 }
+
+
 
 #pragma  mark - 底部状态栏
 - (void)reloadBottomState
@@ -227,27 +229,19 @@
     // 当前时间
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm"];
-    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
-    NSLog(@"----------------%@",dateTime);
+    self.dateTime = [formatter stringFromDate:[NSDate date]];
     // 获取电量
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
-    CGFloat deviceLevel = -[UIDevice currentDevice].batteryLevel * 100;
+    self.deviceLevel = -[UIDevice currentDevice].batteryLevel * 100;
     
-    NSLog(@"deviceLevel == %f",deviceLevel);
-    
-    
-    self.stateLabel.text = [NSString stringWithFormat:@"%@  %@  %.f%%     ",[DataManager sharedDataManager].content.title,dateTime,deviceLevel];
-    
+    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    %.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
     [self.view addSubview:_stateLabel];
-    
 }
 
 
  // 亮度
 - (void)brightnessAction:(UIButton *)sender
 {
-    
-    
 //    [[UIScreen mainScreen] setBrightness:value];
     NSLog(@"亮度");
 }
@@ -258,70 +252,6 @@
     [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"返回");
 }
-
-
- // 设置横屏竖屏
-- (void)changeScreenAction:(UIButton *)sender
-{
-    if (isRotation == NO) {
-        [self horizontalScreen];
-        isRotation = YES;
-    }else
-    {
-        [self verticalScreen];
-        isRotation = NO;
-    }
-    
-    
-   
-    
-}
-
-# pragma nmark - 旋转
-// 横屏
-- (void)horizontalScreen
-{
-    
-    [self.headerView removeFromSuperview];
-    [self.footerView removeFromSuperview];
-    [self.brightnessView removeFromSuperview];
-    [self.middleView removeFromSuperview];
-
-    // 设置屏幕 只是旋转当前的View
-    //    [[UIApplication sharedApplication] setStatusBarOrientation:<#(UIInterfaceOrientation)#>]
-    self.view.transform = CGAffineTransformMakeRotation(M_PI / 2);
-    //    self.mFrame = [UIScreen mainScreen].bounds;
-    self.view.bounds = CGRectMake(0, 0, self.mFrame.size.height, self.mFrame.size.width);
-    self.mFrame = self.view.bounds;
-    
-    NSLog(@"横屏");
-    
-    //    _scrollView.pagingEnabled = NO;
-        [self reloadView];
-    //    [self initScrollViewToLeftWithCounts:_dataSource.count];
-    //    [self initScrollViewToRightWithCounts:_dataSource.count];
-}
-
-// 竖屏
-- (void)verticalScreen
-{
-    [self.headerView removeFromSuperview];
-    [self.footerView removeFromSuperview];
-    [self.brightnessView removeFromSuperview];
-    [self.middleView removeFromSuperview];
-    self.view.transform = CGAffineTransformMakeRotation(M_PI * 2);
-    self.view.bounds = CGRectMake(0, 0, self.mFrame.size.height, self.mFrame.size.width);
-    self.mFrame = self.view.bounds;
-    [self reloadView];
-}
-
-
-//
-//// 自动旋转设为NO
-//- (BOOL)shouldAutorotate
-//{
-//    return NO;
-//}
 
  // 设置
 - (void)settingAction:(UIButton *)sender
@@ -335,9 +265,27 @@
  // 进度条
 - (void)sliderChanged:(UISlider *)sender
 {
-    UISlider *slider = sender;
-    self.currentPage = slider.value - 1;
+    self.sliderLabel.hidden = NO;
+    
+    _currentPage = sender.value;
+    _scrollView.contentOffset = CGPointMake(self.mFrame.size.width * _currentPage, 0);
+    [self updateFromLeftWithPageNumber:_currentPage - 1 dataSource:_dataSource];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ %ld/%ld", [DataManager sharedDataManager].content.title,_currentPage,_dataSource.count];
+    self.sliderLabel.text = [NSString stringWithFormat:@"%ld / %ld",_currentPage,_dataSource.count];
+    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    %.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
 }
+
+- (void)sliderDragUp
+{
+    self.sliderLabel.hidden = YES;
+}
+
+#pragma mark - 放大缩小
+
+
+
+
+
  
  // 手势
 - (void)tapGestureGrecognizerAction:(UITapGestureRecognizer *)recognizer
@@ -346,16 +294,16 @@
     {
         _headerView.hidden = YES;
         _footerView.hidden = YES;
-        _brightnessView.hidden = YES;
         isHidden = YES;
     }else{
         _headerView.hidden = NO;
         _footerView.hidden = NO;
-        _brightnessView.hidden = NO;
         isHidden = NO;
     }
     NSLog(@"轻点");
     self.titleLabel.text = [NSString stringWithFormat:@"%@ %ld/%ld", [DataManager sharedDataManager].content.title,_currentPage,_dataSource.count];
+    [self.slider setValue:_currentPage];
+
 }
 
 
@@ -389,23 +337,6 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
 }
-
-
-# pragma mark -横屏滚动
-- (void)initScrollViewInAcrossScreenWithCounts:(NSInteger)counts
-{
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.mFrame.size.width, self.mFrame.size.height)];
-    _scrollView.contentSize = CGSizeMake(self.mFrame.size.width, self.mFrame.size.width * (counts + 2));
-//    _scrollView.contentOffset = CGPointMake(0, 0);
-    _scrollView.backgroundColor = [UIColor whiteColor];
-    
-//    _scrollView.pagingEnabled = YES;
-    _scrollView.bounces = NO;
-    
-    _scrollView.delegate = self;
-    [self.view addSubview:_scrollView];
-}
-
 
 
 
@@ -452,6 +383,7 @@
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
+
     [self scrollViewDidEndDecelerating:scrollView];
 }
 
@@ -541,9 +473,13 @@
                 [self updateFromLeftWithPageNumber:_currentPage - 1 dataSource:_dataSource];
             }
         }
+        
+        self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    %.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
         return;
     }
+    
 }
+
 
 
 
