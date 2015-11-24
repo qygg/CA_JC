@@ -7,92 +7,88 @@
 //
 
 #import "ZCContentTableViewController.h"
+#import "DataManager.h"
+#import "Content.h"
+#import "ZCContentTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface ZCContentTableViewController ()
+
+@property (nonatomic, strong) NSMutableArray *cellHeight;
+@property (nonatomic, strong) NSMutableArray *isCellLoaded;
 
 @end
 
 @implementation ZCContentTableViewController
 
+static NSString * const reuseID = @"zccontent";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self.tableView registerNib:[UINib nibWithNibName:@"ZCContentTableViewCell" bundle:nil] forCellReuseIdentifier:reuseID];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[DataManager sharedDataManager] loadContentWithCharpterid:self.chapterID completion:^{
+        for (int i = 0; i < [DataManager sharedDataManager].content.addrs.count; i++) {
+            [self.cellHeight addObject:@([UIScreen mainScreen].bounds.size.height)];
+            [self.isCellLoaded addObject:@NO];
+        }
+        [self.tableView reloadData];
+    }];
+    
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [DataManager sharedDataManager].content.addrs.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    ZCContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[DataManager sharedDataManager].content.addrs[indexPath.row]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        CGFloat scale = image.size.width / image.size.height;
+        CGFloat height = cell.bounds.size.width / scale;
+        self.cellHeight[indexPath.row] = @(height);
+        if (![self.isCellLoaded[indexPath.row] boolValue]) {
+            self.isCellLoaded[indexPath.row] = @YES;
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.cellHeight[indexPath.row] doubleValue];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (NSMutableArray *)cellHeight {
+    if (!_cellHeight) {
+        _cellHeight = [NSMutableArray array];
+    }
+    return _cellHeight;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (NSMutableArray *)isCellLoaded {
+    if (!_isCellLoaded) {
+        _isCellLoaded = [NSMutableArray array];
+    }
+    return _isCellLoaded;
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

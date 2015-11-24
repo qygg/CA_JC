@@ -161,6 +161,7 @@
 		C2A582F61BFF164C0009091A /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582F01BFF164C0009091A /* return.png */; };
 		C2A582F71BFF164C0009091A /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582F11BFF164C0009091A /* envelope.png */; };
 		C2A582F81BFF164C0009091A /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582F21BFF164C0009091A /* set.png */; };
+		C2FFF8291C049AC9001ED6B7 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FFF8281C049AC9001ED6B7 /* end.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -425,6 +426,7 @@
 		C2A582F01BFF164C0009091A /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
 		C2A582F11BFF164C0009091A /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = "<group>"; };
 		C2A582F21BFF164C0009091A /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
+		C2FFF8281C049AC9001ED6B7 /* end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = end.png; sourceTree = "<group>"; };
 		D0D07F1ADAD519410BDE6F12 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -610,6 +612,7 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C2FFF8281C049AC9001ED6B7 /* end.png */,
 				C2A582ED1BFF164C0009091A /* version.png */,
 				C2A582EE1BFF164C0009091A /* user.png */,
 				C2A582EF1BFF164C0009091A /* we.png */,
@@ -1042,6 +1045,7 @@
 				29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */,
 				C204406A1BF9D0EE008C85B7 /* expandableImage@2x.png in Resources */,
 				29B93A3C1BFB389C009CB459 /* ZCBookshelfSelectedTableViewCell.xib in Resources */,
+				C2FFF8291C049AC9001ED6B7 /* end.png in Resources */,
 				C27043541BF3816B001F7CC1 /* image_1.jpg in Resources */,
 				29CD4DB41BF23EFD003EFA93 /* Assets.xcassets in Resources */,
 				299CA11E1C01E9E700592528 /* ZCContentTableViewCell.xib in Resources */,

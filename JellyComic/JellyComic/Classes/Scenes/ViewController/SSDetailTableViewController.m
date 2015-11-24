@@ -71,10 +71,8 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
     self.view.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStyleDone) target:self action:@selector(comebackXLReconmmendVC)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStyleDone target:self action:@selector(comebackXLReconmmendVC)];
     [self.navigationItem.leftBarButtonItem setTintColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"评论" style:(UIBarButtonItemStyleDone) target:self action:@selector(toCommentVC)];
-    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
     [self requestComicDetailData];
     
     // 注册
@@ -232,8 +230,8 @@
     
     // 提示
     _hintLabel = [[UILabel alloc] initWithFrame:CGRectMake(_hintLabel.frame.origin.x, _introduceLabel.frame.origin.y + 75, _headerView.frame.size.width, 40)];
-    _hintLabel.text = @"    请选择漫画站进行阅读或者缓存。";
-    
+    _hintLabel.text = @"请选择漫画站进行阅读";
+    _hintLabel.textAlignment = NSTextAlignmentCenter;
     _hintLabel.textColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
     _hintLabel.font = [UIFont systemFontOfSize:15 weight:1];
     _hintLabel.backgroundColor = [UIColor colorWithRed:0.750 green:0.837 blue:1.000 alpha:1.000];

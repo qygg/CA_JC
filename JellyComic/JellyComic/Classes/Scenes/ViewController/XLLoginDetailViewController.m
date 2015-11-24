@@ -13,17 +13,43 @@
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/CoreAnimation.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import <AVOSCloud/AVOSCloud.h>
+
 @interface XLLoginDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
 @property (nonatomic ,strong) NSString *lastChosenMediaType;
+@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
+
 
 @end
 
 @implementation XLLoginDetailViewController
 
+- (void)loadUserInfo {
+    AVQuery *query = [AVQuery queryWithClassName:@"UserInfo"];
+    [query whereKey:@"userName" equalTo:self.userName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.userInfo = objects.firstObject;
+            self.nickNameLabel.text = [self.userInfo objectForKey:@"nickName"];
+            self.headImageView.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
+        } else {
+            self.hintLabel.hidden = NO;
+            self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+        }
+    }];
+}
+
+- (void)backAction:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.hintLabel.hidden = YES;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
+    [self loadUserInfo];
     self.headImageView.layer.cornerRadius = 50;
     self.headImageView.layer.masksToBounds = YES;
     self.headImageView.userInteractionEnabled = YES;
@@ -40,6 +66,15 @@
     xlAmendNickName.returnBlock = ^(NSString *string)
     {
         self.nickNameLabel.text = string;
+        [self.userInfo setObject:string forKey:@"nickName"];
+        [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                
+            } else {
+                self.hintLabel.hidden = NO;
+                self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+            }
+        }];
     };
     [self.navigationController pushViewController:xlAmendNickName animated:YES];
 }
@@ -64,14 +99,16 @@
 #pragma mark - 修改密码
 - (IBAction)changePWD:(UIButton *)sender
 {
-    XLAmendPwdViewController *xlAmendPwd = [XLAmendPwdViewController new];
-    [self.navigationController pushViewController:xlAmendPwd animated:YES];
+//    XLAmendPwdViewController *xlAmendPwd = [XLAmendPwdViewController new];
+//    [self.navigationController pushViewController:xlAmendPwd animated:YES];
 }
 #pragma mark - 同步数据
 - (IBAction)synchronousData:(UIButton *)sender {
 }
 #pragma mark - 注销
 - (IBAction)cancelAction:(UIButton *)sender {
+    [AVUser logOut];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)shootPiicturePrVideo
@@ -89,6 +126,15 @@
     if ([_lastChosenMediaType isEqual:(NSString *) kUTTypeImage]) {
         UIImage *chosenImage =[info objectForKey:UIImagePickerControllerEditedImage];
         self.headImageView.image = chosenImage;
+        [self.userInfo setObject:UIImageJPEGRepresentation(chosenImage, 1) forKey:@"photo"];
+        [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                
+            } else {
+                self.hintLabel.hidden = NO;
+                self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+            }
+        }];
     }
     if ([_lastChosenMediaType isEqual:(NSString *) kUTTypeMovie]) {
         //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:@"系统只支持图片格式" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles: nil];

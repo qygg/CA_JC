@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AVObject;
 
 @interface XLLoginDetailViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
+
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) AVObject *userInfo;
 
 @end
