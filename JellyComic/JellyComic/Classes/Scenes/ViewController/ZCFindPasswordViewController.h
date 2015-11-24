@@ -10,4 +10,7 @@
 
 @interface ZCFindPasswordViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
+
 @end

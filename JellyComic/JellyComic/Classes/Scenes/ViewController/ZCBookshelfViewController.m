@@ -13,6 +13,8 @@
 #import "XLLocalDataManager.h"
 #import "SSDetailTableViewController.h"
 #import "SComic.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "XLLoginDetailViewController.h"
 
 @interface ZCBookshelfViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
@@ -35,6 +37,9 @@
 @property (nonatomic, strong) UILabel *collectHintLabel;
 @property (nonatomic, strong) UILabel *historyHintLabel;
 
+@property (nonatomic, strong) AVUser *currentUser;
+@property (nonatomic, strong) AVObject *userInfo;
+
 @end
 
 @implementation ZCBookshelfViewController
@@ -42,6 +47,30 @@
 static NSString * const reuseTVID = @"booktv";
 static NSString * const reuseSTVID = @"bookstv";
 static NSString * const reuseCVID = @"bookcv";
+
+- (void)loadUserInfo {
+    AVQuery *query = [AVQuery queryWithClassName:@"UserInfo"];
+    [query whereKey:@"userName" equalTo:self.currentUser.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.userInfo = objects.firstObject;
+            self.userNameLabel.text = [self.userInfo objectForKey:@"nickName"];
+            self.userPhoto.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
+        } else {
+            
+        }
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.currentUser = [AVUser currentUser];
+    if (self.currentUser != nil) {
+        [self loadUserInfo];
+    } else {
+        self.userNameLabel.text = @"登录";
+        self.userPhoto.image = [UIImage imageNamed:@"userdef"];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -124,7 +153,14 @@ static NSString * const reuseCVID = @"bookcv";
 }
 
 - (void)userCenterAction:(id)sender {
-    [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
+    if (self.currentUser != nil) {
+        XLLoginDetailViewController *XLLoginDetailVC = [[UIStoryboard storyboardWithName:@"XLLoginDetailViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginDetail"];
+        XLLoginDetailVC.userName = self.currentUser.username;
+        UINavigationController *userNC = [[UINavigationController alloc] initWithRootViewController:XLLoginDetailVC];
+        [self showViewController:userNC sender:nil];
+    } else {
+        [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
+    }
 }
 
 - (void)collectButtonAction:(UIButton *)sender {
