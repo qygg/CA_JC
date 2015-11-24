@@ -525,12 +525,14 @@
                 [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] close];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
                 return;
             }else if (![s.chapterID isEqualToString:self.chapter.ID])
             {
                 [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] close];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
                 return;
             }
         }

@@ -164,6 +164,7 @@
 - (void)initScrollView
 {
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, _mViewFrame.size.width, _mViewFrame.size.height - TOPHEIGHT - 20)];
+    _scrollView.bounces = NO;
     _scrollView.contentSize = CGSizeMake(_mViewFrame.size.width * _tabCount, _mViewFrame.size.height - 60);
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.pagingEnabled = YES;
@@ -233,6 +234,7 @@
     flowout.headerReferenceSize = CGSizeMake(self.frame.size.width, 190);
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flowout];
     self.collectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
+
     // 下拉刷新
     self.collectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         page = 1;
@@ -285,6 +287,7 @@
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flow];
+
     reusecollectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     reusecollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         page1 = 1;
@@ -317,6 +320,7 @@
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width * 2, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flow];
+
     reusecollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         page2 = 1;
         [self initDataSource3];
@@ -345,6 +349,7 @@
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width * 3, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flow];
+    
     reusecollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         page3 = 1;
         [self initDataSource4];
@@ -418,9 +423,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if ([scrollView isEqual:_scrollView]) {
-       
-        
-       
+
         _currentPage = _scrollView.contentOffset.x/_mViewFrame.size.width;
         
 
@@ -462,7 +465,6 @@
     }else if (_currentPage == 3) {
         return _recentUpdateArray.count;
     }
-    
     return 0;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
