@@ -208,6 +208,7 @@
 }
 
 - (void)loadContentWithCharpterid:(NSString *)charpterid completion:(Callback)completion {
+    self.content = nil;
     NSURL *url = [NSURL URLWithString:[kContent_URL stringByAppendingFormat:@"?charpterid=%@", charpterid]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

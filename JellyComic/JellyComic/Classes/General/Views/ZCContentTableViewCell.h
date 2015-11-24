@@ -10,4 +10,6 @@
 
 @interface ZCContentTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+
 @end
