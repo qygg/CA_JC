@@ -522,14 +522,42 @@
                 return;
             }else if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage != _currentPage)
             {
+                NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+                for (SComic *s in array1) {
+                    if ([s.comicID isEqualToString:_comicid]) {
+                        [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
+                        [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+                        [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+                        [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListcollect];
+                        [[XLLocalDataManager shareManager] close];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
+                        return;
+                        
+                    }
+                }
                 [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] close];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
                 return;
+                
             }else if (![s.chapterID isEqualToString:self.chapter.ID])
             {
+                NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+                for (SComic *s in array1) {
+                    if ([s.comicID isEqualToString:_comicid]) {
+                        [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
+                        [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+                        [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+                        [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListcollect];
+                        [[XLLocalDataManager shareManager] close];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
+                        return;
+                    }
+                }
                 [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] close];
@@ -539,7 +567,18 @@
             }
         }
     }
-    
+    NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+    for (SComic *s  in array1) {
+        if ([s.comicID isEqualToString:_comicid]) {
+            [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+            [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
+            [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListcollect];
+            [[XLLocalDataManager shareManager] close];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
+            return;
+        }
+    }
     
     [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
     
