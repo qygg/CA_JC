@@ -526,6 +526,7 @@
                 [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] close];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
                 return;
             }else if (![s.chapterID isEqualToString:self.chapter.ID])
             {
@@ -533,17 +534,19 @@
                 [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
                 [[XLLocalDataManager shareManager] close];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
                 return;
             }
         }
     }
     
-
+    
     [[XLLocalDataManager shareManager] insertSComic:self.xlSComic tableList:tableListhistory];
     
     [[XLLocalDataManager shareManager] close];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"historychange" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
     
 }
 
