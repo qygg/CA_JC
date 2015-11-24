@@ -10,4 +10,6 @@
 
 @interface ZCContentTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSString *chapterID;
+
 @end

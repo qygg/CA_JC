@@ -24,7 +24,7 @@ static sqlite3 *db = nil;
         return;
     }
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    path = [path stringByAppendingPathComponent:@"SComic4.sqlite"];
+    path = [path stringByAppendingPathComponent:@"SComic.sqlite"];
     int result = sqlite3_open(path.UTF8String, &db);
     if (result == SQLITE_OK) {
         NSLog(@"打开成功");

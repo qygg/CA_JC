@@ -142,13 +142,7 @@ static NSString * const tableViewReuseID = @"sysdef";
     
     self.visualEffectView.hidden = NO;
     self.searchBar.showsCancelButton = YES;
-
-    for (UIView *view in searchBar.subviews.firstObject.subviews) {
-        if ([view isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
-            [((UIButton *)view) setTitle:@"取消" forState:UIControlStateNormal];
-            break;
-        }
-    }
+    
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {

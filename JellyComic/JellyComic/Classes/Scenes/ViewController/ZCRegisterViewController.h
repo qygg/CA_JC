@@ -10,4 +10,9 @@
 
 @interface ZCRegisterViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *rePasswordTextField;
+@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
+
 @end
