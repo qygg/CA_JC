@@ -53,17 +53,19 @@
             NSLog(@"%@",s.chapterTitle);
             NSString *string = @"续看：";
             NSString *string1 = [string stringByAppendingString:s.chapterTitle];
-            [_startReadButton setTextString:string1];
+            _startReadButton.textString = string1;
+//            [_startReadButton setTextString:string1];
+            NSLog(@"%@",_startReadButton.textString);
 //            [_startReadButton setRollingSpeed:40.f];
 //            _startReadButton.contentLabel.textColor = [UIColor whiteColor];
 //            _startReadButton.contentLabel.font = [UIFont systemFontOfSize:14];
 //            [_startReadButton start];
-            [[XLLocalDataManager shareManager] close];
             isRead = YES;
         }
     }
-    
+    [[XLLocalDataManager shareManager] close];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -356,6 +358,20 @@
             contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
             contentVC.index = 0;
             contentVC.site = comicSource.title;
+        
+            SComic *scomic = [SComic new];
+            scomic.comicID = self.comicId;
+            scomic.comicImageUrl = self.comicDetail.thumb;
+            scomic.comicsrcID = comicSource.ID;
+            scomic.comicTitle = self.comicDetail.title;
+            scomic.updateTime = ((SSDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).dateLabel.text;
+            scomic.chapterTitle = chapter.title;
+            scomic.chapterID = chapter.ID;
+//            contentVC.xlSComic.chapterID = chapter.ID;
+//            contentVC.xlSComic.chapterTitle = chapter.title;
+            NSLog(@" =========%@",scomic.chapterTitle);
+            contentVC.xlSComic = scomic;
+            
             [self.navigationController pushViewController:contentVC animated:YES];
         }];
         isRead = YES;
@@ -457,6 +473,11 @@
     chapterVC.xlSComic = scomic;
 
     [self.navigationController pushViewController:chapterVC animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
 }
 
 

@@ -11,6 +11,8 @@
 #import "ZCBookshelfTableViewCell.h"
 #import "ZCBookshelfSelectedTableViewCell.h"
 #import "XLLocalDataManager.h"
+#import "SSDetailTableViewController.h"
+#import "SComic.h"
 
 @interface ZCBookshelfViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
@@ -136,6 +138,11 @@ static NSString * const reuseCVID = @"bookcv";
 #pragma mark - 历史详情按钮点击方法
 - (void)detailButtonAction:(UIButton *)sender {
     
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+    SComic *comic = self.historyArray[self.selectedRow];
+    SSDetailTVC.comicId = comic.comicID;
+    UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+    [self showViewController:SSDeatilNC sender:nil];
 }
 
 - (void)deleteButtonAction:(UIButton *)sender {
@@ -220,6 +227,13 @@ static NSString * const reuseCVID = @"bookcv";
 
 #pragma mark - 收藏item点击方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SSDetailTableViewController *SSDetailTVC = [[UIStoryboard storyboardWithName:@"SSDetail" bundle:nil] instantiateViewControllerWithIdentifier:@"ssDetailTVC"];
+    SComic *comic = self.collectArray[indexPath.row];
+    SSDetailTVC.comicId = comic.comicID;
+    UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
+    [self showViewController:SSDeatilNC sender:nil];
+    
     
 }
 
