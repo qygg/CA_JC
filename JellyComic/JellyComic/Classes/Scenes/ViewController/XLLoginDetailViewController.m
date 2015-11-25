@@ -14,6 +14,7 @@
 #import <QuartzCore/CoreAnimation.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "XLLocalDataManager.h"
 
 @interface XLLoginDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -34,6 +35,8 @@
             self.userInfo = objects.firstObject;
             self.nickNameLabel.text = [self.userInfo objectForKey:@"nickName"];
             self.headImageView.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
+        } else if (error.code == 28) {
+            self.hintLabel.text = @"连接超时，请重试";
         } else {
             self.hintLabel.hidden = NO;
             self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
@@ -105,9 +108,27 @@
 }
 #pragma mark - 上传
 - (IBAction)synchronousData:(UIButton *)sender {
+    [[XLLocalDataManager shareManager] open];
+    NSArray *collectArray = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+    [[XLLocalDataManager shareManager] close];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:collectArray];
+    [self.userInfo setObject:data forKey:@"collectArray"];
+    [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"上传成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            [self showDetailViewController:alertController sender:nil];
+        } else {
+            self.hintLabel.hidden = NO;
+            self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+        }
+    }];
 }
 #pragma mark - 下载
 - (IBAction)downLoad:(UIButton *)sender {
+    NSArray *collectArray = [NSKeyedUnarchiver unarchiveObjectWithData:[self.userInfo objectForKey:@"collectArray"]];
+    
 }
 #pragma mark - 注销
 - (IBAction)cancelAction:(UIButton *)sender {
