@@ -76,8 +76,7 @@
     self.scrollImageViews = [[NSMutableArray alloc] init];
     self.chapter = [Chapter new];
     
-    
-    
+    // 将传过来的章节数组进行排序
     Chapter *chap1 = self.chapterArray[0];
     Chapter *chap2 = self.chapterArray[1];
     if (chap1.sid < chap2.sid) {
@@ -91,7 +90,7 @@
         }
         self.nowIndex = (self.chapArray.count - 1- self.index);
     }
-    self.chapter = _chapArray[_nowIndex];
+//    self.chapter = _chapArray[_nowIndex];
     [self reloadData];
 }
 
@@ -106,13 +105,18 @@
         {
             [_dataSource addObject:url];
         }
+        // 初始化scrollView和重用的imageView
         [self initScrollViewToRightWithCounts:_dataSource.count];
         [self initDownImageViews];
         if (_contectPage > 1 ) {
-            [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
+            
+            self.comicImage = self.scrollImageViews[_contectPage % 3];
+            [self.comicImage sd_setImageWithURL:[NSURL URLWithString:_dataSource[_contectPage - 1]]];
+            self.comicImage.frame = CGRectMake((_contectPage * self.mFrame.size.width), 0, self.mFrame.size.width, self.mFrame.size.height);
             _scrollView.contentOffset = CGPointMake(self.mFrame.size.width * _contectPage, 0);
+            [_scrollView addSubview:self.comicImage];
             _currentPage = _contectPage;
-        
+
         }else{
             [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
         }
@@ -201,13 +205,6 @@
 }
 
 
-
-
-
-
-
-
-
 #pragma mark - MiddleView
 - (void)reloadMiddleView
 {
@@ -260,14 +257,14 @@
 }
 
  // 设置
-- (void)settingAction:(UIButton *)sender
-{
-    SSSettingTableViewController *settingTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingTableViewController"];
-    
-    [self.navigationController pushViewController:settingTVC animated:YES];
-    NSLog(@"设置");
-}
- 
+//- (void)settingAction:(UIButton *)sender
+//{
+//    SSSettingTableViewController *settingTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingTableViewController"];
+//    
+//    [self.navigationController pushViewController:settingTVC animated:YES];
+//    NSLog(@"设置");
+//}
+
  // 进度条
 - (void)sliderChanged:(UISlider *)sender
 {
@@ -383,7 +380,6 @@
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-
     [self scrollViewDidEndDecelerating:scrollView];
 }
 
@@ -406,6 +402,7 @@
     {
         // 根据偏移量获取当前页数
         _currentPage = _scrollView.contentOffset.x /self.view.frame.size.width;
+        
         if (_currentPage == 0)    // 如果当前页数为零
         {
             if (self.nowIndex <= 0)  // 如果是第一章
@@ -422,6 +419,7 @@
                 [_scrollImageViews removeAllObjects];
                 [_dataSource removeAllObjects];
                 Chapter *chapter = _chapArray[self.nowIndex];
+                self.chapterID = chapter.ID;
                 [[DataManager sharedDataManager] loadContentWithCharpterid:chapter.ID completion:^{
                 for (NSString *url in [DataManager sharedDataManager].content.addrs)
                 {
@@ -438,8 +436,10 @@
                 }];
                  
             }
+            // 判断是否是最后一页
         }else if (_currentPage == (_dataSource.count + 1))
         {
+            // 判断是否是第一章
             if (self.nowIndex >= _chapterArray.count - 1)
             {
                 UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake((_dataSource.count + 1)* self.mFrame.size.width, 0, self.mFrame.size.width, self.mFrame.size.height)];
@@ -455,6 +455,7 @@
                 [_dataSource removeAllObjects];
                 [self.middleView removeFromSuperview];
                 Chapter *chapter = _chapArray[self.nowIndex];
+                self.chapterID = chapter.ID;
                 [[DataManager sharedDataManager] loadContentWithCharpterid:chapter.ID completion:^{
                     for (NSString *url in [DataManager sharedDataManager].content.addrs)
                     {

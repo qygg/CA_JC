@@ -19,12 +19,12 @@
 
 @property (strong, nonatomic) NSString *site;
 @property (nonatomic, strong) Chapter *chapter;
-@property (nonatomic, strong) NSArray *chapterArray;
-@property (nonatomic, assign) NSInteger index;
-@property (nonatomic, strong) NSString *chapterID;
-@property (nonatomic, assign) NSInteger contectPage;
+@property (nonatomic, strong) NSArray *chapterArray;    // 章节数组
+@property (nonatomic, assign) NSInteger index;          // 下标
+@property (nonatomic, strong) NSString *chapterID;      // 章节ID
+@property (nonatomic, assign) NSInteger contectPage;    // 当前页数
 
 
-@property (nonatomic, strong) NSString *comicid;
-@property (nonatomic, strong) SComic *xlSComic;
+@property (nonatomic, strong) NSString *comicid;         // 漫画ID
+@property (nonatomic, strong) SComic *xlSComic;          // 存储模型
 @end
