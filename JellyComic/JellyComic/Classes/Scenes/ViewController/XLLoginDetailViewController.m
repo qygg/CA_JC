@@ -128,7 +128,16 @@
 #pragma mark - 下载
 - (IBAction)downLoad:(UIButton *)sender {
     NSArray *collectArray = [NSKeyedUnarchiver unarchiveObjectWithData:[self.userInfo objectForKey:@"collectArray"]];
+    [[XLLocalDataManager shareManager] open];
     
+    for (SComic *s in [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect]) {
+        [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
+    }
+    for (SComic *s in collectArray) {
+        [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
+    }
+    [[XLLocalDataManager shareManager] close];
+
 }
 #pragma mark - 注销
 - (IBAction)cancelAction:(UIButton *)sender {

@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     self.title = @"修改昵称";
     self.nickName = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, self.view.frame.size.width - 20, 40)];
-    self.nickName.borderStyle = UITextBorderStyleBezel;
+    self.nickName.borderStyle = UITextBorderStyleRoundedRect;
     self.nickName.text = self.string;
     [self.nickName becomeFirstResponder];
     [self.view addSubview:_nickName];
