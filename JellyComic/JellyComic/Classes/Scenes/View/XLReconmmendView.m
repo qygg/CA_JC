@@ -226,12 +226,11 @@
 - (void)initDownTable1
 {
     UICollectionViewFlowLayout *flowout = [[UICollectionViewFlowLayout alloc] init];
-    CGFloat aa = (self.frame.size.width / 3) - 8;
-    CGFloat bb = (self.frame.size.height / 3) - 8;
-    flowout.itemSize = CGSizeMake(aa, bb);
+    
+    flowout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
     [flowout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
-    flowout.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
+    flowout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     flowout.headerReferenceSize = CGSizeMake(self.frame.size.width, 190);
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flowout];
     self.collectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
@@ -281,9 +280,8 @@
 - (void)initDownTable2
 {
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-    CGFloat a = (self.frame.size.width / 3) - 8;
-    CGFloat b = (self.frame.size.height / 3) - 8;
-    flow.itemSize = CGSizeMake(a, b);
+    
+    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
@@ -314,9 +312,8 @@
 - (void)initDownTable3
 {
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-    CGFloat a = (self.frame.size.width / 3) - 8;
-    CGFloat b = (self.frame.size.height / 3) - 8;
-    flow.itemSize = CGSizeMake(a, b);
+    
+    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
@@ -343,9 +340,8 @@
 - (void)initDownTable4
 {
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-    CGFloat a = (self.frame.size.width / 3) - 8;
-    CGFloat b = (self.frame.size.height / 3) - 8;
-    flow.itemSize = CGSizeMake(a, b);
+    
+    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
 
     flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
@@ -549,6 +545,7 @@
     UINavigationController *SSDeatilNC = [[UINavigationController alloc] initWithRootViewController:SSDetailTVC];
     [self.xlReconmmendViewController showViewController:SSDeatilNC sender:nil];
 }
+
 
 
 @end

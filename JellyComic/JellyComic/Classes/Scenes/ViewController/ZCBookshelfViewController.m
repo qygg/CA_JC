@@ -185,7 +185,8 @@ static NSString * const reuseCVID = @"bookcv";
 
 - (void)deleteButtonAction:(UIButton *)sender {
     [[XLLocalDataManager shareManager] open];
-    [[XLLocalDataManager shareManager] deleteWithSComic:self.historyArray[self.selectedRow].comicID tableList:tableListhistory];
+    [[XLLocalDataManager shareManager] createTable:tableListcollect];
+    [[XLLocalDataManager shareManager] createTable:tableListhistory];
     SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.historyArray[self.selectedRow].comicID tableList:tableListcollect];
     SComic *scomic1 = [SComic new];
     scomic1.comicID = scomic.comicID;
@@ -193,7 +194,14 @@ static NSString * const reuseCVID = @"bookcv";
     scomic1.comicImageUrl = scomic.comicImageUrl;
     scomic1.updateTime = scomic.updateTime;
     [[XLLocalDataManager shareManager] deleteWithSComic:scomic.comicID tableList:tableListcollect];
-    [[XLLocalDataManager shareManager] insertSComic:scomic1 tableList:tableListcollect];
+    for (SComic *s in [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect]) {
+        if ([s.comicID isEqualToString:self.historyArray[self.selectedRow].comicID]) {
+            [[XLLocalDataManager shareManager] insertSComic:scomic1 tableList:tableListcollect];
+        }
+    }
+    
+    [[XLLocalDataManager shareManager] deleteWithSComic:self.historyArray[self.selectedRow].comicID tableList:tableListhistory];
+   
     [[XLLocalDataManager shareManager] close];
     [self reloadCollect];
     [self.historyArray removeObjectAtIndex:self.selectedRow];
