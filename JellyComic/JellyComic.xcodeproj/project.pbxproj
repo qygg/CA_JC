@@ -39,16 +39,6 @@
 		299CA11D1C01E9E700592528 /* ZCContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 299CA11B1C01E9E700592528 /* ZCContentTableViewCell.m */; };
 		299CA11E1C01E9E700592528 /* ZCContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299CA11C1C01E9E700592528 /* ZCContentTableViewCell.xib */; };
 		299F6FF31BF2CF83009F228C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F6FDC1BF2CF82009F228C /* AppDelegate.m */; };
-		299F6FF41BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FDF1BF2CF82009F228C /* Sign */; };
-		299F6FF51BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FE11BF2CF82009F228C /* Sign */; };
-		299F6FF61BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FE31BF2CF82009F228C /* Sign */; };
-		299F6FF71BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FE51BF2CF82009F228C /* Sign */; };
-		299F6FF81BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FE71BF2CF82009F228C /* Sign */; };
-		299F6FF91BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FE91BF2CF82009F228C /* Sign */; };
-		299F6FFA1BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FEB1BF2CF83009F228C /* Sign */; };
-		299F6FFB1BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FEE1BF2CF83009F228C /* Sign */; };
-		299F6FFC1BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FF01BF2CF83009F228C /* Sign */; };
-		299F6FFD1BF2CF83009F228C /* Sign in Resources */ = {isa = PBXBuildFile; fileRef = 299F6FF21BF2CF83009F228C /* Sign */; };
 		299F70001BF2E79D009F228C /* ComicSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F6FFF1BF2E79D009F228C /* ComicSource.m */; };
 		299F70031BF2E982009F228C /* ScrollingImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F70021BF2E982009F228C /* ScrollingImage.m */; };
 		299F70061BF2EBDA009F228C /* Comic.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F70051BF2EBDA009F228C /* Comic.m */; };
@@ -224,16 +214,6 @@
 		299CA11C1C01E9E700592528 /* ZCContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCContentTableViewCell.xib; sourceTree = "<group>"; };
 		299F6FDB1BF2CF82009F228C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		299F6FDC1BF2CF82009F228C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		299F6FDF1BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FE11BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FE31BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FE51BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FE71BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FE91BF2CF82009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FEB1BF2CF83009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FEE1BF2CF83009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FF01BF2CF83009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
-		299F6FF21BF2CF83009F228C /* Sign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sign; sourceTree = "<group>"; };
 		299F6FFE1BF2E79D009F228C /* ComicSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComicSource.h; sourceTree = "<group>"; };
 		299F6FFF1BF2E79D009F228C /* ComicSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComicSource.m; sourceTree = "<group>"; };
 		299F70011BF2E982009F228C /* ScrollingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollingImage.h; sourceTree = "<group>"; };
@@ -520,7 +500,6 @@
 		299F6FDE1BF2CF82009F228C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FDF1BF2CF82009F228C /* Sign */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -528,7 +507,6 @@
 		299F6FE01BF2CF82009F228C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FE11BF2CF82009F228C /* Sign */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -536,7 +514,6 @@
 		299F6FE21BF2CF82009F228C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FE31BF2CF82009F228C /* Sign */,
 				C27043611BF381C9001F7CC1 /* SSChapterTableViewCell.h */,
 				C27043621BF381CE001F7CC1 /* SSChapterTableViewCell.m */,
 				C27043641BF381D5001F7CC1 /* SSChapterTableViewCell.xib */,
@@ -565,7 +542,6 @@
 		299F6FE41BF2CF82009F228C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FE51BF2CF82009F228C /* Sign */,
 				299F70161BF32340009F228C /* DataManager.h */,
 				299F70171BF32340009F228C /* DataManager.m */,
 				C286A6141BFDA5F100A93826 /* XLLocalDataManager.h */,
@@ -579,7 +555,6 @@
 		299F6FE61BF2CF82009F228C /* Macro */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FE71BF2CF82009F228C /* Sign */,
 				299F70191BF32697009F228C /* URLs.h */,
 			);
 			path = Macro;
@@ -604,7 +579,6 @@
 				2966A60A1BFCBD8000A96AC4 /* SComic.m */,
 				299F70011BF2E982009F228C /* ScrollingImage.h */,
 				299F70021BF2E982009F228C /* ScrollingImage.m */,
-				299F6FE91BF2CF82009F228C /* Sign */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -627,7 +601,6 @@
 				C27043551BF3816E001F7CC1 /* arrow1.png */,
 				C20440691BF9D0EE008C85B7 /* expandableImage@2x.png */,
 				C27043531BF3816B001F7CC1 /* image_1.jpg */,
-				299F6FEB1BF2CF83009F228C /* Sign */,
 				C216ABBC1BFAC231005FBB80 /* titlebg.png */,
 			);
 			path = Resources;
@@ -645,7 +618,6 @@
 		299F6FED1BF2CF83009F228C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				299F6FEE1BF2CF83009F228C /* Sign */,
 				C20440611BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.h */,
 				C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */,
 				C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */,
@@ -672,7 +644,6 @@
 			children = (
 				299F703D1BF3345D009F228C /* RootViewController.h */,
 				299F703E1BF3345D009F228C /* RootViewController.m */,
-				299F6FF01BF2CF83009F228C /* Sign */,
 				C27043591BF38197001F7CC1 /* SSChapterViewController.h */,
 				C270435A1BF381A2001F7CC1 /* SSChapterViewController.m */,
 				C223E38D1BFDB2AE0063F155 /* SSContentViewController.h */,
@@ -736,7 +707,6 @@
 				C23078581BF6D1F400E6CDDE /* MJRefresh */,
 				C23078A01BF6D25700E6CDDE /* SDCycleScrollView */,
 				292BD32A1BF46CD20013559E /* SDWebImage */,
-				299F6FF21BF2CF83009F228C /* Sign */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -1012,15 +982,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				299F6FF51BF2CF83009F228C /* Sign in Resources */,
 				2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */,
 				C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */,
 				C286A6111BFD62C700A93826 /* userName.png in Resources */,
 				C286A6051BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard in Resources */,
 				C23078BE1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard in Resources */,
 				C2A582F81BFF164C0009091A /* set.png in Resources */,
-				299F6FFC1BF2CF83009F228C /* Sign in Resources */,
-				299F6FF91BF2CF83009F228C /* Sign in Resources */,
 				C27043581BF38174001F7CC1 /* arrow.png in Resources */,
 				29097EDC1BFE06AB00B94FCE /* password.png in Resources */,
 				C230789F1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib in Resources */,
@@ -1030,17 +997,12 @@
 				C2A582F41BFF164C0009091A /* user.png in Resources */,
 				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
 				2985352B1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib in Resources */,
-				299F6FF61BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */,
 				29097EDA1BFE036300B94FCE /* ZCLoginStoryboard.storyboard in Resources */,
-				299F6FFB1BF2CF83009F228C /* Sign in Resources */,
 				C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */,
-				299F6FF41BF2CF83009F228C /* Sign in Resources */,
-				299F6FFA1BF2CF83009F228C /* Sign in Resources */,
 				C286A5FB1BFD619A00A93826 /* XLDetialTableViewCell.xib in Resources */,
 				C2A582F51BFF164C0009091A /* we.png in Resources */,
 				C270436A1BF381F2001F7CC1 /* SSDetailTableViewCell.xib in Resources */,
-				299F6FFD1BF2CF83009F228C /* Sign in Resources */,
 				C206590C1C034DB2005C263A /* XLLoginDetailViewControllerStoryboard.storyboard in Resources */,
 				29E98B261BF4B06C006F201B /* ZCCategory.storyboard in Resources */,
 				C204406A1BF9D0EE008C85B7 /* expandableImage@2x.png in Resources */,
@@ -1057,9 +1019,7 @@
 				298535261BF9CEBE005FDE11 /* ZCBookshelfTableViewCell.xib in Resources */,
 				C286A5FD1BFD619A00A93826 /* XLChangeHeadTableViewCell.xib in Resources */,
 				C2A582F61BFF164C0009091A /* return.png in Resources */,
-				299F6FF81BF2CF83009F228C /* Sign in Resources */,
 				29CD4DB21BF23EFD003EFA93 /* Main.storyboard in Resources */,
-				299F6FF71BF2CF83009F228C /* Sign in Resources */,
 				C286A60E1BFD62C700A93826 /* key.png in Resources */,
 				C2A582F71BFF164C0009091A /* envelope.png in Resources */,
 				29E98B311BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib in Resources */,
