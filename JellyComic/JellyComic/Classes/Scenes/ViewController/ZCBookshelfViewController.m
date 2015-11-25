@@ -40,6 +40,8 @@
 @property (nonatomic, strong) AVUser *currentUser;
 @property (nonatomic, strong) AVObject *userInfo;
 
+@property (nonatomic, strong) SComic *xlScomic;
+
 @end
 
 @implementation ZCBookshelfViewController
@@ -184,7 +186,16 @@ static NSString * const reuseCVID = @"bookcv";
 - (void)deleteButtonAction:(UIButton *)sender {
     [[XLLocalDataManager shareManager] open];
     [[XLLocalDataManager shareManager] deleteWithSComic:self.historyArray[self.selectedRow].comicID tableList:tableListhistory];
+    SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.historyArray[self.selectedRow].comicID tableList:tableListcollect];
+    SComic *scomic1 = [SComic new];
+    scomic1.comicID = scomic.comicID;
+    scomic1.comicTitle = scomic.comicTitle;
+    scomic1.comicImageUrl = scomic.comicImageUrl;
+    scomic1.updateTime = scomic.updateTime;
+    [[XLLocalDataManager shareManager] deleteWithSComic:scomic.comicID tableList:tableListcollect];
+    [[XLLocalDataManager shareManager] insertSComic:scomic1 tableList:tableListcollect];
     [[XLLocalDataManager shareManager] close];
+    [self reloadCollect];
     [self.historyArray removeObjectAtIndex:self.selectedRow];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.selectedRow inSection:0];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
