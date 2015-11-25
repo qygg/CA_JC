@@ -34,6 +34,8 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, strong) NSString *xlUpdate;
 
+@property (nonatomic, strong) NSString *buttonStr;
+
 @end
 
 @implementation SSDetailTableViewController
@@ -50,16 +52,18 @@
     NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     for (SComic *s in array) {
         if ([s.comicID isEqualToString:self.comicId]) {
-            NSLog(@"%@",s.chapterTitle);
             NSString *string = @"续看：";
             NSString *string1 = [string stringByAppendingString:s.chapterTitle];
+            NSLog(@" --- %@",string1);
             _startReadButton.textString = string1;
-//            [_startReadButton setTextString:string1];
-            NSLog(@"%@",_startReadButton.textString);
-//            [_startReadButton setRollingSpeed:40.f];
-//            _startReadButton.contentLabel.textColor = [UIColor whiteColor];
-//            _startReadButton.contentLabel.font = [UIFont systemFontOfSize:14];
-//            [_startReadButton start];
+            if (!_startReadButton.isRuned) {
+                [_startReadButton setRollingSpeed:40.f];
+                _startReadButton.contentLabel.textColor = [UIColor whiteColor];
+                _startReadButton.contentLabel.font = [UIFont systemFontOfSize:14];
+                [_startReadButton setTitle:@"" forState:UIControlStateNormal];
+                [_startReadButton start];
+            }
+            NSLog(@" == %@",_startReadButton.textString);
             isRead = YES;
         }
     }
@@ -342,71 +346,89 @@
 }
 
 #pragma mark -  开始阅读
+- (void)timeEnough
+{
+    self.startReadButton.selected = NO;
+}
+
 - (void)startReadingAction:(UIButton *)sender
 {
     SSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
     
-    if (isRead == NO) {
-        ComicSource *comicSource = _comicStrArray[0];
-        NSMutableArray *chapterArray = [NSMutableArray array];
-        [[DataManager sharedDataManager] loadChapterWithComicsrcid:comicSource.ID comicid:self.comicId completion:^{
-            [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
-            Chapter *chapter = chapterArray[0];
-            contentVC.chapterID = chapter.ID;
-            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
-            contentVC.index = 0;
-            contentVC.site = comicSource.title;
-        
-            SComic *scomic = [SComic new];
-            scomic.comicID = self.comicId;
-            scomic.comicImageUrl = self.comicDetail.thumb;
-            scomic.comicsrcID = comicSource.ID;
-            scomic.comicTitle = self.comicDetail.title;
-            scomic.updateTime = ((SSDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).dateLabel.text;
-            scomic.chapterTitle = chapter.title;
-            scomic.chapterID = chapter.ID;
-//            contentVC.xlSComic.chapterID = chapter.ID;
-//            contentVC.xlSComic.chapterTitle = chapter.title;
-            contentVC.comicid = self.comicId;
-
-            contentVC.xlSComic = scomic;
-            
-            [self.navigationController pushViewController:contentVC animated:YES];
-        }];
-        isRead = YES;
+    if (sender.selected) {
+        return;
     }else{
-        ComicSource *comicSource = [ComicSource new];
-        [[XLLocalDataManager shareManager] open];
-        SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.comicId tableList:tableListhistory];
-
-        comicSource.ID = scomic.comicsrcID;
-        contentVC.contectPage = scomic.contentPage;
-
-        contentVC.chapterID = scomic.chapterID;
-
-        contentVC.site = scomic.comicsrcTitle;
-        contentVC.comicid = self.comicId;
-        contentVC.xlSComic = scomic;
-        [[XLLocalDataManager shareManager] close];
         
-        NSMutableArray *chapterArray = [NSMutableArray array];
-        [[DataManager sharedDataManager] loadChapterWithComicsrcid:comicSource.ID comicid:self.comicId completion:^{
-            [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
-//            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+        sender.selected=YES;
+        
+        [self performSelector:@selector(timeEnough) withObject:nil afterDelay:2.0];
+        
+        if (isRead == NO) {
             
-            for (int i = 0; i < chapterArray.count; i++) {
-                Chapter *chapter = chapterArray[i];
-                if ([contentVC.chapterID isEqualToString:chapter.ID]) {
-                    contentVC.index = i;
+            ComicSource *comicSource = _comicStrArray[0];
+            NSMutableArray *chapterArray = [NSMutableArray array];
+            [[DataManager sharedDataManager] loadChapterWithComicsrcid:comicSource.ID comicid:self.comicId completion:^{
+                [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
+                Chapter *chapter = chapterArray[0];
+                contentVC.chapterID = chapter.ID;
+                contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+                contentVC.index = 0;
+                contentVC.site = comicSource.title;
+                
+                SComic *scomic = [SComic new];
+                scomic.comicID = self.comicId;
+                scomic.comicImageUrl = self.comicDetail.thumb;
+                scomic.comicsrcID = comicSource.ID;
+                scomic.comicTitle = self.comicDetail.title;
+                scomic.updateTime = ((SSDetailTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).dateLabel.text;
+                scomic.chapterTitle = chapter.title;
+                scomic.chapterID = chapter.ID;
+                //            contentVC.xlSComic.chapterID = chapter.ID;
+                //            contentVC.xlSComic.chapterTitle = chapter.title;
+                contentVC.comicid = self.comicId;
+                
+                contentVC.xlSComic = scomic;
+                
+                [self.navigationController pushViewController:contentVC animated:YES];
+                isRead = YES;
+            }];
+        }else{
+            ComicSource *comicSource = [ComicSource new];
+            [[XLLocalDataManager shareManager] open];
+            SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.comicId tableList:tableListhistory];
+            
+            comicSource.ID = scomic.comicsrcID;
+            contentVC.contectPage = scomic.contentPage;
+            contentVC.chapterID = scomic.chapterID;
+            contentVC.site = scomic.comicsrcTitle;
+            contentVC.comicid = self.comicId;
+            contentVC.xlSComic = scomic;
+            [[XLLocalDataManager shareManager] close];
+            
+            NSMutableArray *chapterArray = [NSMutableArray array];
+            [[DataManager sharedDataManager] loadChapterWithComicsrcid:comicSource.ID comicid:self.comicId completion:^{
+                [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
+                for (int i = 0; i < chapterArray.count; i++) {
+                    Chapter *chapter = chapterArray[i];
+                    if ([contentVC.chapterID isEqualToString:chapter.ID]) {
+                        contentVC.index = i;
+                    }
                 }
-            }
-            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
-
-            [self.navigationController pushViewController:contentVC animated:YES];
-        }];
+                contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+                
+                [self.navigationController pushViewController:contentVC animated:YES];
+            }];
+        }
         
     }
+    
 }
+
+//- (void)startButtonClicked:(id)sender
+//{
+//    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(startReadingAction:) object:sender];
+//    [self performSelector:@selector(startReadingAction:) withObject:sender afterDelay:0.2f];
+//}
 
 
 

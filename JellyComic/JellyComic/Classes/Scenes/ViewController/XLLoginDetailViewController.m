@@ -185,6 +185,7 @@
         picker.mediaTypes = mediatypes;
         picker.delegate = self;
         picker.allowsEditing = YES;
+        picker.sourceType = sourceType;
         NSString *requiredmediatype = (NSString *)kUTTypeImage;
         NSArray *arrmediatypes = [NSArray arrayWithObject:requiredmediatype];
         [picker setMediaTypes:arrmediatypes];
@@ -192,8 +193,8 @@
     }
     else
     {
-        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"当前设备不支持拍照功能" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles: nil];
-        //        [alert show];
+
+        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误信息" message:@"当前设备不支持拍照功能" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:cancel];

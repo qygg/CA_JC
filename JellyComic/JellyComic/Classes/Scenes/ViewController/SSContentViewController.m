@@ -77,8 +77,8 @@
     self.chapter = [Chapter new];
     
     // 将传过来的章节数组进行排序
-    Chapter *chap1 = self.chapterArray[0];
-    Chapter *chap2 = self.chapterArray[1];
+    Chapter *chap1 = self.chapterArray.firstObject;
+    Chapter *chap2 = self.chapterArray.lastObject;
     if (chap1.sid < chap2.sid) {
         [self.chapArray addObjectsFromArray:self.chapterArray];
         self.nowIndex = self.index;
