@@ -32,8 +32,14 @@
     
     [self initDataTable];
     [self initDataSource];
-    self.label = [[UILabel alloc] initWithFrame:CGRectMake(150, 150, 150, 150)];
-    self.label.text = @"还未阅读任何漫画";
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    CGPoint point = self.view.center;
+    point.y -= 60;
+    self.label.center = point;
+    self.label.textColor = [UIColor grayColor];
+    self.label.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+    self.label.textAlignment = NSTextAlignmentCenter;
+    self.label.text = @"无搜索结果";
     [self.view addSubview:self.label];
     self.label.hidden = YES;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
