@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xdf-19-cXn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userdef.png" translatesAutoresizingMaskIntoConstraints="NO" id="xdf-19-cXn">
                                 <rect key="frame" x="250" y="50" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
@@ -25,15 +25,15 @@
                                     <constraint firstAttribute="width" secondItem="xdf-19-cXn" secondAttribute="height" multiplier="1:1" id="cPl-ek-Ow1"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-F0-eOr">
-                                <rect key="frame" x="275" y="180" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="果冻用户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-F0-eOr">
+                                <rect key="frame" x="266.5" y="180" width="68" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUp-qV-1tO">
-                                <rect key="frame" x="40" y="271" width="520" height="30"/>
+                                <rect key="frame" x="40" y="270" width="520" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.81176470590000005" green="0.8980392157" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="同步收藏数据">
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJa-fZ-h54">
-                                <rect key="frame" x="40" y="371" width="520" height="30"/>
+                                <rect key="frame" x="40" y="370" width="520" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.81176470590000005" green="0.8980392157" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="注销">
@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhs-I7-P4t">
-                                <rect key="frame" x="40" y="221" width="520" height="30"/>
+                                <rect key="frame" x="40" y="220" width="520" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.81176470588235294" green="0.89803921568627454" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="修改密码">
@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3s-mD-jlE">
-                                <rect key="frame" x="40" y="321" width="520" height="30"/>
+                                <rect key="frame" x="40" y="320" width="520" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.81176470590000005" green="0.8980392157" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="下载收藏数据">
@@ -132,4 +132,7 @@
             <point key="canvasLocation" x="803.5" y="465"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="userdef.png" width="128" height="128"/>
+    </resources>
 </document>

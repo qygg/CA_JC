@@ -93,7 +93,7 @@
         width = _mViewFrame.size.width / self.tabCount;
     }
     
-    _slideView = [[UIView alloc] initWithFrame:CGRectMake(0, TOPHEIGHT - 3, width, 3)];
+    _slideView = [[UIView alloc] initWithFrame:CGRectMake(0, TOPHEIGHT - 2, width, 2)];
     [_slideView setBackgroundColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
     [_topScrollView addSubview:_slideView];
 }

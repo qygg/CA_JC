@@ -24,7 +24,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.userNameTextField becomeFirstResponder];
+//    [self.userNameTextField becomeFirstResponder];
 }
 
 - (void)loadView {
