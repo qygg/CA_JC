@@ -19,6 +19,7 @@
     int page;
 }
 @property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UILabel *label;
 @end
 
 @implementation XLSearchDetailTableViewController
@@ -31,12 +32,22 @@
     
     [self initDataTable];
     [self initDataSource];
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    CGPoint point = self.view.center;
+    point.y -= 60;
+    self.label.center = point;
+    self.label.textColor = [UIColor grayColor];
+    self.label.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+    self.label.textAlignment = NSTextAlignmentCenter;
+    self.label.text = @"无搜索结果";
+    [self.view addSubview:self.label];
+    self.label.hidden = YES;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     UINib *cellNib = [UINib nibWithNibName:@"XLClassifyDetailsTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"b"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStyleDone target:self action:@selector(returnAction:)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
-    
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)initDataSource
@@ -82,7 +93,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    if (_dataArray.count == 0) {
+        self.tableView.scrollEnabled = NO;
+        self.label.hidden = NO;
+    }else{
+        self.tableView.scrollEnabled = YES;
+        self.label.hidden = YES;
+    }
     return _dataArray.count;
 }
 
