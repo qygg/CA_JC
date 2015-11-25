@@ -108,7 +108,7 @@
     _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width,320)];
     _headerView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
     // 图片
-    _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(_headerView.frame.origin.x + 12, _headerView.frame.origin.y + 12, _headerView.frame.size.width /2.85,_headerView.frame.size.height / 1.85)];
+    _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(_headerView.frame.origin.x + 12, _headerView.frame.origin.y + 12, _headerView.frame.size.width /2.85,_headerView.frame.size.height / 1.92)];
     [_imgView sd_setImageWithURL:[NSURL URLWithString:self.comicDetail.thumb]];
     [_headerView addSubview:_imgView];
     
@@ -277,7 +277,7 @@
         
         _introduceLabel.frame = CGRectMake(_imgView.frame.origin.x, _imgView.frame.size.height + 20, _headerView.frame.size.width - 30, 54);
         
-        _arrowLabel.frame = CGRectMake (self.tableView.frame.size.width - 30,_introduceLabel.frame.origin.y + 55, 14, 15);
+        _arrowLabel.frame = CGRectMake (self.tableView.frame.size.width - 30,_introduceLabel.frame.origin.y + 56, 14, 14);
         _arrowLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"arrow.png"]];
         
         
