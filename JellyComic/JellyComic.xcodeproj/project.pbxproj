@@ -145,6 +145,8 @@
 		C286A6111BFD62C700A93826 /* userName.png in Resources */ = {isa = PBXBuildFile; fileRef = C286A60A1BFD62C700A93826 /* userName.png */; };
 		C286A6161BFDA5F100A93826 /* XLLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */; };
 		C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C286A6171BFDA60400A93826 /* libsqlite3.tbd */; };
+		C29E973F1C05B598003BD358 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29E973E1C05B598003BD358 /* QuartzCore.framework */; };
+		C29E97411C05B5A4003BD358 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29E97401C05B5A4003BD358 /* MobileCoreServices.framework */; };
 		C2A582F31BFF164C0009091A /* version.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582ED1BFF164C0009091A /* version.png */; };
 		C2A582F41BFF164C0009091A /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582EE1BFF164C0009091A /* user.png */; };
 		C2A582F51BFF164C0009091A /* we.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A582EF1BFF164C0009091A /* we.png */; };
@@ -400,6 +402,8 @@
 		C286A6141BFDA5F100A93826 /* XLLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLLocalDataManager.h; sourceTree = "<group>"; };
 		C286A6151BFDA5F100A93826 /* XLLocalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLocalDataManager.m; sourceTree = "<group>"; };
 		C286A6171BFDA60400A93826 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C29E973E1C05B598003BD358 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C29E97401C05B5A4003BD358 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C2A582ED1BFF164C0009091A /* version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = version.png; sourceTree = "<group>"; };
 		C2A582EE1BFF164C0009091A /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		C2A582EF1BFF164C0009091A /* we.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = we.png; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29E97411C05B5A4003BD358 /* MobileCoreServices.framework in Frameworks */,
+				C29E973F1C05B598003BD358 /* QuartzCore.framework in Frameworks */,
 				C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */,
 				AFDED6A6BE67E10CB4E10284 /* libPods.a in Frameworks */,
 			);
@@ -784,6 +790,8 @@
 		352A09F51E7B9BB19BA0421C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C29E97401C05B5A4003BD358 /* MobileCoreServices.framework */,
+				C29E973E1C05B598003BD358 /* QuartzCore.framework */,
 				BE3A84C3E238E64439FA9722 /* libPods.a */,
 			);
 			name = Frameworks;
