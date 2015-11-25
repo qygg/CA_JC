@@ -129,7 +129,7 @@
 - (IBAction)downLoad:(UIButton *)sender {
     NSArray *collectArray = [NSKeyedUnarchiver unarchiveObjectWithData:[self.userInfo objectForKey:@"collectArray"]];
     [[XLLocalDataManager shareManager] open];
-    
+    [[XLLocalDataManager shareManager] createTable:tableListcollect];
     for (SComic *s in [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect]) {
         [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
     }
