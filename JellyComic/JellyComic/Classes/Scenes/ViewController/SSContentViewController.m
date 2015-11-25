@@ -524,10 +524,10 @@
     self.xlSComic.chapterTitle = [DataManager sharedDataManager].content.title;
     self.xlSComic.chapterID = self.chapterID;
     [[XLLocalDataManager shareManager] open];
-     [[XLLocalDataManager shareManager] createTable:tableListhistory];
+    [[XLLocalDataManager shareManager] createTable:tableListhistory];
     NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
     for (SComic *s in array) {
-
+        NSLog(@"%@",_comicid);
         if ([s.comicID isEqualToString:_comicid]) {
             if ([s.chapterID isEqualToString:self.chapter.ID] && s.contentPage == self.currentPage) {
                 [[XLLocalDataManager shareManager] close];
@@ -536,6 +536,7 @@
             {
                 NSArray *array1 = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
                 for (SComic *s in array1) {
+                    
                     if ([s.comicID isEqualToString:_comicid]) {
                        
                         [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListhistory];

@@ -367,7 +367,8 @@
             scomic.chapterID = chapter.ID;
 //            contentVC.xlSComic.chapterID = chapter.ID;
 //            contentVC.xlSComic.chapterTitle = chapter.title;
-            NSLog(@" =========%@",scomic.chapterTitle);
+            contentVC.comicid = self.comicId;
+
             contentVC.xlSComic = scomic;
             
             [self.navigationController pushViewController:contentVC animated:YES];
@@ -377,23 +378,21 @@
         ComicSource *comicSource = [ComicSource new];
         [[XLLocalDataManager shareManager] open];
         SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.comicId tableList:tableListhistory];
-        NSLog(@"%@",scomic.chapterTitle);
-        NSLog(@"%@",scomic.comicsrcID);
-        NSLog(@"%@",scomic.chapterID);
+
         comicSource.ID = scomic.comicsrcID;
         contentVC.contectPage = scomic.contentPage;
-        NSLog(@"%ld",contentVC.contectPage);
+
         contentVC.chapterID = scomic.chapterID;
-        NSLog(@"%@",contentVC.chapterID);
+
         contentVC.site = scomic.comicsrcTitle;
         contentVC.comicid = self.comicId;
         contentVC.xlSComic = scomic;
         [[XLLocalDataManager shareManager] close];
         
         NSMutableArray *chapterArray = [NSMutableArray array];
-        [[DataManager sharedDataManager] loadChapterWithComicsrcid:scomic.comicsrcID comicid:self.comicId completion:^{
+        [[DataManager sharedDataManager] loadChapterWithComicsrcid:comicSource.ID comicid:self.comicId completion:^{
             [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
-            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+//            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
             
             for (int i = 0; i < chapterArray.count - 1; i++) {
                 Chapter *chapter = chapterArray[i];
@@ -401,6 +400,8 @@
                     contentVC.index = i;
                 }
             }
+            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
+
             [self.navigationController pushViewController:contentVC animated:YES];
         }];
         
