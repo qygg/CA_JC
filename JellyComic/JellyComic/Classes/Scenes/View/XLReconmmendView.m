@@ -93,7 +93,7 @@
         width = _mViewFrame.size.width / self.tabCount;
     }
     
-    _slideView = [[UIView alloc] initWithFrame:CGRectMake(0, TOPHEIGHT - 5, width, 5)];
+    _slideView = [[UIView alloc] initWithFrame:CGRectMake(0, TOPHEIGHT - 3, width, 3)];
     [_slideView setBackgroundColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000]];
     [_topScrollView addSubview:_slideView];
 }
@@ -197,6 +197,7 @@
         view.backgroundColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, TOPHEIGHT)];
         [button setTitleColor:[UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:15.f];
         button.tag = i;
         if (i == 0) {
             [button setTitle:@"热门连载" forState:UIControlStateNormal];

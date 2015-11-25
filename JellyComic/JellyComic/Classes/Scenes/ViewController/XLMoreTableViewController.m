@@ -25,7 +25,7 @@
     self.tableView.layer.borderColor = [[UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000] CGColor];
     self.tableView.contentInset = UIEdgeInsetsMake(20, 40, 0, 40);
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"xlMoreCell"];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.separatorColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,27 +50,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XLMoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xlMoreCell" forIndexPath:indexPath];
     
-    cell.layer.borderWidth = 1;
+
     
     if (indexPath.row == 0) {
         cell.tagLabel.text = @"软件设置";
-        cell.layer.borderColor = [[UIColor colorWithRed:0.489 green:0.788 blue:1.000 alpha:1.000] CGColor];
+
         cell.backImage.image = [UIImage imageNamed:@"set"];
     }else if (indexPath.row == 1) {
         cell.tagLabel.text = @"用户中心";
-        cell.layer.borderColor = [[UIColor colorWithRed:0.489 green:0.788 blue:1.000 alpha:1.000] CGColor];
+
         cell.backImage.image = [UIImage imageNamed:@"user"];
     }else if (indexPath.row == 2) {
         cell.tagLabel.text = @"意见反馈";
-        cell.layer.borderColor = [[UIColor colorWithRed:0.489 green:0.788 blue:1.000 alpha:1.000] CGColor];
+
         cell.backImage.image = [UIImage imageNamed:@"envelope"];
     }else if (indexPath.row == 3) {
         cell.tagLabel.text = @"关于我们";
-        cell.layer.borderColor = [[UIColor colorWithRed:0.489 green:0.788 blue:1.000 alpha:1.000] CGColor];
+
         cell.backImage.image = [UIImage imageNamed:@"we"];
     }else if (indexPath.row == 4) {
         cell.tagLabel.text = @"版本号：1.0";
-        cell.layer.borderColor = [[UIColor colorWithRed:0.489 green:0.788 blue:1.000 alpha:1.000] CGColor];
+
         cell.backImage.image = [UIImage imageNamed:@"version"];
         
     }

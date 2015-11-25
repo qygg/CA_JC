@@ -171,16 +171,19 @@
     for (SComic *s in array1) {
         if ([s.comicID isEqualToString:self.comicId]) {
             [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
+            _collectButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.247 blue:0.486 alpha:1.000];
+
             [[XLLocalDataManager shareManager] close];
             flag = YES;
         }
     }
     if (flag == NO) {
         [_collectButton setTitle:@"添加收藏" forState:(UIControlStateNormal)];
+        _collectButton.backgroundColor = [UIColor colorWithRed:0.077 green:0.250 blue:1.000 alpha:1.000];
     }
     [_collectButton setFrame:CGRectMake(_titleLabel.frame.origin.x, (_imgView.frame.origin.y + _imgView.frame.size.height) - 35, 80, 35)];
     _collectButton.tintColor = [UIColor whiteColor];
-    _collectButton.backgroundColor = [UIColor colorWithRed:0.077 green:0.250 blue:1.000 alpha:1.000];
+    
     _collectButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [_collectButton addTarget:self action:@selector(addCollectAction:) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:_collectButton];
@@ -322,6 +325,7 @@
             [[XLLocalDataManager shareManager] deleteWithSComic:s.comicID tableList:tableListcollect];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
             [_collectButton setTitle:@"添加收藏" forState:UIControlStateNormal];
+            _collectButton.backgroundColor = [UIColor colorWithRed:0.077 green:0.250 blue:1.000 alpha:1.000];
             [[XLLocalDataManager shareManager] close];
             return;
         }
@@ -329,6 +333,7 @@
     for (SComic *s in array1) {
         if ([s.comicID isEqualToString:self.comicId]) {
             [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
+            _collectButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.247 blue:0.486 alpha:1.000];
             [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
             [[XLLocalDataManager shareManager] close];
@@ -342,6 +347,7 @@
     [[XLLocalDataManager shareManager] insertSComic:scomic tableList:tableListcollect];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
     [_collectButton setTitle:@"已经收藏" forState:UIControlStateNormal];
+    _collectButton.backgroundColor = [UIColor colorWithRed:1.000 green:0.247 blue:0.486 alpha:1.000];
     [[XLLocalDataManager shareManager] close];
 }
 
