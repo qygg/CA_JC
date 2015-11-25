@@ -394,7 +394,7 @@
             [chapterArray addObjectsFromArray:[DataManager sharedDataManager].chapter];
 //            contentVC.chapterArray = [NSArray arrayWithArray:chapterArray];
             
-            for (int i = 0; i < chapterArray.count - 1; i++) {
+            for (int i = 0; i < chapterArray.count; i++) {
                 Chapter *chapter = chapterArray[i];
                 if ([contentVC.chapterID isEqualToString:chapter.ID]) {
                     contentVC.index = i;

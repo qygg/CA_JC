@@ -235,9 +235,9 @@
     self.dateTime = [formatter stringFromDate:[NSDate date]];
     // 获取电量
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
-    self.deviceLevel = -[UIDevice currentDevice].batteryLevel * 100;
+    self.deviceLevel = [UIDevice currentDevice].batteryLevel * 100;
     
-    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    %.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
+    self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
     [self.view addSubview:_stateLabel];
 }
 
@@ -275,7 +275,7 @@
     [self updateFromLeftWithPageNumber:_currentPage - 1 dataSource:_dataSource];
     self.titleLabel.text = [NSString stringWithFormat:@"%@ %ld/%ld", [DataManager sharedDataManager].content.title,_currentPage,_dataSource.count];
     self.sliderLabel.text = [NSString stringWithFormat:@"%ld / %ld",_currentPage,_dataSource.count];
-    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    %.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
+    self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
 }
 
 - (void)sliderDragUp
@@ -315,6 +315,8 @@
     
     _scrollView.pagingEnabled = YES;
     _scrollView.bounces = NO;
+    _scrollView.showsVerticalScrollIndicator = NO;
+    _scrollView.showsHorizontalScrollIndicator = NO;
     
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
@@ -330,6 +332,8 @@
     
     _scrollView.pagingEnabled = YES;
     _scrollView.bounces = NO;
+    _scrollView.showsVerticalScrollIndicator = NO;
+    _scrollView.showsHorizontalScrollIndicator = NO;
     
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
@@ -410,6 +414,7 @@
                 UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.mFrame.size.width, self.mFrame.size.height)];
                 imgView.image = [UIImage imageNamed:@"end"];
                 [self.scrollView addSubview:imgView];
+                _currentPage = 1;
                 NSLog(@"已经是第一章");
             }else
             {
@@ -445,6 +450,7 @@
                 UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake((_dataSource.count + 1)* self.mFrame.size.width, 0, self.mFrame.size.width, self.mFrame.size.height)];
                 imgView.image = [UIImage imageNamed:@"end"];
                 [self.scrollView addSubview:imgView];
+                _currentPage = _dataSource.count;
                 NSLog(@"已经是最后一章");
             }else
             {
@@ -467,7 +473,7 @@
                     [self updateFromLeftWithPageNumber:0 dataSource:_dataSource];
                     [self reloadView];
                     _currentPage = 1;
-                    self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    电量:%.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
+                    self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
                     return ;
                 }];
                 
@@ -481,9 +487,8 @@
             }else{
                 [self updateFromLeftWithPageNumber:_currentPage - 1 dataSource:_dataSource];
             }
+            self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
         }
-        
-        self.stateLabel.text = [NSString stringWithFormat:@"  %@  %ld/%ld  %@    电量:%.f%%     ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
         return;
     }
     
