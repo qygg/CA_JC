@@ -72,7 +72,7 @@
 		29E98B2C1BF4B13F006F201B /* ZCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2B1BF4B13F006F201B /* ZCCategoryViewController.m */; };
 		29E98B301BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */; };
 		29E98B311BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */; };
-		5D205F42D62C7B88E67D6E8E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324A0CFA8043E240339F582E /* Pods.framework */; };
+		AFDED6A6BE67E10CB4E10284 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3A84C3E238E64439FA9722 /* libPods.a */; };
 		C20440641BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */; };
 		C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */; };
 		C20440681BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20440671BF9D0CC008C85B7 /* XLClassifyDetailsTableViewController.m */; };
@@ -276,7 +276,7 @@
 		29E98B2D1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCategoryCollectionViewCell.h; sourceTree = "<group>"; };
 		29E98B2E1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		29E98B2F1BF4B4B2006F201B /* ZCCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		324A0CFA8043E240339F582E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE3A84C3E238E64439FA9722 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20440611BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLClassifyDetailsTableViewCell.h; sourceTree = "<group>"; };
 		C20440621BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLClassifyDetailsTableViewCell.m; sourceTree = "<group>"; };
 		C20440631BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XLClassifyDetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C286A6181BFDA60400A93826 /* libsqlite3.tbd in Frameworks */,
-				5D205F42D62C7B88E67D6E8E /* Pods.framework in Frameworks */,
+				AFDED6A6BE67E10CB4E10284 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,7 +784,7 @@
 		352A09F51E7B9BB19BA0421C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				324A0CFA8043E240339F582E /* Pods.framework */,
+				BE3A84C3E238E64439FA9722 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

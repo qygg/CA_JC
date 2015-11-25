@@ -1,10 +1,10 @@
 PODS:
-  - AVOSCloudDynamic (3.1.6.3)
+  - AVOSCloud (3.1.6.3)
 
 DEPENDENCIES:
-  - AVOSCloudDynamic
+  - AVOSCloud
 
 SPEC CHECKSUMS:
-  AVOSCloudDynamic: b5170082056e46dec5b28bf1c0706d85a416b2ec
+  AVOSCloud: c71c27f9463e361d5224a762db9db46d8fc62c3e
 
 COCOAPODS: 0.39.0
