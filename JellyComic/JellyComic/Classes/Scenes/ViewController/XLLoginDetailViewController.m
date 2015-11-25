@@ -115,7 +115,7 @@
     [self.userInfo setObject:data forKey:@"collectArray"];
     [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"上传成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"同步成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [self showDetailViewController:alertController sender:nil];
@@ -127,6 +127,9 @@
 }
 #pragma mark - 下载
 - (IBAction)downLoad:(UIButton *)sender {
+    if (!self.userInfo) {
+        return;
+    }
     NSArray *collectArray = [NSKeyedUnarchiver unarchiveObjectWithData:[self.userInfo objectForKey:@"collectArray"]];
     [[XLLocalDataManager shareManager] open];
     
@@ -137,6 +140,11 @@
         [[XLLocalDataManager shareManager] insertSComic:s tableList:tableListcollect];
     }
     [[XLLocalDataManager shareManager] close];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"collectchange" object:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"下载成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    [self showDetailViewController:alertController sender:nil];
 
 }
 #pragma mark - 注销
