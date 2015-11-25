@@ -76,6 +76,7 @@
             }
         }];
     };
+    xlAmendNickName.string = self.nickNameLabel.text;
     [self.navigationController pushViewController:xlAmendNickName animated:YES];
 }
 #pragma mark - 图片点击事件
@@ -102,8 +103,11 @@
 //    XLAmendPwdViewController *xlAmendPwd = [XLAmendPwdViewController new];
 //    [self.navigationController pushViewController:xlAmendPwd animated:YES];
 }
-#pragma mark - 同步数据
+#pragma mark - 上传
 - (IBAction)synchronousData:(UIButton *)sender {
+}
+#pragma mark - 下载
+- (IBAction)downLoad:(UIButton *)sender {
 }
 #pragma mark - 注销
 - (IBAction)cancelAction:(UIButton *)sender {

@@ -11,4 +11,5 @@ typedef void (^ReturnBlock)(NSString *string);
 @interface XLAmendNickNameViewController : UIViewController
 @property (nonatomic, strong) UITextField *nickName;
 @property (nonatomic, copy) ReturnBlock returnBlock;
+@property (nonatomic, copy) NSString *string;
 @end

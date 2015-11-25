@@ -163,9 +163,9 @@
 }
 - (void)initScrollView
 {
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, _mViewFrame.size.width, _mViewFrame.size.height - TOPHEIGHT - 20)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 60, _mViewFrame.size.width, _mViewFrame.size.height - TOPHEIGHT - 69)];
     _scrollView.bounces = NO;
-    _scrollView.contentSize = CGSizeMake(_mViewFrame.size.width * _tabCount, _mViewFrame.size.height - 60);
+    _scrollView.contentSize = CGSizeMake(_mViewFrame.size.width * _tabCount, _mViewFrame.size.height - 109);
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.pagingEnabled = YES;
     _scrollView.delegate = self;
@@ -384,7 +384,7 @@
 - (void)updateTableWithPageNumber:(NSUInteger)pageNumber
 {
     int tabViewTag = pageNumber % 4;
-    CGRect collectionViewnewFrame = CGRectMake(pageNumber * _mViewFrame.size.width, 0, _mViewFrame.size.width, _mViewFrame.size.height - TOPHEIGHT - 20);
+    CGRect collectionViewnewFrame = CGRectMake(pageNumber * _mViewFrame.size.width, 0, _mViewFrame.size.width, _mViewFrame.size.height - TOPHEIGHT - 69);
     
     self.collectionView = _scrollTableViews[tabViewTag];
     _collectionView.frame = collectionViewnewFrame;
