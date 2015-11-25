@@ -956,6 +956,7 @@
 				TargetAttributes = {
 					29CD4DA31BF23EFD003EFA93 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = ZFBE9NJZM6;
 					};
 				};
 			};
@@ -1295,6 +1296,7 @@
 			baseConfigurationReference = 234C91A53258F8A6AAD98446 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JellyComic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lanou3g.JellyComic;
@@ -1307,6 +1309,7 @@
 			baseConfigurationReference = D0D07F1ADAD519410BDE6F12 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JellyComic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lanou3g.JellyComic;
