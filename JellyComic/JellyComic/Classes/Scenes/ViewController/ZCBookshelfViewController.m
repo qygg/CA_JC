@@ -189,20 +189,23 @@ static NSString * const reuseCVID = @"bookcv";
     [[XLLocalDataManager shareManager] open];
     [[XLLocalDataManager shareManager] createTable:tableListcollect];
     [[XLLocalDataManager shareManager] createTable:tableListhistory];
+    [[XLLocalDataManager shareManager] deleteWithSComic:self.historyArray[self.selectedRow].comicID tableList:tableListhistory];
     SComic *scomic = [[XLLocalDataManager shareManager] selectWithComicID:self.historyArray[self.selectedRow].comicID tableList:tableListcollect];
     SComic *scomic1 = [SComic new];
     scomic1.comicID = scomic.comicID;
     scomic1.comicTitle = scomic.comicTitle;
     scomic1.comicImageUrl = scomic.comicImageUrl;
     scomic1.updateTime = scomic.updateTime;
-    [[XLLocalDataManager shareManager] deleteWithSComic:scomic.comicID tableList:tableListcollect];
-    for (SComic *s in [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect]) {
+    NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListcollect];
+    
+    for (SComic *s in array) {
         if ([s.comicID isEqualToString:self.historyArray[self.selectedRow].comicID]) {
+            [[XLLocalDataManager shareManager] deleteWithSComic:scomic.comicID tableList:tableListcollect];
             [[XLLocalDataManager shareManager] insertSComic:scomic1 tableList:tableListcollect];
         }
     }
     
-    [[XLLocalDataManager shareManager] deleteWithSComic:self.historyArray[self.selectedRow].comicID tableList:tableListhistory];
+    
    
     [[XLLocalDataManager shareManager] close];
     [self reloadCollect];
