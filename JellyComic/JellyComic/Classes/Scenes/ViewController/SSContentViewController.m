@@ -184,10 +184,11 @@
     [self.view addSubview:_footerView];
     
     self.slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 20, _footerView.frame.size.width - 20, 20)];
-    self.slider.backgroundColor = [UIColor whiteColor];
+    self.slider.backgroundColor = [UIColor colorWithRed:0.878 green:0.925 blue:1.000 alpha:1.000];
     self.slider.layer.cornerRadius = 9;
     self.slider.layer.masksToBounds = YES;
-    self.slider.thumbTintColor = [UIColor colorWithRed:0.825 green:0.824 blue:0.778 alpha:1.000];
+    self.slider.thumbTintColor = [UIColor colorWithRed:0.694 green:0.867 blue:1.000 alpha:1.000];
+    self.slider.tintColor = [UIColor colorWithRed:0.302 green:0.326 blue:0.337 alpha:1.000];
     [self.slider setMaximumValue:[DataManager sharedDataManager].content.counts];
     [self.slider setMinimumValue:1];
     [self.slider addTarget:self action:@selector(sliderChanged:) forControlEvents:(UIControlEventValueChanged)];

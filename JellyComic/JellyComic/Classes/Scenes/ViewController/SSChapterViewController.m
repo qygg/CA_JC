@@ -20,7 +20,8 @@
 @property (strong, nonatomic) IBOutlet UIView *headerView;              // headerView
 @property (strong, nonatomic) IBOutlet UITableView *tableView;          // tableView
 @property (strong, nonatomic) IBOutlet UIView *footerView;              // footerView
-@property (strong, nonatomic) IBOutlet UIButton *downLoadLabel;         // 缓存
+@property (strong, nonatomic) IBOutlet UIButton *sortButton;
+
 @property (strong, nonatomic) IBOutlet UIButton *taskButton;            // 管理任务
 @property (strong, nonatomic) IBOutlet UILabel *siteLabel;              // 站点
 
@@ -90,8 +91,10 @@
 - (IBAction)sortOfChaptersAction:(UIButton *)sender
 {
     if (self.isSorting) {
+        [self.sortButton setTitle:@"倒序" forState:(UIControlStateNormal)] ;
         self.isSorting = NO;
     } else {
+        [self.sortButton setTitle:@"顺序" forState:(UIControlStateNormal)] ;
         self.isSorting = YES;
     }
     [self.tableView reloadData];
