@@ -159,6 +159,8 @@ static NSString * const reuseCVID = @"bookcv";
         XLLoginDetailViewController *XLLoginDetailVC = [[UIStoryboard storyboardWithName:@"XLLoginDetailViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginDetail"];
         XLLoginDetailVC.userName = self.currentUser.username;
         UINavigationController *userNC = [[UINavigationController alloc] initWithRootViewController:XLLoginDetailVC];
+        userNC.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
+        userNC.navigationBar.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
         [self showViewController:userNC sender:nil];
     } else {
         [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];

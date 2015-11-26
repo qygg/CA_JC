@@ -179,6 +179,7 @@ static NSString * const tableViewReuseID = @"sysdef";
         _visualEffectView.frame = CGRectMake(0, 60, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 109);
         [self.view addSubview:_visualEffectView];
         self.tableView = [[UITableView alloc] initWithFrame:_visualEffectView.bounds];
+        self.tableView.tableFooterView = [UIView new];
         self.tableView.backgroundColor = [UIColor clearColor];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;

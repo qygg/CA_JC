@@ -39,7 +39,7 @@
                             </collectionView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294120000001" green="0.8862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="29H-Qk-CcF" firstAttribute="top" secondItem="hvx-vX-6yh" secondAttribute="bottom" id="9UB-kJ-lOf"/>
                             <constraint firstAttribute="trailing" secondItem="29H-Qk-CcF" secondAttribute="trailing" id="BPZ-BS-fnR"/>

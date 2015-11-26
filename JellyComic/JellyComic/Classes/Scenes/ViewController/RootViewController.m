@@ -17,12 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [[XLLocalDataManager shareManager] open];
-//   NSArray *array = [[XLLocalDataManager shareManager] selectAllSComic:tableListhistory];
-//    for (SComic *s in array) {
-//        NSLog(@"%@",s.updateTime);
-//    }
-//    [[XLLocalDataManager shareManager] close];
+    
+    [self.view layoutIfNeeded];
+    self.tabBar.tintColor = [UIColor colorWithRed:0.682 green:0.278 blue:1.000 alpha:1.000];
+    self.tabBar.items[0].image = [UIImage imageNamed:@"tab1"];
+    self.tabBar.items[1].image = [UIImage imageNamed:@"tab2"];
+    self.tabBar.items[2].image = [UIImage imageNamed:@"tab3"];
+    self.tabBar.items[3].image = [UIImage imageNamed:@"tab4"];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

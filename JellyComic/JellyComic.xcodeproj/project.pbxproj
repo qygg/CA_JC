@@ -29,6 +29,10 @@
 		292BD35B1BF46CD20013559E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 292BD34B1BF46CD20013559E /* UIView+WebCacheOperation.m */; };
 		2942D9F81BFEC5100053A5C3 /* ZCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */; };
 		2942D9FB1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */; };
+		295442D41C06A0620049042A /* tab1.png in Resources */ = {isa = PBXBuildFile; fileRef = 295442D31C06A0620049042A /* tab1.png */; };
+		295442D61C06A0750049042A /* tab2.png in Resources */ = {isa = PBXBuildFile; fileRef = 295442D51C06A0750049042A /* tab2.png */; };
+		295442D81C06A07A0049042A /* tab3.png in Resources */ = {isa = PBXBuildFile; fileRef = 295442D71C06A07A0049042A /* tab3.png */; };
+		295442DA1C06A07E0049042A /* tab4.png in Resources */ = {isa = PBXBuildFile; fileRef = 295442D91C06A07E0049042A /* tab4.png */; };
 		2966A60B1BFCBD8000A96AC4 /* SComic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2966A60A1BFCBD8000A96AC4 /* SComic.m */; };
 		2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */; };
 		298535211BF9CE64005FDE11 /* ZCBookshelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 298535201BF9CE64005FDE11 /* ZCBookshelfViewController.m */; };
@@ -200,6 +204,10 @@
 		2942D9F71BFEC5100053A5C3 /* ZCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRegisterViewController.m; sourceTree = "<group>"; };
 		2942D9F91BFF0EE40053A5C3 /* ZCFindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFindPasswordViewController.h; sourceTree = "<group>"; };
 		2942D9FA1BFF0EE40053A5C3 /* ZCFindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCFindPasswordViewController.m; sourceTree = "<group>"; };
+		295442D31C06A0620049042A /* tab1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab1.png; sourceTree = "<group>"; };
+		295442D51C06A0750049042A /* tab2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab2.png; sourceTree = "<group>"; };
+		295442D71C06A07A0049042A /* tab3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab3.png; sourceTree = "<group>"; };
+		295442D91C06A07E0049042A /* tab4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab4.png; sourceTree = "<group>"; };
 		2966A6091BFCBD8000A96AC4 /* SComic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SComic.h; sourceTree = "<group>"; };
 		2966A60A1BFCBD8000A96AC4 /* SComic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SComic.m; sourceTree = "<group>"; };
 		2985351D1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZCBookshelfStoryboard.storyboard; sourceTree = "<group>"; };
@@ -592,6 +600,10 @@
 		299F6FEA1BF2CF82009F228C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				295442D31C06A0620049042A /* tab1.png */,
+				295442D51C06A0750049042A /* tab2.png */,
+				295442D71C06A07A0049042A /* tab3.png */,
+				295442D91C06A07E0049042A /* tab4.png */,
 				C2FFF8281C049AC9001ED6B7 /* end.png */,
 				C2A582ED1BFF164C0009091A /* version.png */,
 				C2A582EE1BFF164C0009091A /* user.png */,
@@ -991,12 +1003,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				295442D81C06A07A0049042A /* tab3.png in Resources */,
 				2985351E1BF9CE41005FDE11 /* ZCBookshelfStoryboard.storyboard in Resources */,
 				C20440651BF9D0AD008C85B7 /* XLClassifyDetailsTableViewCell.xib in Resources */,
+				295442D41C06A0620049042A /* tab1.png in Resources */,
 				C286A6111BFD62C700A93826 /* userName.png in Resources */,
 				C286A6051BFD61C800A93826 /* XLMoreTableViewControllerStoryboard.storyboard in Resources */,
 				C23078BE1BF6D3FA00E6CDDE /* XLReconmmentStoryboard.storyboard in Resources */,
 				C2A582F81BFF164C0009091A /* set.png in Resources */,
+				295442D61C06A0750049042A /* tab2.png in Resources */,
 				C27043581BF38174001F7CC1 /* arrow.png in Resources */,
 				29097EDC1BFE06AB00B94FCE /* password.png in Resources */,
 				C230789F1BF6D23D00E6CDDE /* XLReconmmendCollectionViewCell.xib in Resources */,
@@ -1007,6 +1022,7 @@
 				C27043561BF3816E001F7CC1 /* arrow1.png in Resources */,
 				2985352B1BF9CEDB005FDE11 /* ZCBookshelfCollectionViewCell.xib in Resources */,
 				29CD4DB71BF23EFD003EFA93 /* LaunchScreen.storyboard in Resources */,
+				295442DA1C06A07E0049042A /* tab4.png in Resources */,
 				29097EDA1BFE036300B94FCE /* ZCLoginStoryboard.storyboard in Resources */,
 				C20440751BF9E74C008C85B7 /* XLSearchDetailTableViewControllerStoryboard.storyboard in Resources */,
 				C286A5FB1BFD619A00A93826 /* XLDetialTableViewCell.xib in Resources */,

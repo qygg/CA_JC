@@ -9,7 +9,12 @@
 #import "XLMoreTableViewController.h"
 #import "XLMoreTableViewCell.h"
 #import "XLLoginViewController.h"
+#import "XLLoginDetailViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+
 @interface XLMoreTableViewController ()
+
+@property (nonatomic, strong) AVUser *currentUser;
 
 @end
 
@@ -20,12 +25,14 @@
     self.tableView.scrollEnabled = NO;
     UINib *cellNib = [UINib nibWithNibName:@"XLMoreTableViewCell" bundle:nil];
 
-    self.tableView.layer.borderWidth = 10;
+    self.tableView.layer.borderWidth = 20;
     self.tableView.backgroundColor = [UIColor colorWithRed:229 / 255. green:241 / 255. blue:255 / 255. alpha:1];
     self.tableView.layer.borderColor = [[UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000] CGColor];
-    self.tableView.contentInset = UIEdgeInsetsMake(20, 40, 0, 40);
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"xlMoreCell"];
-    self.tableView.separatorColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
+    self.tableView.separatorColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
+    self.tableView.tableFooterView = [UIView new];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,9 +91,17 @@
     if (indexPath.row == 0) {
         
     }else if (indexPath.row == 1) {
-        XLLoginViewController *xlLogin = [XLLoginViewController new];
-        
-        [self showViewController:xlLogin sender:nil];
+        self.currentUser = [AVUser currentUser];
+        if (self.currentUser != nil) {
+            XLLoginDetailViewController *XLLoginDetailVC = [[UIStoryboard storyboardWithName:@"XLLoginDetailViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginDetail"];
+            XLLoginDetailVC.userName = self.currentUser.username;
+            UINavigationController *userNC = [[UINavigationController alloc] initWithRootViewController:XLLoginDetailVC];
+            userNC.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
+            userNC.navigationBar.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
+            [self showViewController:userNC sender:nil];
+        } else {
+            [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
+        }
     }else if (indexPath.row == 2) {
         
     }else if (indexPath.row == 3) {

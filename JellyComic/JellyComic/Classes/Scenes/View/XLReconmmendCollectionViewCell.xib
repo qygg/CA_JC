@@ -28,10 +28,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcb-Ny-Evf">
-                        <rect key="frame" x="0.0" y="331" width="248" height="30"/>
+                        <rect key="frame" x="0.0" y="331" width="248" height="25"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="ckQ-8w-8pk"/>
+                            <constraint firstAttribute="height" constant="25" id="ckQ-8w-8pk"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

@@ -8,7 +8,7 @@
         <scene sceneID="V5p-G6-Vvt">
             <objects>
                 <viewControllerPlaceholder storyboardName="XLReconmmentStoryboard" id="kGN-CQ-Zos" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="WnO-u8-0UB"/>
+                    <tabBarItem key="tabBarItem" title="" id="WnO-u8-0UB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVk-68-N4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,6 +33,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.68627450980000004" green="0.2784313725" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.68235294120000001" green="0.8862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="kGN-CQ-Zos" kind="relationship" relationship="viewControllers" id="4Dp-ae-jbM"/>

@@ -227,11 +227,11 @@
 {
     UICollectionViewFlowLayout *flowout = [[UICollectionViewFlowLayout alloc] init];
     
-    flowout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
+    flowout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10) / 3 * 4 + 25);
     [flowout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
     flowout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-    flowout.headerReferenceSize = CGSizeMake(self.frame.size.width, 190);
+    flowout.headerReferenceSize = CGSizeMake(self.frame.size.width, [UIScreen mainScreen].bounds.size.width / 2);
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flowout];
     self.collectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
 
@@ -254,7 +254,7 @@
     [_scrollTableViews addObject:self.collectionView];
     [_scrollView addSubview:self.collectionView];
     
-    _cucleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.frame.size.width, 190) imageURLStringsGroup:nil];
+    _cucleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.frame.size.width, [UIScreen mainScreen].bounds.size.width / 2) imageURLStringsGroup:nil];
     
     _cucleScrollView.delegate = self;
     _cucleScrollView.autoScrollTimeInterval = 3.0;
@@ -281,10 +281,10 @@
 {
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     
-    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
+    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 25);
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
-
-    flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
+    
+    flow.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flow];
 
     reusecollectionView.backgroundColor = [UIColor colorWithRed:0.898 green:0.945 blue:1.000 alpha:1.000];
@@ -313,10 +313,10 @@
 {
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     
-    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
+    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 25);
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
-
-    flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
+    
+    flow.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width * 2, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flow];
 
     reusecollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -341,10 +341,10 @@
 {
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     
-    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 40);
+    flow.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3 - 10, ([UIScreen mainScreen].bounds.size.width / 3 - 10)/3 *4 + 25);
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
-
-    flow.sectionInset = UIEdgeInsetsMake(5, 2, 1, 2);
+    
+    flow.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     UICollectionView *reusecollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.frame.size.width * 3, 0, self.frame.size.width, self.frame.size.height - 109) collectionViewLayout:flow];
     
     reusecollectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{

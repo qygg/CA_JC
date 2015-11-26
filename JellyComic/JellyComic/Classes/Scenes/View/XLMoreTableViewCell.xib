@@ -11,27 +11,27 @@
             <rect key="frame" x="0.0" y="0.0" width="288" height="86"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="288" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="288" height="85.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wQp-7w-0jh">
-                        <rect key="frame" x="20" y="15" width="55" height="55"/>
+                        <rect key="frame" x="30" y="15" width="55" height="55"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wQp-7w-0jh" secondAttribute="height" multiplier="1:1" id="Nhq-Se-TJ6"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqI-9r-KzD">
-                        <rect key="frame" x="80" y="15" width="49" height="55"/>
+                        <rect key="frame" x="90" y="15" width="42" height="55"/>
                         <animations/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="0.067784257329469716" green="0.070512820512820484" blue="0.069893270456506354" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="wQp-7w-0jh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="JD0-MH-t4M"/>
+                    <constraint firstItem="wQp-7w-0jh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="JD0-MH-t4M"/>
                     <constraint firstItem="HqI-9r-KzD" firstAttribute="bottom" secondItem="wQp-7w-0jh" secondAttribute="bottom" id="OcM-CO-unF"/>
                     <constraint firstItem="wQp-7w-0jh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Yxu-pJ-VXT"/>
                     <constraint firstItem="HqI-9r-KzD" firstAttribute="top" secondItem="wQp-7w-0jh" secondAttribute="top" id="fzR-6N-aD9"/>
