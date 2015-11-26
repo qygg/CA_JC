@@ -108,6 +108,8 @@
                 self.hintLabel.text = @"邮箱已被使用";
             } else if (error.code == 28) {
                 self.hintLabel.text = @"连接超时，请重试";
+            } else if (error.code == 6 || error.code == 206) {
+                self.hintLabel.text = @"无法连接服务器";
             } else if (error.code == 218) {
                 self.hintLabel.text = @"密码不能为空";
             } else {

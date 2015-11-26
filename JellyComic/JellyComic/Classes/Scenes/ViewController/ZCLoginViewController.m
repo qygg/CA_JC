@@ -90,6 +90,8 @@
                 self.hintLabel.text = @"登录失败次数超过限制，请稍候再试，或者通过忘记密码重设密码";
             } else if (error.code == 28) {
                 self.hintLabel.text = @"连接超时，请重试";
+            } else if (error.code == 6 || error.code == 206) {
+                self.hintLabel.text = @"无法连接服务器";
             } else {
                 self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
             }

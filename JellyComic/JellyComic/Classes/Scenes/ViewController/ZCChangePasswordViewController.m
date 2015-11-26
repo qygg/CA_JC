@@ -78,6 +78,8 @@
             } else if (error.code == 28) {
                 self.hintLabel.hidden = NO;
                 self.hintLabel.text = @"连接超时，请重试";
+            } else if (error.code == 6 || error.code == 206) {
+                self.hintLabel.text = @"无法连接服务器";
             } else if (error.code == 1) {
                 self.hintLabel.hidden = NO;
                 self.hintLabel.text = @"请输入密码";

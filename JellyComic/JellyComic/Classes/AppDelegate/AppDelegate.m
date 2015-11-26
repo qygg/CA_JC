@@ -20,8 +20,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     [AVOSCloud setApplicationId:kAppID clientKey:kAppKey];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [NSThread sleepForTimeInterval:1];
+    
     return YES;
 }
 

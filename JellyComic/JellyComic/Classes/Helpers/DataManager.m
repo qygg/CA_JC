@@ -49,15 +49,19 @@
     NSURL *url = [NSURL URLWithString:kScrollingImage_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        [self.scrollingImageArray removeAllObjects];
-        for (NSDictionary *dic in dict[@"data"]) {
-            ScrollingImage *sImage = [ScrollingImage mj_objectWithKeyValues:dic];
-            [self.scrollingImageArray addObject:sImage];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            [self.scrollingImageArray removeAllObjects];
+            for (NSDictionary *dic in dict[@"data"]) {
+                ScrollingImage *sImage = [ScrollingImage mj_objectWithKeyValues:dic];
+                [self.scrollingImageArray addObject:sImage];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -66,23 +70,27 @@
     NSURL *url = [NSURL URLWithString:[kHotlist_URL stringByAppendingFormat:@"&page=%ld", page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        if (page == 1) {
-            [self.hotListArray removeAllObjects];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if (page == 1) {
+                [self.hotListArray removeAllObjects];
+            }
+            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"lastCharpter_id": @"lastCharpter.id",
+                         @"lastCharpter_title": @"lastCharpter.title"
+                         };
+            }];
+            for (NSDictionary *dic in dict[@"data"]) {
+                Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                [self.hotListArray addObject:comic];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"lastCharpter_id": @"lastCharpter.id",
-                     @"lastCharpter_title": @"lastCharpter.title"
-                     };
-        }];
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.hotListArray addObject:comic];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -91,23 +99,27 @@
     NSURL *url = [NSURL URLWithString:[kEditorlist_URL stringByAppendingFormat:@"&page=%ld", page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        if (page == 1) {
-            [self.editorListArray removeAllObjects];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if (page == 1) {
+                [self.editorListArray removeAllObjects];
+            }
+            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"lastCharpter_id": @"lastCharpter.id",
+                         @"lastCharpter_title": @"lastCharpter.title"
+                         };
+            }];
+            for (NSDictionary *dic in dict[@"data"]) {
+                Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                [self.editorListArray addObject:comic];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"lastCharpter_id": @"lastCharpter.id",
-                     @"lastCharpter_title": @"lastCharpter.title"
-                     };
-        }];
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.editorListArray addObject:comic];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -116,23 +128,27 @@
     NSURL *url = [NSURL URLWithString:[kHothklist_URL stringByAppendingFormat:@"&page=%ld", page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        if (page == 1) {
-            [self.hotHkListArray removeAllObjects];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if (page == 1) {
+                [self.hotHkListArray removeAllObjects];
+            }
+            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"lastCharpter_id": @"lastCharpter.id",
+                         @"lastCharpter_title": @"lastCharpter.title"
+                         };
+            }];
+            for (NSDictionary *dic in dict[@"data"]) {
+                Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                [self.hotHkListArray addObject:comic];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"lastCharpter_id": @"lastCharpter.id",
-                     @"lastCharpter_title": @"lastCharpter.title"
-                     };
-        }];
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.hotHkListArray addObject:comic];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -141,23 +157,27 @@
     NSURL *url = [NSURL URLWithString:[kRecentUpdate_URL stringByAppendingFormat:@"&page=%ld", page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        if (page == 1) {
-            [self.recentUpdateArray removeAllObjects];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if (page == 1) {
+                [self.recentUpdateArray removeAllObjects];
+            }
+            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"lastCharpter_id": @"lastCharpter.id",
+                         @"lastCharpter_title": @"lastCharpter.title"
+                         };
+            }];
+            for (NSDictionary *dic in dict[@"data"]) {
+                Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                [self.recentUpdateArray addObject:comic];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"lastCharpter_id": @"lastCharpter.id",
-                     @"lastCharpter_title": @"lastCharpter.title"
-                     };
-        }];
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.recentUpdateArray addObject:comic];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -166,21 +186,25 @@
     NSURL *url = [NSURL URLWithString:[kDetail_URL stringByAppendingFormat:@"&comicid=%@", comicid]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        [ComicDetail mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"comicSrc": @"ComicSource"
-                     };
-        }];
-        [ComicSource mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"ID": @"id"
-                     };
-        }];
-        self.comicDetail = [ComicDetail mj_objectWithKeyValues:dict[@"data"]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            [ComicDetail mj_setupObjectClassInArray:^NSDictionary *{
+                return @{
+                         @"comicSrc": @"ComicSource"
+                         };
+            }];
+            [ComicSource mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"ID": @"id"
+                         };
+            }];
+            self.comicDetail = [ComicDetail mj_objectWithKeyValues:dict[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
     }];
     [dataTask resume];
 }
@@ -189,20 +213,24 @@
     NSURL *url = [NSURL URLWithString:[kChapter_URL stringByAppendingFormat:@"?comicsrcid=%@&comicid=%@", comicsrcid, comicid]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        [self.chapterArray removeAllObjects];
-        [Chapter mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"ID": @"id"
-                     };
-        }];
-        for (NSDictionary *dic in dict[@"data"]) {
-            Chapter *chapter = [Chapter mj_objectWithKeyValues:dic];
-            [self.chapterArray addObject:chapter];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            [self.chapterArray removeAllObjects];
+            [Chapter mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"ID": @"id"
+                         };
+            }];
+            for (NSDictionary *dic in dict[@"data"]) {
+                Chapter *chapter = [Chapter mj_objectWithKeyValues:dic];
+                [self.chapterArray addObject:chapter];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -212,11 +240,15 @@
     NSURL *url = [NSURL URLWithString:[kContent_URL stringByAppendingFormat:@"?charpterid=%@", charpterid]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        self.content = [Content mj_objectWithKeyValues:dict[@"data"]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            self.content = [Content mj_objectWithKeyValues:dict[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
     }];
     [dataTask resume];
 }
@@ -225,19 +257,23 @@
     NSURL *url = [NSURL URLWithString:[kAuthorlist_URL stringByAppendingFormat:@"&comicid=%@&page=%ld", comicid, page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        if (page == 1) {
-            [self.authorListArray removeAllObjects];
-        }
-        if (![dict[@"data"] isEqual:[NSNull null]]) {
-            for (NSDictionary *dic in dict[@"data"]) {
-                Comic *comic = [Comic mj_objectWithKeyValues:dic];
-                [self.authorListArray addObject:comic];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if (page == 1) {
+                [self.authorListArray removeAllObjects];
             }
+            if (![dict[@"data"] isEqual:[NSNull null]]) {
+                for (NSDictionary *dic in dict[@"data"]) {
+                    Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                    [self.authorListArray addObject:comic];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -246,15 +282,19 @@
     NSURL *url = [NSURL URLWithString:kCategory_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        [self.categoryArray removeAllObjects];
-        for (NSDictionary *dic in dict[@"data"]) {
-            Categories *category = [Categories mj_objectWithKeyValues:dic];
-            [self.categoryArray addObject:category];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            [self.categoryArray removeAllObjects];
+            for (NSDictionary *dic in dict[@"data"]) {
+                Categories *category = [Categories mj_objectWithKeyValues:dic];
+                [self.categoryArray addObject:category];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -275,23 +315,27 @@
     NSURL *url = [NSURL URLWithString:[kCategoryDetail_URL stringByAppendingFormat:@"&%@=1&cateId=%@&page=%ld", categoryType, cateId, page]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{
-                     @"lastCharpter_id": @"lastCharpter.id",
-                     @"lastCharpter_title": @"lastCharpter.title"
-                     };
-        }];
-        if (page == 1) {
-            [self.categoryDetailArray removeAllObjects];
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"lastCharpter_id": @"lastCharpter.id",
+                         @"lastCharpter_title": @"lastCharpter.title"
+                         };
+            }];
+            if (page == 1) {
+                [self.categoryDetailArray removeAllObjects];
+            }
+            for (NSDictionary *dic in dict[@"data"]) {
+                Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                [self.categoryDetailArray addObject:comic];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        for (NSDictionary *dic in dict[@"data"]) {
-            Comic *comic = [Comic mj_objectWithKeyValues:dic];
-            [self.categoryDetailArray addObject:comic];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [dataTask resume];
 }
@@ -301,29 +345,33 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     [self.dataTask cancel];
     self.dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (page == 1) {
-            [self.searchResultArray removeAllObjects];
-        }
-        if (data != nil) {
-            
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-            [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-                return @{
-                         @"lastCharpter_id": @"lastCharpter.id",
-                         @"lastCharpter_title": @"lastCharpter.title"
-                         };
-            }];
-            if (![dict[@"data"] isEqual:[NSNull null]]) {
-                for (NSDictionary *dic in dict[@"data"]) {
-                    Comic *comic = [Comic mj_objectWithKeyValues:dic];
-                    [self.searchResultArray addObject:comic];
-                }
+        if (error) {
+            NSLog(@"\n%d:%s", __LINE__, __FUNCTION__);
+        } else {
+            if (page == 1) {
+                [self.searchResultArray removeAllObjects];
             }
-            
+            if (data != nil) {
+                
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                [Comic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                    return @{
+                             @"lastCharpter_id": @"lastCharpter.id",
+                             @"lastCharpter_title": @"lastCharpter.title"
+                             };
+                }];
+                if (![dict[@"data"] isEqual:[NSNull null]]) {
+                    for (NSDictionary *dic in dict[@"data"]) {
+                        Comic *comic = [Comic mj_objectWithKeyValues:dic];
+                        [self.searchResultArray addObject:comic];
+                    }
+                }
+                
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
-        });
     }];
     [self.dataTask resume];
 }

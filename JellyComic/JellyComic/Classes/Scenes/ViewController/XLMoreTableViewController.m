@@ -49,7 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return 2;
 }
 
 
@@ -58,29 +58,38 @@
     XLMoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"xlMoreCell" forIndexPath:indexPath];
     
 
+//    if (indexPath.row == 0) {
+//        cell.tagLabel.text = @"软件设置";
+//
+//        cell.backImage.image = [UIImage imageNamed:@"set"];
+//    }else if (indexPath.row == 1) {
+//        cell.tagLabel.text = @"用户中心";
+//
+//        cell.backImage.image = [UIImage imageNamed:@"user"];
+//    }else if (indexPath.row == 2) {
+//        cell.tagLabel.text = @"意见反馈";
+//
+//        cell.backImage.image = [UIImage imageNamed:@"envelope"];
+//    }else if (indexPath.row == 3) {
+//        cell.tagLabel.text = @"关于我们";
+//
+//        cell.backImage.image = [UIImage imageNamed:@"we"];
+//    }else if (indexPath.row == 4) {
+//        cell.tagLabel.text = @"版本号：1.0";
+//
+//        cell.backImage.image = [UIImage imageNamed:@"version"];
+//        
+//    }
+    
     
     if (indexPath.row == 0) {
-        cell.tagLabel.text = @"软件设置";
-
-        cell.backImage.image = [UIImage imageNamed:@"set"];
-    }else if (indexPath.row == 1) {
         cell.tagLabel.text = @"用户中心";
-
         cell.backImage.image = [UIImage imageNamed:@"user"];
-    }else if (indexPath.row == 2) {
-        cell.tagLabel.text = @"意见反馈";
-
-        cell.backImage.image = [UIImage imageNamed:@"envelope"];
-    }else if (indexPath.row == 3) {
-        cell.tagLabel.text = @"关于我们";
-
-        cell.backImage.image = [UIImage imageNamed:@"we"];
-    }else if (indexPath.row == 4) {
-        cell.tagLabel.text = @"版本号：1.0";
-
+    } else {
+        cell.tagLabel.text = @"版本号：1.0.0";
         cell.backImage.image = [UIImage imageNamed:@"version"];
-        
     }
+    
     
     return cell;
 }
@@ -88,9 +97,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    if (indexPath.row == 0) {
+//        
+//    }else if (indexPath.row == 1) {
+//        self.currentUser = [AVUser currentUser];
+//        if (self.currentUser != nil) {
+//            XLLoginDetailViewController *XLLoginDetailVC = [[UIStoryboard storyboardWithName:@"XLLoginDetailViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginDetail"];
+//            XLLoginDetailVC.userName = self.currentUser.username;
+//            UINavigationController *userNC = [[UINavigationController alloc] initWithRootViewController:XLLoginDetailVC];
+//            userNC.navigationBar.barTintColor = [UIColor colorWithRed:0.682 green:0.886 blue:1.000 alpha:1.000];
+//            userNC.navigationBar.tintColor = [UIColor colorWithRed:0.686 green:0.278 blue:1.000 alpha:1.000];
+//            [self showViewController:userNC sender:nil];
+//        } else {
+//            [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
+//        }
+//    }else if (indexPath.row == 2) {
+//        
+//    }else if (indexPath.row == 3) {
+//        
+//    }else if (indexPath.row == 4) {
+//        
+//    }
+    
     if (indexPath.row == 0) {
         
-    }else if (indexPath.row == 1) {
         self.currentUser = [AVUser currentUser];
         if (self.currentUser != nil) {
             XLLoginDetailViewController *XLLoginDetailVC = [[UIStoryboard storyboardWithName:@"XLLoginDetailViewControllerStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginDetail"];
@@ -102,13 +132,9 @@
         } else {
             [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
         }
-    }else if (indexPath.row == 2) {
-        
-    }else if (indexPath.row == 3) {
-        
-    }else if (indexPath.row == 4) {
         
     }
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
