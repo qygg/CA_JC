@@ -11,6 +11,7 @@
 #import "XLLoginViewController.h"
 #import "XLLoginDetailViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "SDImageCache.h"
 
 @interface XLMoreTableViewController ()
 
@@ -49,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 2;
+    return 3;
 }
 
 
@@ -85,6 +86,9 @@
     if (indexPath.row == 0) {
         cell.tagLabel.text = @"用户中心";
         cell.backImage.image = [UIImage imageNamed:@"user"];
+    } else if (indexPath.row == 1) {
+        cell.tagLabel.text = @"清除缓存";
+        cell.backImage.image = [UIImage imageNamed:@"qingchuhuancun"];
     } else {
         cell.tagLabel.text = @"版本号：1.0.0";
         cell.backImage.image = [UIImage imageNamed:@"version"];
@@ -133,12 +137,38 @@
             [self showViewController:[[UIStoryboard storyboardWithName:@"ZCLoginStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"loginNC"] sender:nil];
         }
         
+    } else if (indexPath.row == 1) {
+        NSString *hint = [NSString stringWithFormat:@"清除缓存%@", [self fileSizeWithInteger:[[SDImageCache sharedImageCache] getSize]]];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:hint preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *clear = [UIAlertAction actionWithTitle:@"清除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [[SDImageCache sharedImageCache] clearDisk];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:clear];
+        [alert addAction:cancel];
+        [self showDetailViewController:alert sender:nil];
     }
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50;
+}
+
+- (NSString *)fileSizeWithInteger:(NSInteger)size {
+    // 1k = 1024, 1m = 1024k
+    if (size < 1024) {// 小于1k
+        return [NSString stringWithFormat:@"%ldB", (long)size];
+    } else if (size < 1024 * 1024) {// 小于1m
+        CGFloat aFloat = size / 1024;
+        return [NSString stringWithFormat:@"%.0fK", aFloat];
+    } else if (size < 1024 * 1024 * 1024) {// 小于1G
+        CGFloat aFloat = size / (1024 * 1024);
+        return [NSString stringWithFormat:@"%.1fM", aFloat];
+    } else {
+        CGFloat aFloat = size / (1024 * 1024 * 1024);
+        return [NSString stringWithFormat:@"%.1fG", aFloat];
+    }
 }
 
 /*

@@ -15,6 +15,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import "XLLocalDataManager.h"
+#import "UIImageView+WebCache.h"
 
 @interface XLLoginDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -34,7 +35,9 @@
         if (!error) {
             self.userInfo = objects.firstObject;
             self.nickNameLabel.text = [self.userInfo objectForKey:@"nickName"];
-            self.headImageView.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
+            AVFile *file = [self.userInfo objectForKey:@"photo"];
+            [self.headImageView sd_setImageWithURL:[NSURL URLWithString:file.url]];
+//            self.headImageView.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
         } else if (error.code == 28) {
             self.hintLabel.text = @"连接超时，请重试";
         } else {
@@ -73,6 +76,12 @@
         [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 
+            } else if (error.code == 28) {
+                self.hintLabel.hidden = NO;
+                self.hintLabel.text = @"连接超时，请重试";
+            } else if (error.code == 6 || error.code == 206) {
+                self.hintLabel.hidden = NO;
+                self.hintLabel.text = @"无法连接服务器";
             } else {
                 self.hintLabel.hidden = NO;
                 self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
@@ -119,6 +128,12 @@
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [self showDetailViewController:alertController sender:nil];
+        } else if (error.code == 28) {
+            self.hintLabel.hidden = NO;
+            self.hintLabel.text = @"连接超时，请重试";
+        } else if (error.code == 6 || error.code == 206) {
+            self.hintLabel.hidden = NO;
+            self.hintLabel.text = @"无法连接服务器";
         } else {
             self.hintLabel.hidden = NO;
             self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
@@ -168,15 +183,44 @@
     if ([_lastChosenMediaType isEqual:(NSString *) kUTTypeImage]) {
         UIImage *chosenImage =[info objectForKey:UIImagePickerControllerEditedImage];
         self.headImageView.image = chosenImage;
-        [self.userInfo setObject:UIImageJPEGRepresentation(chosenImage, 1) forKey:@"photo"];
-        [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        AVFile *file = [AVFile fileWithName:@"photo.jpg" data:UIImageJPEGRepresentation(chosenImage, 1)];
+        [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                
+                [self.userInfo setObject:file forKey:@"photo"];
+                [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        
+                    } else if (error.code == 28) {
+                        self.hintLabel.hidden = NO;
+                        self.hintLabel.text = @"连接超时，请重试";
+                    } else if (error.code == 6 || error.code == 206) {
+                        self.hintLabel.hidden = NO;
+                        self.hintLabel.text = @"无法连接服务器";
+                    } else {
+                        self.hintLabel.hidden = NO;
+                        self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+                    }
+                }];
+            } else if (error.code == 28) {
+                self.hintLabel.hidden = NO;
+                self.hintLabel.text = @"连接超时，请重试";
+            } else if (error.code == 6 || error.code == 206) {
+                self.hintLabel.hidden = NO;
+                self.hintLabel.text = @"无法连接服务器";
             } else {
                 self.hintLabel.hidden = NO;
                 self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
             }
         }];
+//        [self.userInfo setObject:UIImageJPEGRepresentation(chosenImage, 1) forKey:@"photo"];
+//        [self.userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            if (succeeded) {
+//                
+//            } else {
+//                self.hintLabel.hidden = NO;
+//                self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+//            }
+//        }];
     }
     if ([_lastChosenMediaType isEqual:(NSString *) kUTTypeMovie]) {
         //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:@"系统只支持图片格式" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles: nil];

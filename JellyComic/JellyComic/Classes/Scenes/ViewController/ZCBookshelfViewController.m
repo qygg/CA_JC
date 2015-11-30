@@ -15,6 +15,7 @@
 #import "SComic.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "XLLoginDetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface ZCBookshelfViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
@@ -57,7 +58,9 @@ static NSString * const reuseCVID = @"bookcv";
         if (!error) {
             self.userInfo = objects.firstObject;
             self.userNameLabel.text = [self.userInfo objectForKey:@"nickName"];
-            self.userPhoto.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
+            AVFile *file = [self.userInfo objectForKey:@"photo"];
+            [self.userPhoto sd_setImageWithURL:[NSURL URLWithString:file.url]];
+//            self.userPhoto.image = [UIImage imageWithData:[self.userInfo objectForKey:@"photo"]];
         } else {
             
         }

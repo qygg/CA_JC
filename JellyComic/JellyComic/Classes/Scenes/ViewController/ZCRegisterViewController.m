@@ -84,17 +84,29 @@
             [userInfo setObject:user.username forKey:@"userName"];
             [userInfo setObject:@"果冻用户" forKey:@"nickName"];
             NSData *data = UIImagePNGRepresentation([UIImage imageNamed:@"userdef"]);
-            [userInfo setObject:data forKey:@"photo"];
-            [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                self.hudView.hidden = YES;
-                [self.indicatorView stopAnimating];
+            AVFile *file = [AVFile fileWithName:@"photo.png" data:data];
+//            [userInfo setObject:data forKey:@"photo"];
+            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [self.navigationController popViewControllerAnimated:YES];
+                    [userInfo setObject:file forKey:@"photo"];
+                    [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        self.hudView.hidden = YES;
+                        [self.indicatorView stopAnimating];
+                        if (succeeded) {
+                            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                [self.navigationController popViewControllerAnimated:YES];
+                            }];
+                            [alertController addAction:ok];
+                            [self showDetailViewController:alertController sender:nil];
+                        } else {
+                            self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
+                        }
                     }];
-                    [alertController addAction:ok];
-                    [self showDetailViewController:alertController sender:nil];
+                } else if (error.code == 28) {
+                    self.hintLabel.text = @"连接超时，请重试";
+                } else if (error.code == 6 || error.code == 206) {
+                    self.hintLabel.text = @"无法连接服务器";
                 } else {
                     self.hintLabel.text = [NSString stringWithFormat:@"%@(%ld)", error.localizedDescription, error.code];
                 }
