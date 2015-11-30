@@ -416,6 +416,7 @@
                 imgView.image = [UIImage imageNamed:@"end"];
                 [self.scrollView addSubview:imgView];
                 _currentPage = 1;
+                self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
                 NSLog(@"已经是第一章");
             }else
             {
@@ -453,6 +454,7 @@
                 [self.scrollView addSubview:imgView];
                 _currentPage = _dataSource.count;
                 NSLog(@"已经是最后一章");
+                self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
             }else
             {
                  self.nowIndex ++;
@@ -481,6 +483,7 @@
             }
         }else
         {
+            
             NSInteger nowPage = _currentPage;
             if (nowPage > _currentPage)
             {
@@ -489,6 +492,7 @@
                 [self updateFromLeftWithPageNumber:_currentPage - 1 dataSource:_dataSource];
             }
             self.stateLabel.text = [NSString stringWithFormat:@"   %@  %ld/%ld  %@    电量:%.f%%    ",[DataManager sharedDataManager].content.title,self.currentPage,_dataSource.count,_dateTime,_deviceLevel];
+            
         }
         return;
     }
